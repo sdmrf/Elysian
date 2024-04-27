@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 
 // Importing the routes
-
+import userRoutes from './routes/users.route.js';
 
 // Creating an instance of express
 const app = express();
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 });
 
 // Routes
-
+app.use("/api/v1/users", userRoutes);
 
 // exporting the app
 export { app }

@@ -13,6 +13,7 @@ interface User {
   dob: Date;
   phone: string;
   address: string;
+  refreshToken: string;
   createdAt: Date;
   updatedAt: Date;
   age: number; // Virtual Attribute
@@ -52,9 +53,6 @@ interface Order {
   orderItems: OrderItem[];
 }
 
-interface AuthorisedUser extends User {
-  accessToken: string;
-}
 
 // Enums
 enum UserRole {
@@ -102,7 +100,7 @@ type InvalidateCacheProps = {
 
 // Request Type
 interface CustomRequest extends Request {
-  user?: AuthorisedUser;
+  user?: User;
 }
 
 export {

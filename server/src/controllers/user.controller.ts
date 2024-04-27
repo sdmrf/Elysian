@@ -1,25 +1,34 @@
-// Imports
+//* Imports
 import { NextFunction, Request, Response } from "express";
+import { User } from "../models/user.model.js";
+import { ErrorHandler } from "../utils/errorHandler.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+//* Helper functions
 
-// Controllers
-const getUsers = async (req, res) => {
-    res.send('Get all users');
+const generateAccessTokenAndRefreshToken = async(userId: string) => {
+
+    try {
+        const user = await User.findById(userId);
+        if (!user) throw new Error("User not found");
+
+        const accessToken = user.generateAccessToken();
+        const refreshToken = user.generateRefreshToken();
+
+        user.refreshToken = refreshToken;
+        await user.save({validateBeforeSave: false});
+
+        return {accessToken, refreshToken}
+    } catch (err : any) {
+        throw new ErrorHandler("Error generating access token and refresh token", 500);
+    }
 }
 
-const getUser = async (req, res) => {
-    res.send('Get a user');
-}
+const register = asyncHandler(async(req: Request, res: Response, next: NextFunction) => {
+    const {fullname, username, email, password, dob, address} = req.body;
 
-const createUser = async (req, res) => {
-    res.send('Create a user');
-}
+    const userExists = await User.findOne({$or: [{email}, {username}]});
+    if(userExists) throw new ErrorHandler("User already exists", 400);
 
-const updateUser = async (req, res) => {
-    res.send('Update a user');
-}
-
-const deleteUser = async (req, res) => {
-    res.send('Delete a user');
-}
-
-export { getUsers, getUser, createUser, updateUser, deleteUser };
+    
+    
+});

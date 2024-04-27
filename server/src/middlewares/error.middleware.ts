@@ -1,6 +1,6 @@
 // Imports 
 import { Request, Response, NextFunction } from "express";
-import ErrorHandler from "../utils/utility-class.js";
+import { ErrorHandler } from "../utils/errorHandler.js";
 
 export const errorMiddleware = (err: ErrorHandler, req: Request, res: Response, next: NextFunction) => {
   err.message ||= "Internal Server Error";
@@ -10,3 +10,4 @@ export const errorMiddleware = (err: ErrorHandler, req: Request, res: Response, 
     message: err.message,
   });
 };
+

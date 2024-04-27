@@ -27,5 +27,5 @@ import { couponSchemaValidation } from "../validation/coupon.validation.js";
   });
   
   // Export
-  export const Coupon = mongoose.model("Coupon", couponSchema);
+  export const Coupon = mongoose.model<ICoupon>("Coupon", couponSchema);
   

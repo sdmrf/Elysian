@@ -1,6 +1,6 @@
 // Imports
 import mongoose, { Document } from "mongoose";
-import { UserSchemaValidation } from "../validation/user.validations.js";
+import { UserSchemaValidation } from "../validation/user.validation.js";
 
 // Instance of mongoose
 const Schema = mongoose.Schema;

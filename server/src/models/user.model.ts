@@ -1,9 +1,9 @@
 // Imports
-import mongoose, { Document } from "mongoose"; // Importing mongoose for schema and model creation
+import mongoose, { Document, Schema } from "mongoose"; // Importing mongoose for schema and model creation
 import { UserSchemaValidation } from "../validation/user.validation.js"; // Importing user schema validation
-
-// Instance of mongoose
-const Schema = mongoose.Schema; // Creating a schema instance from mongoose
+import { JWT_SECRET } from "../constants/constants.js";
+import jwt from "jsonwebtoken"
+import bcrypt from "bcrypt"
 
 // Interface for User document
 interface IUser extends Document {
@@ -19,6 +19,7 @@ interface IUser extends Document {
   address: string;
   createdAt: Date;
   updatedAt: Date;
+  refreshToken: string;
   // Virtual Attribute
   age: number;
 }
@@ -79,26 +80,53 @@ const UserSchema = new Schema(
       enum: ["admin", "user"],
       default: "user",
     },
+    refreshToken: {
+      type: String,
+    },
   },
   { timestamps: true } // Including timestamps for createdAt and updatedAt
 );
 
-// Virtual Attribute: Calculating age based on date of birth
+//* Virtual Attribute: Calculating age based on date of birth
 UserSchema.virtual("age").get(function (this: IUser) {
   const today = new Date();
   const dob = this.dob;
-
   let age = today.getFullYear() - dob.getFullYear();
-
   if (
     today.getMonth() < dob.getMonth() ||
     (today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate())
   ) {
     age--;
   }
-
   return age;
 });
 
+
+//* Mongoose Methods
+UserSchema.pre("save", async function (next) {
+  if(!this.isModified("password")) return next();
+    this.password = await bcrypt.hash(this.password, 10)
+    next()
+})
+
+UserSchema.methods.isPasswordCorrect = async function(password : string){
+  return await bcrypt.compare(password, this.password)
+}
+
+UserSchema.methods.getAccessToken = function(){
+  return jwt.sign(
+    {
+      _id: this._id,
+      email: this.email,
+      name : this.name,
+    },
+    JWT_SECRET,
+    {expiresIn: "1d"}
+  )
+}
+
+UserSchema.methods.getRefreshToken = function(){
+  return jwt.sign({_id: this._id}, JWT_SECRET, {expiresIn: "10d"})
+}
 // Exporting the User model
 export const User = mongoose.model<IUser>("User", UserSchema);

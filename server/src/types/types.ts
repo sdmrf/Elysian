@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
 // Interfaces
-
 interface User {
   _id: string;
   fb_id: string;
@@ -58,7 +57,6 @@ interface AuthorisedUser extends User {
 }
 
 // Enums
-
 enum UserRole {
   Admin = "admin",
   User = "user",
@@ -70,7 +68,6 @@ enum Gender {
 }
 
 // Types
-
 type ControllerType = (
   req: Request,
   res: Response,
@@ -104,7 +101,6 @@ type InvalidateCacheProps = {
 };
 
 // Request Type
-
 interface CustomRequest extends Request {
   user?: AuthorisedUser;
 }

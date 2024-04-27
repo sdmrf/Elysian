@@ -1,4 +1,4 @@
-//* Imports
+//* Import
 import { User } from "../models/user.model.js";
 import { ErrorHandler } from "../utils/errorHandler.js";
 import { asyncHandler } from "../utils/asyncHandler.js";

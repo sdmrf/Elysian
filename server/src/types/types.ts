@@ -109,7 +109,6 @@ export {
   OrderItem,
   ShippingInfo,
   Order,
-  AuthorisedUser,
   UserRole,
   Gender,
   ControllerType,

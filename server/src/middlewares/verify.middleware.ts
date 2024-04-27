@@ -43,4 +43,4 @@ const verifyToken = asyncHandler(async (req: CustomRequest, res: Response, next:
 //   }
 // };
 
-export default verifyToken;
+export { verifyToken }

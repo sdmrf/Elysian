@@ -1,6 +1,6 @@
-// Imports
-import { Request, Response, NextFunction } from "express"; // Importing Request, Response, and NextFunction types from express
-import ErrorHandler from "../utils/utility-class.js"; // Importing ErrorHandler class from utility-class file
+// Imports 
+import { Request, Response, NextFunction } from "express";
+import { ErrorHandler } from "../utils/errorHandler.js";
 
 /**
  * Middleware to handle errors in the application.
@@ -22,3 +22,4 @@ export const errorMiddleware = (err: ErrorHandler, req: Request, res: Response, 
     message: err.message,
   });
 };
+

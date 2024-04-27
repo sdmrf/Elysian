@@ -25,41 +25,22 @@ const productSchema = new Schema<IProduct>({
   name: {
     type: String,
     required: [true, "Name is required"],
-    validate: {
-      validator: async function (value: string) {
-        await productSchemaValidation
-          .pick({ name: true })
-          .parseAsync({ name: value });
-      },
-      message: "Invalid name format",
-    },
   },
   price: {
     type: Number,
     required: [true, "Price is required"],
-    validate: {
-      validator: async function (value: number) {
-        await productSchemaValidation
-          .pick({ price: true })
-          .parseAsync({ price: value });
-      },
-      message: "Invalid price format",
-    },
   },
   description: String,
   category: String,
   stock: {
     type: Number,
     default: 0,
-    validate: {
-      validator: async function (value: number) {
-        await productSchemaValidation
-          .pick({ stock: true })
-          .parseAsync({ stock: value });
-      },
-      message: "Invalid stock format",
-    },
   },
+});
+
+// Perform validation before saving
+productSchema.pre<IProduct>("save", async function () {
+  await productSchemaValidation.parseAsync(this.toObject());
 });
 
 const Product = mongoose.model<IProduct>("Product", productSchema);

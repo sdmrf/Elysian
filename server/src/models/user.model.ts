@@ -8,7 +8,8 @@ import bcrypt from "bcrypt"
 // Interface for User document
 interface IUser extends Document {
   fb_id: string;
-  name: string;
+  fullname: string;
+  username: string;
   photo: string;
   email: string;
   password: string;
@@ -22,6 +23,10 @@ interface IUser extends Document {
   refreshToken: string;
   // Virtual Attribute
   age: number;
+  // Mongoose Methods
+  isValidPassword(password: string): Promise<boolean>;
+  generateAccessToken(): string;
+  generateRefreshToken(): string;
 }
 
 // User Schema
@@ -32,9 +37,14 @@ const UserSchema = new Schema(
       type: String,
       required: [true, "Please provide an fb_id"],
     },
-    name: {
+    fullname: {
       type: String,
       required: [true, "Please provide a name"],
+    },
+    username: {
+      type: String,
+      required: [true, "Please provide a username"],
+      unique: true,
     },
     photo: {
       type: String,
@@ -109,23 +119,22 @@ UserSchema.pre("save", async function (next) {
     next()
 })
 
-UserSchema.methods.isPasswordCorrect = async function(password : string){
+UserSchema.methods.isPasswordCorrect = async function(this: IUser, password: string){
   return await bcrypt.compare(password, this.password)
 }
-
-UserSchema.methods.getAccessToken = function(){
+UserSchema.methods.generateAccessToken = function(){
   return jwt.sign(
     {
       _id: this._id,
       email: this.email,
-      name : this.name,
+      username: this.username,
     },
     JWT_SECRET,
     {expiresIn: "1d"}
   )
 }
 
-UserSchema.methods.getRefreshToken = function(){
+UserSchema.methods.generateRefreshToken = function(){
   return jwt.sign({_id: this._id}, JWT_SECRET, {expiresIn: "10d"})
 }
 // Exporting the User model

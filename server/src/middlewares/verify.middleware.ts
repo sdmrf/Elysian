@@ -3,7 +3,7 @@ import jwt, { Secret } from "jsonwebtoken";
 import { User } from "../models/user.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ErrorHandler } from "../utils/errorHandler.js";
-import { Request, Response, NextFunction } from "express";
+import { Response, NextFunction } from "express";
 import { JWT_SECRET } from "../constants/constants.js";
 import { CustomRequest, User as IUser } from "../types/types.js";
 

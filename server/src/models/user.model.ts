@@ -1,12 +1,11 @@
 // Imports
-import mongoose, { Document } from "mongoose";
-import { UserSchemaValidation } from "../validation/user.validation.js";
+import mongoose, { Document } from "mongoose"; // Importing mongoose for schema and model creation
+import { UserSchemaValidation } from "../validation/user.validation.js"; // Importing user schema validation
 
 // Instance of mongoose
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema; // Creating a schema instance from mongoose
 
-
-// Interface for User
+// Interface for User document
 interface IUser extends Document {
   fb_id: string;
   name: string;
@@ -27,9 +26,10 @@ interface IUser extends Document {
 // User Schema
 const UserSchema = new Schema(
   {
+    // Defining the schema fields with their types and validation
     fb_id: {
       type: String,
-      required: [true, "Please provide a fb_id"],
+      required: [true, "Please provide an fb_id"],
     },
     name: {
       type: String,
@@ -41,7 +41,7 @@ const UserSchema = new Schema(
     },
     email: {
       type: String,
-      required: [true, "Please provide a email"],
+      required: [true, "Please provide an email"],
       validate: {
         validator: (value: string) => UserSchemaValidation.parse({ email: value }), // Validate email against Zod schema
         message: "Invalid email format",
@@ -62,7 +62,7 @@ const UserSchema = new Schema(
     },
     dob: {
       type: Date,
-      required: [true, "Please provide a dob"],
+      required: [true, "Please provide a date of birth"],
     },
     phone: {
       type: String,
@@ -80,10 +80,10 @@ const UserSchema = new Schema(
       default: "user",
     },
   },
-  { timestamps: true }
+  { timestamps: true } // Including timestamps for createdAt and updatedAt
 );
 
-// Virtual Attribute
+// Virtual Attribute: Calculating age based on date of birth
 UserSchema.virtual("age").get(function (this: IUser) {
   const today = new Date();
   const dob = this.dob;
@@ -100,5 +100,5 @@ UserSchema.virtual("age").get(function (this: IUser) {
   return age;
 });
 
-// Export
+// Exporting the User model
 export const User = mongoose.model<IUser>("User", UserSchema);

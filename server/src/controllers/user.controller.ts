@@ -28,7 +28,6 @@ const generateAccessAndRefereshTokens = async (userId: string) => {
   }
 };
 
-
 //! Controller functions
 
 //* User Registration Controller
@@ -101,15 +100,24 @@ const loginUser = asyncHandler(
 );
 
 //* User Logout Controller
-const logoutUser = asyncHandler(async (req: CustomRequest, res: Response, next: NextFunction) => {
-    
+const logoutUser = asyncHandler(
+  async (req: CustomRequest, res: Response, next: NextFunction) => {
     if (!req.user) throw new ErrorHandler("User not found", 404);
-    await User.findByIdAndUpdate(req.user._id, { $unset : { refreshToken : 1} }, { new: true });
+    await User.findByIdAndUpdate(
+      req.user._id,
+      { $unset: { refreshToken: 1 } },
+      { new: true }
+    );
     const options = {
-        httpOnly: true,
-        secure: true
-    }
-    return res.status(200).clearCookie('refreshToken', options).clearCookie('accessToken', options).json(new responseHandler(200, 'User logged out successfully', {}));
-});
+      httpOnly: true,
+      secure: true,
+    };
+    return res
+      .status(200)
+      .clearCookie("refreshToken", options)
+      .clearCookie("accessToken", options)
+      .json(new responseHandler(200, "User logged out successfully", {}));
+  }
+);
 
 export { registerUser, loginUser, logoutUser };

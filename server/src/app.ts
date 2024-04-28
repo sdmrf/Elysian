@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 
 // Importing the routes
-import userRoutes from './routes/users.route.js';
+import userRoutes from './routes/users.routes.js';
 
 // Creating an instance of express
 const app = express();

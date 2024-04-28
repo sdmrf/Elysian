@@ -25,22 +25,24 @@ const verifyToken = asyncHandler(async (req: CustomRequest, res: Response, next:
     throw new ErrorHandler(err?.message|| "Unauthorized Access", 401);
   }
 });
-
-// const verifyToken = (req: CustomRequest, res: Response, next: NextFunction) => {
-//   const authHeader = req.headers.token as string;
-//   if (authHeader) {
-//     const token = authHeader.split(" ")[1];
-//     jwt.verify(token, JWT_SECRET as Secret, (err: jwt.VerifyErrors | any, user: User | any) => {
-//       if (err) {
-//         res.status(403).json("Token is not valid");
-//       } else {
-//         req.user = user;
-//         next();
-//       }
-//     });
-//   } else {
-//     res.status(401).json("Access denied. No token provided.");
-//   }
-// };
+/*
+* const verifyToken = (req: CustomRequest, res: Response, next: NextFunction) => {
+*  const authHeader = req.headers.token as string;
+* if (authHeader) {
+*    const token = authHeader.split(" ")[1];
+*    jwt.verify(token, JWT_SECRET as Secret, (err: jwt.VerifyErrors | any, decoded: any) => {
+*      if (err) {
+*        res.status(403).json("Token is not valid");
+*      } else {
+*       const user = await User.findById(decoded?._id)
+*       req.user = user;
+*       next();
+*     }
+*   });
+* } else {
+*   res.status(401).json("Access denied. No token provided.");
+* }
+*};
+*/
 
 export { verifyToken }

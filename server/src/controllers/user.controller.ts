@@ -33,7 +33,7 @@ const generateAccessAndRefereshTokens = async (userId: string) => {
 //* User Registration Controller
 const registerUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const { fullname, username, email, password, dob, address } = req.body;
+    const { fb_id, fullname, username, email, password, gender, dob } = req.body;
 
     const userExists = await User.findOne({ $or: [{ email }, { username }] });
     if (userExists) throw new ErrorHandler("User already exists", 400);
@@ -42,12 +42,13 @@ const registerUser = asyncHandler(
     const photo = await uploadOnCloudinary(photoPath);
 
     const user = await User.create({
+      fb_id,
       fullname,
       username,
       email,
       password,
+      gender,
       dob,
-      address,
       photo: photo?.url,
     });
 

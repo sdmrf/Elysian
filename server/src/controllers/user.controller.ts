@@ -48,7 +48,7 @@ const registerUser = asyncHandler(
       email,
       password,
       gender,
-      dob,
+      dob : new Date(dob),
       photo: photo?.url,
     });
 

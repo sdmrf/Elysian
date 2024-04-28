@@ -53,18 +53,10 @@ const UserSchema = new Schema(
     email: {
       type: String,
       required: [true, "Please provide an email"],
-      validate: {
-        validator: (value: string) => UserSchemaValidation.parse({ email: value }), // Validate email against Zod schema
-        message: "Invalid email format",
-      },
     },
     password: {
       type: String,
       required: [true, "Please provide a password"],
-      validate: {
-        validator: (value: string) => UserSchemaValidation.parse({ password: value }), // Validate password against Zod schema
-        message: "Password must contain at least one digit, one lowercase letter, one uppercase letter, one special character, and be at least 8 characters long",
-      },
     },
     gender: {
       type: String,
@@ -77,10 +69,6 @@ const UserSchema = new Schema(
     },
     phone: {
       type: String,
-      validate: {
-        validator: (value: string) => UserSchemaValidation.parse({ phone: value }), // Validate phone against Zod schema
-        message: "Invalid phone number format",
-      },
     },
     address: {
       type: String,
@@ -113,16 +101,20 @@ UserSchema.virtual("age").get(function (this: IUser) {
 
 
 //* Mongoose Methods
-UserSchema.pre("save", async function (next) {
-  if(!this.isModified("password")) return next();
-    this.password = await bcrypt.hash(this.password, 10)
-    next()
-})
+
+UserSchema.pre<IUser>("save", async function (next) {
+  if (this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
+  await UserSchemaValidation.parseAsync(this.toObject());
+  next();
+});
 
 UserSchema.methods.isPasswordCorrect = async function(this: IUser, password: string){
   return await bcrypt.compare(password, this.password)
 }
-UserSchema.methods.generateAccessToken = function(){
+
+UserSchema.methods.generateAccessToken = function(this : IUser){
   return jwt.sign(
     {
       _id: this._id,
@@ -134,7 +126,7 @@ UserSchema.methods.generateAccessToken = function(){
   )
 }
 
-UserSchema.methods.generateRefreshToken = function(){
+UserSchema.methods.generateRefreshToken = function(this : IUser){
   return jwt.sign({_id: this._id}, JWT_SECRET, {expiresIn: "10d"})
 }
 // Exporting the User model

@@ -7,9 +7,9 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 const adminAuthHandler = asyncHandler(async (req, res, next) => {
     const { id } = req.query;
     if (!id) return next(new ErrorHandler("Please provide admin id", 400));
-    const admin = await User.findById(id);
-    if(!admin) return next(new ErrorHandler("Admin not found", 404));
-    if(admin.role !== "admin") return next(new ErrorHandler("You are not authorized to access this route", 401));
+    const user = await User.findById(id);
+    if(!user) return next(new ErrorHandler("Admin not found", 404));
+    if(user.role !== "admin") return next(new ErrorHandler("You are not authorized to access this route", 401));
     next();
 });
 

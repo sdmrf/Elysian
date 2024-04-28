@@ -24,7 +24,7 @@ interface IUser extends Document {
   // Virtual Attribute
   age: number;
   // Mongoose Methods
-  isValidPassword(password: string): Promise<boolean>;
+  isPasswordCorrect(password: string): Promise<boolean>;
   generateAccessToken(): string;
   generateRefreshToken(): string;
 }

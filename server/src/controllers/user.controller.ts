@@ -67,11 +67,10 @@ const registerUser = asyncHandler(
 const loginUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const { email, username, password } = req.body;
-
     const user = await User.findOne({ $or: [{ email }, { username }] });
     if (!user) throw new ErrorHandler("User does not exist", 404);
 
-    const isPasswordValid = await user.isValidPassword(password);
+    const isPasswordValid = await user.isPasswordCorrect(password);
     if (!isPasswordValid) throw new ErrorHandler("Invalid credentials", 401);
 
     const { accessToken, refreshToken } = await generateAccessAndRefereshTokens(

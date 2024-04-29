@@ -7,7 +7,7 @@ import { responseHandler } from "../utils/responseHandler.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { CustomRequest } from "../types/types.js";
 
-//* Helper functions
+//? Helper functions
 const generateAccessAndRefereshTokens = async (userId: string) => {
   try {
     const user = await User.findById(userId);
@@ -33,13 +33,15 @@ const generateAccessAndRefereshTokens = async (userId: string) => {
 //* User Registration Controller
 const registerUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const { fb_id, fullname, username, email, password, gender, dob } = req.body;
+    const { fb_id, fullname, username, email, password, gender, dob } =
+      req.body;
 
     const userExists = await User.findOne({ $or: [{ email }, { username }] });
-    if (userExists) throw new ErrorHandler("User already exists", 400);
+    if (userExists) return next(new ErrorHandler("User already exists", 400));
 
     const photoPath = req.file?.path || ""; // Provide a default value for photoPath
     const photo = await uploadOnCloudinary(photoPath);
+    console.log(photo);
 
     const user = await User.create({
       fb_id,
@@ -48,14 +50,14 @@ const registerUser = asyncHandler(
       email,
       password,
       gender,
-      dob : new Date(dob),
+      dob: new Date(dob),
       photo: photo?.url,
     });
 
     const createdUser = await User.findById(user._id).select(
       "-password -refreshToken"
     );
-    if (!createdUser) throw new ErrorHandler("Error creating user", 500);
+    if (!createdUser) return next(new ErrorHandler("Error creating user", 500));
 
     return res
       .status(201)
@@ -68,10 +70,11 @@ const loginUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const { email, username, password } = req.body;
     const user = await User.findOne({ $or: [{ email }, { username }] });
-    if (!user) throw new ErrorHandler("User does not exist", 404);
+    if (!user) return next(new ErrorHandler("User does not exist", 404));
 
     const isPasswordValid = await user.isPasswordCorrect(password);
-    if (!isPasswordValid) throw new ErrorHandler("Invalid credentials", 401);
+    if (!isPasswordValid)
+      return next(new ErrorHandler("Invalid credentials", 401));
 
     const { accessToken, refreshToken } = await generateAccessAndRefereshTokens(
       user._id
@@ -102,7 +105,7 @@ const loginUser = asyncHandler(
 //* User Logout Controller
 const logoutUser = asyncHandler(
   async (req: CustomRequest, res: Response, next: NextFunction) => {
-    if (!req.user) throw new ErrorHandler("User not found", 404);
+    if (!req.user) return next(new ErrorHandler("User not found", 404));
     await User.findByIdAndUpdate(
       req.user._id,
       { $unset: { refreshToken: 1 } },

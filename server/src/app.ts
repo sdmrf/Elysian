@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import { errorMiddleware } from './middlewares/error.middleware.js';
 // Importing the routes
 import userRoutes from './routes/users.routes.js';
 
@@ -22,6 +23,9 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use("/api/v1/users", userRoutes);
+
+// Error handler
+app.use(errorMiddleware)
 
 // exporting the app
 export { app }

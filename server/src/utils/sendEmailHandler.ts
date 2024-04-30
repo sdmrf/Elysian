@@ -1,7 +1,7 @@
-// Import nodemailer module
+//* Import nodemailer module
 import nodemailer from "nodemailer";
 
-// Import constants
+//* Import constants
 import {
   MAIL_USER,
   MAIL_PASS,
@@ -9,28 +9,22 @@ import {
   MAIL_EMAIL,
 } from "../constants/constants.js";
 
-// Function to create email options
+//* Function to create email options
 const createMailOptions = (email: string, otp: string) => {
-  const subject = `Your Elysian Furniture OTP`;
-  const text = `Dear Valued Customer ${email},
-
-Thank you for choosing Elysian Furniture for your furnishing needs. We're excited to have you on board!
-
-As part of our commitment to ensuring the security of your account, we have generated a one-time password (OTP) for you to verify your email address. Please use the OTP below to complete the verification process:
-
-OTP: ${otp}
-
-If you did not request this OTP or have any concerns about your account security, please contact our customer support team immediately at codezeniths@gmail.com.
-
-Thank you for choosing Elysian Furniture. We look forward to serving you!
-
-Best regards,
-The Elysian Furniture Team`;
+  const subject = "Your Elysian Furniture OTP";
+  const text = `Dear Valued Customer ${email},\n\n`
+      + `Thank you for choosing Elysian Furniture for your furnishing needs. We're excited to have you on board!\n\n`
+      + `As part of our commitment to ensuring the security of your account, we have generated a one-time password (OTP) for you to verify your email address. Please use the OTP below to complete the verification process:\n\n`
+      + `OTP: ${otp}\n\n`
+      + `If you did not request this OTP or have any concerns about your account security, please contact our customer support team immediately at codezeniths@gmail.com.\n\n`
+      + `Thank you for choosing Elysian Furniture. We look forward to serving you!\n\n`
+      + `Best regards,\n`
+      + `The Elysian Furniture Team`;
 
   return { subject, text };
 };
 
-// Function to send email
+//* Function to send email
 const sendEmailHandler = async (email: string, otp: string) => {
   try {
     // Create a transporter

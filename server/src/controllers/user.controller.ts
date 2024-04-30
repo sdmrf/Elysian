@@ -1,5 +1,5 @@
 //* Imports
-import e, { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { User } from "../models/user.model.js";
 import { OTP } from "../models/otp.model.js";
 import { ErrorHandler } from "../utils/errorHandler.js";
@@ -140,5 +140,6 @@ const logoutUser = asyncHandler(
       .json(new responseHandler(200, "User logged out successfully", {}));
   }
 );
+
 
 export { registerUser, loginUser, logoutUser };

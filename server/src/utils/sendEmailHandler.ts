@@ -31,7 +31,7 @@ The Elysian Furniture Team`;
 };
 
 // Function to send email
-const sendEmail = async (email: string, otp: string) => {
+const sendEmailHandler = async (email: string, otp: string) => {
   try {
     // Create a transporter
     const transporter = nodemailer.createTransport({
@@ -61,4 +61,4 @@ const sendEmail = async (email: string, otp: string) => {
   }
 };
 
-export { sendEmail };
+export { sendEmailHandler };

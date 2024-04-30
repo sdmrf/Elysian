@@ -5,4 +5,5 @@ export const OTPSchemaValidation = z.object({
   email : z.string().email(),
   otp : z.string().length(6),
   createdAt: z.date().optional(),
+  isVerified: z.boolean().optional(),
 });

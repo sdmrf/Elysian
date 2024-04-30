@@ -2,7 +2,7 @@ import { z } from "zod";
 
 // Schema Validation
 export const UserSchemaValidation = z.object({
-  fb_id: z.string(),
+  uid: z.string().nullable(), // Made nullable
   fullname: z.string().min(2), // Minimum 2 characters for name
   username: z.string().min(6), // Minimum 4 characters for username
   photo: z.string(),

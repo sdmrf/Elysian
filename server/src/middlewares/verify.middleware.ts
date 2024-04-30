@@ -23,7 +23,7 @@ const verifyToken = asyncHandler(
           if (err) {
             throw new ErrorHandler("Token is not valid", 403);
           } else {
-            const user = (await User.findById(decoded?._id).select(
+            const user = (await User.findById({ $or : [decoded?._id , decoded?.uid]}).select(
               "-password -refreshToken"
             )) as IUser;
             if (!user) {

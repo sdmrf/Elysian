@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 // Interfaces
 interface User {
   _id: string;
-  fb_id: string;
+  uid: string;
   name: string;
   photo: string;
   email: string;

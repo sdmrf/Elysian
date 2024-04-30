@@ -1,7 +1,7 @@
 import mongoose, { Document, Schema, set } from "mongoose"; // Importing mongoose for schema and model creation
 import { OTPSchemaValidation } from "../validation/otp.validation.js"; // Importing user schema validation
 import { ErrorHandler } from "../utils/errorHandler.js";
-import sendEmailHandler from "../utils/sendEmailHandler.js";
+import { sendEmail } from "../utils/sendEmailHandler.js";
 import bcrypt from "bcrypt";
 
 //! Interface for OTP document
@@ -37,7 +37,7 @@ const OTPSchema = new Schema(
 
 const sendVerificationEmail = async (email: string, otp: string) => {
   try {
-    const mailResponse = await sendEmailHandler(email, otp);
+    const mailResponse = await sendEmail(email, otp);
     console.log(mailResponse);
   } catch (err: any) {
     throw new ErrorHandler("Error sending verification email", 500);

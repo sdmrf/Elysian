@@ -2,8 +2,8 @@
 import mongoose, { Document, Schema } from "mongoose"; // Importing mongoose for schema and model creation
 import { UserSchemaValidation } from "../validation/user.validation.js"; // Importing user schema validation
 import { JWT_SECRET } from "../constants/constants.js";
-import jwt from "jsonwebtoken"
-import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 // Interface for User document
 interface IUser extends Document {
@@ -12,6 +12,7 @@ interface IUser extends Document {
   username: string;
   photo: string;
   email: string;
+  isEmailVerified: boolean;
   password: string;
   role: "admin" | "user";
   gender: "male" | "female";
@@ -98,7 +99,6 @@ UserSchema.virtual("age").get(function (this: IUser) {
   return age;
 });
 
-
 //* Mongoose Methods
 
 UserSchema.pre<IUser>("save", async function (next) {
@@ -109,11 +109,14 @@ UserSchema.pre<IUser>("save", async function (next) {
   next();
 });
 
-UserSchema.methods.isPasswordCorrect = async function(this: IUser, password: string){
-  return await bcrypt.compare(password, this.password)
-}
+UserSchema.methods.isPasswordCorrect = async function (
+  this: IUser,
+  password: string
+) {
+  return await bcrypt.compare(password, this.password);
+};
 
-UserSchema.methods.generateAccessToken = function(this : IUser){
+UserSchema.methods.generateAccessToken = function (this: IUser) {
   return jwt.sign(
     {
       _id: this._id,
@@ -122,12 +125,14 @@ UserSchema.methods.generateAccessToken = function(this : IUser){
       username: this.username,
     },
     JWT_SECRET,
-    {expiresIn: "1d"}
-  )
-}
+    { expiresIn: "1d" }
+  );
+};
 
-UserSchema.methods.generateRefreshToken = function(this : IUser){
-  return jwt.sign({_id: this._id, uid: this.uid}, JWT_SECRET, {expiresIn: "10d"})
-}
+UserSchema.methods.generateRefreshToken = function (this: IUser) {
+  return jwt.sign({ _id: this._id, uid: this.uid }, JWT_SECRET, {
+    expiresIn: "10d",
+  });
+};
 // Exporting the User model
 export const User = mongoose.model<IUser>("User", UserSchema);

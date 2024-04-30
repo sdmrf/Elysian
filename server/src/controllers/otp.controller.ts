@@ -11,7 +11,8 @@ import { OTP } from "../models/otp.model.js";
 import { ErrorHandler } from "../utils/errorHandler.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { responseHandler } from "../utils/responseHandler.js";
-import { sendEmail } from "../utils/sendEmailHandler.js";
+import { sendEmailHandler } from "../utils/sendEmailHandler.js";
+
 
 //* Send OTP verification email controller
 const sendOTP = asyncHandler(
@@ -30,12 +31,15 @@ const sendOTP = asyncHandler(
     const hashedOTP = await bcrypt.hash(generatedOTP, 10);
     const newOTPSchema = OTP.create({ email, otp: hashedOTP });
     if (!newOTPSchema) return next(new ErrorHandler("Error creating OTP", 500));
-    sendEmail(email, generatedOTP);
+
+    await sendEmailHandler(email, generatedOTP);
+    
     return res
       .status(200)
       .json(new responseHandler(200, "OTP sent successfully", newOTPSchema));
   }
 );
+
 
 //* Verify OTP controller
 const verifyOTP = asyncHandler(
@@ -44,7 +48,7 @@ const verifyOTP = asyncHandler(
     const user = await User.findOne({ email });
     if (!user) return next(new ErrorHandler("User not found", 404));
 
-    const otpSchema = await OTP.findOne({ email });
+    const otpSchema = await OTP.findOne({ email }, {$set: {isVerified: true}});
     if (!otpSchema) return next(new ErrorHandler("OTP not found", 404));
 
     const isMatch = await bcrypt.compare(otp, otpSchema.otp);

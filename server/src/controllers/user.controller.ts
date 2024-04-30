@@ -1,6 +1,7 @@
 //* Imports
-import { NextFunction, Request, Response } from "express";
+import e, { NextFunction, Request, Response } from "express";
 import { User } from "../models/user.model.js";
+import { OTP } from "../models/otp.model.js";
 import { ErrorHandler } from "../utils/errorHandler.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { responseHandler } from "../utils/responseHandler.js";
@@ -38,8 +39,7 @@ const generateAccessAndRefereshTokens = async (
 //* User Registration Controller
 const registerUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const { uid, fullname, username, email, password, gender, dob, otp } =
-      req.body;
+    const { uid, fullname, username, email, password, gender, dob } = req.body;
 
     const userExists = await User.findOne({ $or: [{ email }, { username }] });
     if (userExists) return next(new ErrorHandler("User already exists", 400));
@@ -47,6 +47,16 @@ const registerUser = asyncHandler(
     const photoPath = req.file?.path || ""; // Provide a default value for photoPath
     const photo = await uploadOnCloudinary(photoPath);
     console.log(photo);
+
+    const OTPSchema = await OTP.findOne({ email })
+      .sort({ createdAt: -1 })
+      .limit(1);
+
+    if (!OTPSchema || !OTPSchema.isVerified) {
+      const errorMessage = !OTPSchema ? "OTP not found" : "OTP not verified";
+      const statusCode = !OTPSchema ? 404 : 400;
+      return next(new ErrorHandler(errorMessage, statusCode));
+    }
 
     const user = await User.create({
       uid: uid || "",
@@ -63,6 +73,8 @@ const registerUser = asyncHandler(
       $or: [user._id, user.uid],
     }).select("-password -refreshToken");
     if (!createdUser) return next(new ErrorHandler("Error creating user", 500));
+
+    await OTP.deleteMany({ email });
 
     return res
       .status(201)

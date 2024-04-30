@@ -1,13 +1,18 @@
 //* Imports
 import { NextFunction, Request, Response } from "express";
 import { User } from "../models/user.model.js";
+import { OTP } from "../models/otp.model.js";
 import { ErrorHandler } from "../utils/errorHandler.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { responseHandler } from "../utils/responseHandler.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { CustomRequest } from "../types/types.js";
+import bcrypt from "bcrypt";
+import otp from "otp-generator";
 
 //? Helper functions
+
+//* Generate Access and Refresh Tokens
 const generateAccessAndRefereshTokens = async (userId: string, firebaseId : string) => {
   try {
     const user = await User.findById({ $or: [ userId , firebaseId ] });
@@ -28,12 +33,13 @@ const generateAccessAndRefereshTokens = async (userId: string, firebaseId : stri
   }
 };
 
+
 //! Controller functions
 
 //* User Registration Controller
 const registerUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const { uid, fullname, username, email, password, gender, dob } =
+    const { uid, fullname, username, email, password, gender, dob, otp } =
       req.body;
 
     const userExists = await User.findOne({ $or: [{ email }, { username }] });
@@ -124,4 +130,23 @@ const logoutUser = asyncHandler(
   }
 );
 
-export { registerUser, loginUser, logoutUser };
+
+//* Send OTP verification email controller
+const SendOTP = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+  const { email } = req.body;
+  const user = await User.findOne({ email });
+  if (user) return next(new ErrorHandler("User already exists", 400));
+
+  const generateOTP = otp.generate(6, {
+    digits: true,
+    upperCaseAlphabets: false,
+    lowerCaseAlphabets: false,
+    specialChars: false, });
+  
+  const hashedOTP = await bcrypt.hash(generateOTP, 10);
+  const newOTPSchema = OTP.create({ email, otp: hashedOTP });
+  if (!newOTPSchema) return next(new ErrorHandler("Error creating OTP", 500));
+  return res.status(200).json(new responseHandler(200, "OTP sent successfully", newOTPSchema));
+});
+
+export { registerUser, loginUser, logoutUser, SendOTP };

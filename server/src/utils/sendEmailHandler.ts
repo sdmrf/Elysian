@@ -50,7 +50,7 @@ const sendEmailHandler = async (email: string, otp: string) => {
   };
 
   // Send mail
-  transporter.sendMail(mailOptions, function (error, info) {
+  transporter.sendMail(mailOptions, function (error : any, info : any) {
     if (error) {
       console.log(error);
     } else {

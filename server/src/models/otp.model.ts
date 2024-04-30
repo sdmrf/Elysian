@@ -23,9 +23,9 @@ const OTPSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      expires: 3000,
-      get: (timestamp: Date) => timestamp.getTime(),
-      set: (timestamp: number) => new Date(timestamp),
+      expires: 60,
+      get: (createdAt: Date) => createdAt.getTime(),
+      set: (createdAt: number) => new Date(createdAt),
     },
     isVerified: {
       type: Boolean,

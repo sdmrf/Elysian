@@ -8,9 +8,9 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { CustomRequest } from "../types/types.js";
 
 //? Helper functions
-const generateAccessAndRefereshTokens = async (userId: string) => {
+const generateAccessAndRefereshTokens = async (userId: string, firebaseId : string) => {
   try {
-    const user = await User.findById(userId);
+    const user = await User.findById({ $or: [ userId , firebaseId ] });
     if (!user) throw new Error("User not found");
 
     const accessToken = user.generateAccessToken();
@@ -33,7 +33,7 @@ const generateAccessAndRefereshTokens = async (userId: string) => {
 //* User Registration Controller
 const registerUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const { fb_id, fullname, username, email, password, gender, dob } =
+    const { uid, fullname, username, email, password, gender, dob } =
       req.body;
 
     const userExists = await User.findOne({ $or: [{ email }, { username }] });
@@ -44,7 +44,7 @@ const registerUser = asyncHandler(
     console.log(photo);
 
     const user = await User.create({
-      fb_id,
+      uid : uid || "",
       fullname,
       username,
       email,
@@ -54,7 +54,7 @@ const registerUser = asyncHandler(
       photo: photo?.url,
     });
 
-    const createdUser = await User.findById(user._id).select(
+    const createdUser = await User.findById({ $or: [ user._id ,  user.uid ] }).select(
       "-password -refreshToken"
     );
     if (!createdUser) return next(new ErrorHandler("Error creating user", 500));
@@ -77,7 +77,8 @@ const loginUser = asyncHandler(
       return next(new ErrorHandler("Invalid credentials", 401));
 
     const { accessToken, refreshToken } = await generateAccessAndRefereshTokens(
-      user._id
+      user._id,
+      user.uid
     );
     const loggedInUser = await User.findById(user._id).select(
       "-password -refreshToken"
@@ -107,7 +108,7 @@ const logoutUser = asyncHandler(
   async (req: CustomRequest, res: Response, next: NextFunction) => {
     if (!req.user) return next(new ErrorHandler("User not found", 404));
     await User.findByIdAndUpdate(
-      req.user._id,
+      { $or: [ req.user._id , req.user.uid ]}
       { $unset: { refreshToken: 1 } },
       { new: true }
     );

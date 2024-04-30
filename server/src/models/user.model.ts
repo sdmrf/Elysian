@@ -7,7 +7,7 @@ import bcrypt from "bcrypt"
 
 // Interface for User document
 interface IUser extends Document {
-  fb_id: string;
+  uid: string;
   fullname: string;
   username: string;
   photo: string;
@@ -33,9 +33,8 @@ interface IUser extends Document {
 const UserSchema = new Schema(
   {
     // Defining the schema fields with their types and validation
-    fb_id: {
+    uid: {
       type: String,
-      required: [true, "Please provide an fb_id"],
     },
     fullname: {
       type: String,
@@ -118,6 +117,7 @@ UserSchema.methods.generateAccessToken = function(this : IUser){
   return jwt.sign(
     {
       _id: this._id,
+      uid: this.uid,
       email: this.email,
       username: this.username,
     },
@@ -127,7 +127,7 @@ UserSchema.methods.generateAccessToken = function(this : IUser){
 }
 
 UserSchema.methods.generateRefreshToken = function(this : IUser){
-  return jwt.sign({_id: this._id}, JWT_SECRET, {expiresIn: "10d"})
+  return jwt.sign({_id: this._id, uid: this.uid}, JWT_SECRET, {expiresIn: "10d"})
 }
 // Exporting the User model
 export const User = mongoose.model<IUser>("User", UserSchema);

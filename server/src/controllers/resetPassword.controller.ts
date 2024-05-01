@@ -1,6 +1,6 @@
 // Imports
 import { NextFunction, Request, Response } from "express";
-
+import bcrypt from "bcrypt";
 // Models
 import { User } from "../models/user.model.js";
 
@@ -36,7 +36,9 @@ const sendResetPasswordEmail = asyncHandler(async(req: Request, res: Response, n
 const resetPassword = asyncHandler(async(req: Request, res: Response, next: NextFunction) => {
     const { password } = req.body;
     const { id } = req.params;
-    const user = await User.findByIdAndUpdate(id, { password }, { new: true });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = await User.findByIdAndUpdate(id, { password: hashedPassword }, { new: true });
 
     if (!user) return next(new ErrorHandler("User not found", 404));
 

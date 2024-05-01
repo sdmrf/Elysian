@@ -1,17 +1,22 @@
 //* Imports
 import { NextFunction, Request, Response } from "express";
+
+//* Models
 import { User } from "../models/user.model.js";
 import { OTP } from "../models/otp.model.js";
+
+//* Utils
 import { ErrorHandler } from "../utils/errorHandler.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { responseHandler } from "../utils/responseHandler.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { CustomRequest } from "../types/types.js";
+import { User as Iuser } from "../types/types.js";
 
 //? Helper functions
 
 //* Generate Access and Refresh Tokens
-const generateAccessAndRefereshTokens = async (
+const generateAccessAndRefreshTokens = async (
   userId: string,
   firebaseId: string
 ) => {
@@ -34,7 +39,34 @@ const generateAccessAndRefereshTokens = async (
   }
 };
 
-//! Controller functions
+//? Firebase Helper Functions
+//* Login User With Firebase
+
+const loginUserWithFirebase = async (user: Iuser, res: Response, next: NextFunction) => {
+  try {
+    const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(
+      user._id,
+      user.uid
+    );
+    const loggedInUser = await User.findById(user._id).select(
+      "-password -refreshToken"
+    );
+    const options = { httpOnly: true, secure: true };
+    return res
+      .status(200)
+      .cookie("refreshToken", refreshToken, options)
+      .cookie("accessToken", accessToken, options)
+      .json(
+        new responseHandler(200, "User logged in successfully", {
+          user: loggedInUser,
+          accessToken,
+          refreshToken,
+        })
+      );
+  } catch (err: any) {
+    return next(new ErrorHandler("Error logging in user", 500));
+  }
+};
 
 //* User Registration Controller
 const registerUser = asyncHandler(
@@ -82,11 +114,13 @@ const registerUser = asyncHandler(
   }
 );
 
+
+
 //* User Login Controller
 const loginUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const { email, username, password } = req.body;
-    
+
     const user = await User.findOne({ $or: [{ email }, { username }] });
     if (!user) return next(new ErrorHandler("User does not exist", 404));
 
@@ -94,7 +128,7 @@ const loginUser = asyncHandler(
     if (!isPasswordValid)
       return next(new ErrorHandler("Invalid credentials", 401));
 
-    const { accessToken, refreshToken } = await generateAccessAndRefereshTokens(
+    const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(
       user._id,
       user.uid
     );
@@ -122,6 +156,7 @@ const loginUser = asyncHandler(
 );
 
 
+
 //* User Logout Controller
 const logoutUser = asyncHandler(
   async (req: CustomRequest, res: Response, next: NextFunction) => {
@@ -143,6 +178,61 @@ const logoutUser = asyncHandler(
   }
 );
 
+
+
+//* Firebase Register Controller
+const firebaseRegisterController = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { uid, fullname, username, email, password, gender, dob, photourl } =
+      req.body;
+    const userExist = await User.findOne({ $or: [{ email }, { username }] });
+    if (userExist) return next(new ErrorHandler("User already exists", 400));
+
+    const user = await User.create({
+      uid,
+      fullname,
+      username,
+      email,
+      password,
+      gender,
+      dob: new Date(dob),
+      photo: photourl || "",
+    });
+    if (!user) return next(new ErrorHandler("Error creating user", 500));
+
+    const createdUser = await User.findById({
+      $or: [user._id, user.uid],
+    }).select("-password -refreshToken");
+    if (!createdUser) return next(new ErrorHandler("Error creating user", 500));
+
+    return res
+      .status(201)
+      .json(new responseHandler(200, "User created successfully", createdUser));
+  }
+);
+
+
+
+//* Firebase Login and update uid Controller
+const firebaseLoginAndUpdateUid = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    
+    const { uid, email } = req.body;
+    const userExists = await User.findOne({ email });
+    if (!userExists) return next(new ErrorHandler("User not found", 404));
+
+    if (userExists.uid === "") {
+      userExists.uid = uid;
+      await userExists.save();
+    }
+
+    if (userExists.uid !== uid) return next(new ErrorHandler("Firebase uid doesn't match", 401));
+    return await loginUserWithFirebase(userExists as Iuser, res, next);
+  }
+);
+
+
+
 //* Get All Users Controller
 const getAllUsers = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -154,6 +244,8 @@ const getAllUsers = asyncHandler(
   }
 );
 
+
+
 //* Get Single User Controller
 const getSingleUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -164,6 +256,8 @@ const getSingleUser = asyncHandler(
       .json(new responseHandler(200, "User fetched successfully", user));
   }
 );
+
+
 
 //* Update User Profile Controller
 const updateUserProfile = asyncHandler(
@@ -191,6 +285,8 @@ const updateUserProfile = asyncHandler(
   }
 );
 
+
+
 //* Delete User Controller
 const deleteUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -201,6 +297,8 @@ const deleteUser = asyncHandler(
       .json(new responseHandler(200, "User deleted successfully", {}));
   }
 );
+
+
 
 //* Update Password Controller
 const updatePassword = asyncHandler(
@@ -231,4 +329,6 @@ export {
   updateUserProfile,
   deleteUser,
   updatePassword,
+  firebaseRegisterController,
+  firebaseLoginAndUpdateUid,
 };

@@ -14,6 +14,8 @@ import {
   updateUserProfile,
   deleteUser,
   updatePassword,
+  firebaseRegisterController,
+  firebaseLoginAndUpdateUid
 } from "../controllers/user.controller.js";
 import { sendOTP, verifyOTP } from "../controllers/otp.controller.js";
 import {
@@ -31,6 +33,8 @@ router.route("/register").post(singleUpload, registerUser);
 router.route("/login").post(loginUser);
 router.route("/admin-login").post(adminAuthHandler, loginUser);
 router.route("/logout").post(verifyToken, logoutUser);
+router.route("/firebase-register").post(firebaseRegisterController);
+router.route("/firebase-login").post(firebaseLoginAndUpdateUid);
 router.route("/send-otp").post(sendOTP);
 router.route("/verify-otp").post(verifyOTP);
 router.route("/send-reset-password-email").post(sendResetPasswordEmail);

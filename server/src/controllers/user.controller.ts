@@ -141,5 +141,92 @@ const logoutUser = asyncHandler(
   }
 );
 
+//* Get All Users Controller
+const getAllUsers = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const users = await User.find();
+    if (!users) return next(new ErrorHandler("No users found", 404));
+    return res
+      .status(200)
+      .json(new responseHandler(200, "All users fetched successfully", users));
+  }
+);
 
-export { registerUser, loginUser, logoutUser };
+//* Get Single User Controller
+const getSingleUser = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const user = await User.findById(req.params.id);
+    if (!user) return next(new ErrorHandler("User not found", 404));
+    return res
+      .status(200)
+      .json(new responseHandler(200, "User fetched successfully", user));
+  }
+);
+
+//* Update User Profile Controller
+const updateUserProfile = asyncHandler(
+  async (req: CustomRequest, res: Response, next: NextFunction) => {
+    const { fullname, username, email } = req.body;
+    const updateFields = {
+      fullname: fullname || req.user?.fullname,
+      username: username || req.user?.username,
+      email: email || req.user?.email,
+    };
+
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user?._id,
+      updateFields,
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedUser) {
+      return next(new ErrorHandler("User not found", 404));
+    }
+
+    return res
+      .status(200)
+      .json(new responseHandler(200, "User updated successfully", updatedUser));
+  }
+);
+
+//* Delete User Controller
+const deleteUser = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (!user) return next(new ErrorHandler("User not found", 404));
+    return res
+      .status(200)
+      .json(new responseHandler(200, "User deleted successfully", {}));
+  }
+);
+
+//* Update Password Controller
+const updatePassword = asyncHandler(
+  async (req: CustomRequest, res: Response, next: NextFunction) => {
+    const { currentPassword, newPassword } = req.body;
+    const user = await User.findById(req.user?._id);
+    if (!user) return next(new ErrorHandler("User not found", 404));
+
+    const isPasswordValid = await user.isPasswordCorrect(currentPassword);
+    if (!isPasswordValid)
+      return next(new ErrorHandler("Invalid credentials", 401));
+
+    user.password = newPassword;
+    await user.save({ validateBeforeSave: false });
+
+    return res
+      .status(200)
+      .json(new responseHandler(200, "Password updated successfully", {}));
+  }
+);
+
+export {
+  registerUser,
+  loginUser,
+  logoutUser,
+  getAllUsers,
+  getSingleUser,
+  updateUserProfile,
+  deleteUser,
+  updatePassword,
+};

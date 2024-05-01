@@ -4,7 +4,8 @@ import { NextFunction, Request, Response } from "express";
 interface User {
   _id: string;
   uid: string;
-  name: string;
+  fullname: string;
+  username: string;
   photo: string;
   email: string;
   password: string;

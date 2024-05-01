@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema, set } from "mongoose"; // Importing mongoose for schema and model creation
+import mongoose, { Document, Schema } from "mongoose"; // Importing mongoose for schema and model creation
 import { OTPSchemaValidation } from "../validation/otp.validation.js"; // Importing user schema validation
 
 //! Interface for OTP document

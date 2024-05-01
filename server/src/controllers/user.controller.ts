@@ -120,6 +120,7 @@ const loginUser = asyncHandler(
   }
 );
 
+
 //* User Logout Controller
 const logoutUser = asyncHandler(
   async (req: CustomRequest, res: Response, next: NextFunction) => {

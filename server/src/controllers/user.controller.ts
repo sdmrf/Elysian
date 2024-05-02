@@ -9,7 +9,7 @@ import { OTP } from "../models/otp.model.js";
 import { ErrorHandler } from "../utils/errorHandler.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { responseHandler } from "../utils/responseHandler.js";
-import { uploadOnCloudinary } from "../utils/cloudinary.js";
+import { uploadOnCloudinary } from "../config/cloudinary.config.js";
 import { CustomRequest } from "../types/types.js";
 import { User as Iuser } from "../types/types.js";
 

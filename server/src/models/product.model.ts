@@ -1,19 +1,19 @@
 //* Imports
-import mongoose, { Document, Schema } from "mongoose";
+import mongoose, { Document, Schema, Model } from "mongoose";
 import { ProductSchemaValidation } from "../validation/product.validation.js";
 
 //* Define product interface extending mongoose Document
 interface IProduct extends Document {
   name: string;
   price: number;
-  category?: string;
-  photo: string;
+  category: string;
+  photos: string[];
   stock: number;
-  description?: string;
+  description: string;
 }
 
 //* Mongoose schema for Product
-const ProductSchema = new Schema({
+const ProductSchema = new Schema<IProduct>({
   name: {
     type: String,
     required: [true, "Please provide a name"],
@@ -27,9 +27,9 @@ const ProductSchema = new Schema({
     required: [true, "Please provide a category"],
     trim: true,
   },
-  photo: {
-    type: String,
-    required: [true, "Please provide a photo"],
+  photos: {
+    type: [String],
+    required: [true, "Please provide photos"],
   },
   stock: {
     type: Number,
@@ -47,6 +47,8 @@ ProductSchema.pre<IProduct>("save", async function (next) {
   next();
 });
 
-
 //* Exporting the Product model
-export const Product = mongoose.model<IProduct>("Product", ProductSchema);
+export const Product: Model<IProduct> = mongoose.model<IProduct>(
+  "Product",
+  ProductSchema
+);

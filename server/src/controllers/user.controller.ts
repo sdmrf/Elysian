@@ -9,7 +9,10 @@ import { OTP } from "../models/otp.model.js";
 import { ErrorHandler } from "../utils/errorHandler.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { responseHandler } from "../utils/responseHandler.js";
-import { uploadOnCloudinary } from "../config/cloudinary.config.js";
+import {
+  deleteFromCloudinary,
+  uploadOnCloudinary,
+} from "../config/cloudinary.config.js";
 import { CustomRequest } from "../types/types.js";
 import { User as Iuser } from "../types/types.js";
 
@@ -38,11 +41,14 @@ const generateAccessAndRefreshTokens = async (
   }
 };
 
-
 //? Firebase Helper Functions
 //* Login User With Firebase
 
-const loginUserWithFirebase = async (user: Iuser, res: Response, next: NextFunction) => {
+const loginUserWithFirebase = async (
+  user: Iuser,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(
       user._id,
@@ -114,8 +120,6 @@ const registerUser = asyncHandler(
   }
 );
 
-
-
 //* User Login Controller
 const loginUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -155,8 +159,6 @@ const loginUser = asyncHandler(
   }
 );
 
-
-
 //* User Logout Controller
 const logoutUser = asyncHandler(
   async (req: CustomRequest, res: Response, next: NextFunction) => {
@@ -177,8 +179,6 @@ const logoutUser = asyncHandler(
       .json(new responseHandler(200, "User logged out successfully", {}));
   }
 );
-
-
 
 //* Firebase Register Controller
 const firebaseRegisterController = asyncHandler(
@@ -211,12 +211,9 @@ const firebaseRegisterController = asyncHandler(
   }
 );
 
-
-
 //* Firebase Login and update uid Controller
 const firebaseLoginAndUpdateUid = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-
     const { uid, email } = req.body;
     const userExists = await User.findOne({ email });
     if (!userExists) return next(new ErrorHandler("User not found", 404));
@@ -226,12 +223,11 @@ const firebaseLoginAndUpdateUid = asyncHandler(
       await userExists.save();
     }
 
-    if (userExists.uid !== uid) return next(new ErrorHandler("Firebase uid doesn't match", 401));
+    if (userExists.uid !== uid)
+      return next(new ErrorHandler("Firebase uid doesn't match", 401));
     return await loginUserWithFirebase(userExists as Iuser, res, next);
   }
 );
-
-
 
 //* Get All Users Controller
 const getAllUsers = asyncHandler(
@@ -244,8 +240,6 @@ const getAllUsers = asyncHandler(
   }
 );
 
-
-
 //* Get Single User Controller
 const getSingleUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -256,8 +250,6 @@ const getSingleUser = asyncHandler(
       .json(new responseHandler(200, "User fetched successfully", user));
   }
 );
-
-
 
 //* Update User Profile Controller
 const updateUserProfile = asyncHandler(
@@ -285,20 +277,20 @@ const updateUserProfile = asyncHandler(
   }
 );
 
-
-
 //* Delete User Controller
 const deleteUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) return next(new ErrorHandler("User not found", 404));
+
+    const deletePhoto = await deleteFromCloudinary(user.photo);
+    if (!deletePhoto)
+      return next(new ErrorHandler("Error deleting photo", 500));
     return res
       .status(200)
       .json(new responseHandler(200, "User deleted successfully", {}));
   }
 );
-
-
 
 //* Update Password Controller
 const updatePassword = asyncHandler(

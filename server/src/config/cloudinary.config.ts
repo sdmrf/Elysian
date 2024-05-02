@@ -26,5 +26,21 @@ const uploadOnCloudinary = async (localFilePath : string) => {
     }
 }
 
+const deleteFromCloudinary = async (photoUrl: string) => {
+    // Check if the photo URL contains 'https://res.cloudinary.com/'
+    if (!photoUrl.includes('https://res.cloudinary.com/')) return true;
+    try {
+        // Delete the photo from Cloudinary
+        await cloudinary.uploader.destroy(photoUrl, {
+            resource_type: "auto"
+        });
+        return true;
+    } catch (err) {
+        console.log(err);
+        return false;
+    }
+};
 
-export { uploadOnCloudinary };
+
+
+export { uploadOnCloudinary, deleteFromCloudinary };

@@ -11,6 +11,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { responseHandler } from "../utils/responseHandler.js";
 import { uploadOnCloudinary } from "../config/cloudinary.config.js";
 import { InvalidateCache } from "../utils/featuresHandler.js";
+import { redisClient } from "../config/redis.config.js";
 
 // Controller Functions
 
@@ -52,3 +53,25 @@ const addProduct = asyncHandler(
 );
 
 //* Get all products
+const getProducts = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    if (await redisClient.exists("all-products")) {
+      const products = await redisClient.get("all-products");
+      if (products) {
+        return res.json(
+          new responseHandler(200, "All products", {
+            products: JSON.parse(products),
+          })
+        );
+      }
+    }
+
+    const products = await Product.find();
+    await redisClient.set("all-products", JSON.stringify(products));
+
+    res.json(new responseHandler(200, "All products", products));
+  }
+);
+
+// Exports
+export { addProduct, getProducts };

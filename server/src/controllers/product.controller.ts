@@ -10,28 +10,45 @@ import { ErrorHandler } from "../utils/errorHandler.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { responseHandler } from "../utils/responseHandler.js";
 import { uploadOnCloudinary } from "../config/cloudinary.config.js";
-import { redisClient } from "../config/redis.config.js";
+import { InvalidateCache } from "../utils/featuresHandler.js";
 
 // Controller Functions
 
 //* Add product
-const addProduct = asyncHandler(async (req, res) => {
-  const { name, description, price, category, stock, photos } = req.body;
+const addProduct = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { name, description, price, category, stock } = req.body;
 
-  const product = new Product({
-    name,
-    description,
-    price,
-    category,
-    stock,
-    photos,
-  });
+    const photos = req.files as Express.Multer.File[];
+    const photoUrls = [];
 
-  await product.save();
+    for (const photo of photos) {
+      const { path } = photo;
+      const response = await uploadOnCloudinary(path);
+      if (!response) {
+        return next(
+          new ErrorHandler("Files are not uploaded successfully", 500)
+        );
+      }
+      photoUrls.push(response?.url);
+    }
 
-  res.status(201).json(
-    new responseHandler(201, "Product added successfully", product)
-  );
-});
+    const product = new Product({
+      name,
+      description,
+      price,
+      category,
+      stock,
+      photos: photoUrls,
+    });
+
+    await product.save();
+
+    InvalidateCache({ product: true, admin: true });
+    res
+      .status(201)
+      .json(new responseHandler(201, "Product added successfully", product));
+  }
+);
 
 //* Get all products

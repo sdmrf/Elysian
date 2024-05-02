@@ -280,12 +280,13 @@ const updateUserProfile = asyncHandler(
 //* Delete User Controller
 const deleteUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const user = await User.findByIdAndDelete(req.params.id);
+    const user = await User.findById(req.params.id);
     if (!user) return next(new ErrorHandler("User not found", 404));
 
     const deletePhoto = await deleteFromCloudinary(user.photo);
-    if (!deletePhoto)
-      return next(new ErrorHandler("Error deleting photo", 500));
+    if (!deletePhoto) return next(new ErrorHandler("Error deleting photo", 500));
+    
+    await User.findByIdAndDelete(req.params.id);
     return res
       .status(200)
       .json(new responseHandler(200, "User deleted successfully", {}));

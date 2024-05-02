@@ -14,7 +14,6 @@ import { CustomRequest } from "../types/types.js";
 import { User as Iuser } from "../types/types.js";
 
 //? Helper functions
-
 //* Generate Access and Refresh Tokens
 const generateAccessAndRefreshTokens = async (
   userId: string,
@@ -38,6 +37,7 @@ const generateAccessAndRefreshTokens = async (
     );
   }
 };
+
 
 //? Firebase Helper Functions
 //* Login User With Firebase
@@ -216,7 +216,7 @@ const firebaseRegisterController = asyncHandler(
 //* Firebase Login and update uid Controller
 const firebaseLoginAndUpdateUid = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    
+
     const { uid, email } = req.body;
     const userExists = await User.findOne({ email });
     if (!userExists) return next(new ErrorHandler("User not found", 404));

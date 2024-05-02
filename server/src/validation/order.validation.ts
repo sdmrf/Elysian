@@ -16,7 +16,7 @@ export const orderSchemaValidation = z.object({
   discount: z.number().positive("Discount should be a positive number"),
   total: z.number().positive("Total should be a positive number"),
   status: z.enum(["Processing", "Shipped", "Delivered"]).default("Processing"),
-  orderItems: z.array(
+  OrderItems: z.array(
     z.object({
       name: z.string(),
       photo: z.string(),

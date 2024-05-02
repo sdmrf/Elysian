@@ -1,6 +1,6 @@
 // Imports
 import mongoose, { Document, Schema } from "mongoose";
-import { orderSchemaValidation } from "../validation/order.validation.js";
+import { OrderSchemaValidation } from "../validation/order.validation.js";
 
 // Define order interface extending mongoose Document
 interface IOrder extends Document {
@@ -102,7 +102,7 @@ const orderSchema = new Schema<IOrder>(
 
 // Perform validation before saving
 orderSchema.pre<IOrder>("save", async function () {
-  await orderSchemaValidation.parseAsync(this.toObject());
+  await OrderSchemaValidation.parseAsync(this.toObject());
 });
 
 // Export

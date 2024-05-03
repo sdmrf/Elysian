@@ -2,7 +2,7 @@
 import { createClient } from "redis";
 
 // Constants
-const { REDIS_PASSWORD, REDIS_HOST, REDIS_PORT } = process.env;
+import { REDIS_HOST, REDIS_PORT, REDIS_PASSWORD } from "../constants/constants.js"
 
 // Redis Client
 const redisClient = createClient({
@@ -23,7 +23,6 @@ redisClient.on("error", (err) => {
   console.error("Redis connection failed", err);
 });
 
-// Connection to Redis
 await redisClient.connect();
 
 // Export

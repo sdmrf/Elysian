@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import { errorMiddleware } from './middlewares/error.middleware.js';
 // Importing the routes
 import userRoutes from './routes/users.routes.js';
+import productRoutes from './routes/products.routes.js';
 
 // Creating an instance of express
 const app = express();
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v2/products", productRoutes);
 
 // Error handler
 app.use(errorMiddleware)

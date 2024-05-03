@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 // Define Zod schema for validation
-export const orderSchemaValidation = z.object({
+export const OrderSchemaValidation = z.object({
   shippingInfo: z.object({
     address: z.string().min(2, "Address should be at least 2 characters long"),
     city: z.string(),

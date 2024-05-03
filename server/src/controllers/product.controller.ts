@@ -80,12 +80,12 @@ const getProductById = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     let product;
     const { id } = req.params;
-    if (await redisClient.exists(`product-${id}`)) {
-      product = await redisClient.get(`product-${id}`);
+    if (await redisClient.exists(`product:${id}`)) {
+      product = await redisClient.get(`product:${id}`);
     } else {
       product = await Product.findById(id);
       if (!product) return next(new ErrorHandler("Product not found", 404));
-      await redisClient.set(`product-${id}`, JSON.stringify(product));
+      await redisClient.set(`product:${id}`, JSON.stringify(product));
     }
     res.json(new responseHandler(200, "Product", { product }));
   }

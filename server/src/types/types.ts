@@ -81,7 +81,7 @@ type SearchRequestQuery = {
   page?: string;
 };
 
-type BaseQuery = {
+interface BaseQuery {
   name?: {
     $regex: string;
     $options: string;
@@ -98,6 +98,20 @@ type InvalidateCacheProps = {
   orderId?: string;
   productId?: string | string[];
 };
+
+interface ProductsRequest {
+  name?: string;
+  category?: string;
+  price?: number;
+  stock?: number;
+  description?: string;
+  images?: ProductPhoto[];
+}
+type ProductPhoto = {
+  url?: string;
+  index?: number;
+};
+
 
 // Request Type
 interface CustomRequest extends Request {
@@ -116,5 +130,7 @@ export {
   SearchRequestQuery,
   BaseQuery,
   InvalidateCacheProps,
+  ProductPhoto,
+  ProductsRequest,
   CustomRequest,
 };

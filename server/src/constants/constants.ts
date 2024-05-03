@@ -1,16 +1,19 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
 // MongoDB
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URL || 'mongodb://localhost:27017';
-const JWT_SECRET = process.env.PASS_SECRET || 'secret';
-const DB_NAME = process.env.DB_NAME || 'test';
+const MONGO_URI = process.env.MONGO_URL || "mongodb://localhost:27017";
+const JWT_SECRET = process.env.PASS_SECRET || "secret";
+const DB_NAME = process.env.DB_NAME || "test";
 
 // Cloudinary
-const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME || 'cloudinary_name'; 
-const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY || 'cloudinary_api_key';
-const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET || 'cloudinary_api_secret';
+const CLOUDINARY_CLOUD_NAME =
+  process.env.CLOUDINARY_CLOUD_NAME || "cloudinary_name";
+const CLOUDINARY_API_KEY =
+  process.env.CLOUDINARY_API_KEY || "cloudinary_api_key";
+const CLOUDINARY_API_SECRET =
+  process.env.CLOUDINARY_API_SECRET || "cloudinary_api_secret";
 
 // Redis
 const REDIS_PORT = process.env.REDIS_PORT;
@@ -28,5 +31,26 @@ const MAIL_PORT = process.env.MAIL_PORT;
 // Api Endpoints
 const RESET_PASSWORD_LINK = process.env.RESET_PASSWORD_LINK;
 
+// Others
+const PAGE_LIMIT = Number(process.env.PAGE_LIMIT) || 8;
 
-export { PORT, MONGO_URI, JWT_SECRET, DB_NAME, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, MAIL_SERVICE, MAIL_USER, MAIL_EMAIL, MAIL_PASS, MAIL_HOST, MAIL_PORT, RESET_PASSWORD_LINK, REDIS_PORT, REDIS_HOST, REDIS_PASSWORD};
+export {
+  PORT,
+  MONGO_URI,
+  JWT_SECRET,
+  DB_NAME,
+  CLOUDINARY_CLOUD_NAME,
+  CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET,
+  MAIL_SERVICE,
+  MAIL_USER,
+  MAIL_EMAIL,
+  MAIL_PASS,
+  MAIL_HOST,
+  MAIL_PORT,
+  RESET_PASSWORD_LINK,
+  REDIS_PORT,
+  REDIS_HOST,
+  REDIS_PASSWORD,
+  PAGE_LIMIT,
+};

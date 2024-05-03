@@ -45,7 +45,7 @@ interface ShippingInfo {
 
 interface Order {
   shippingInfo: ShippingInfo;
-  user: string;
+  userId: string;
   subtotal: number;
   tax: number;
   shippingCharges: number;

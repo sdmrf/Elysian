@@ -225,7 +225,11 @@ const updateProduct = asyncHandler(
       await product.save();
 
       // Invalidating cache
-      InvalidateCache({ product: true, admin: true });
+      InvalidateCache({
+        product: true,
+        productId: String(product._id),
+        admin: true,
+      });
 
       // Sending response
       return res.json(
@@ -234,6 +238,43 @@ const updateProduct = asyncHandler(
     } catch (error) {
       return next(error);
     }
+  }
+);
+
+//* delete product by id
+const deleteProduct = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    // Extracting id from request params
+    const { id } = req.params;
+
+    // Finding product by id
+    const product = await Product.findById(id);
+    if (!product) {
+      throw new ErrorHandler("Product not found", 404);
+    }
+
+    // Deleting images from cloudinary
+    const deletePromises = product.photos.map(async (photo) => {
+      await deleteFromCloudinary(photo).catch((error) => {
+        console.error("Error deleting image from Cloudinary:", error);
+      });
+    });
+    await Promise.all(deletePromises);
+
+    // Deleting product from database
+    await product.deleteOne();
+
+    // Invalidating cache
+    InvalidateCache({
+      product: true,
+      productId: String(product._id),
+      admin: true,
+    });
+
+    // Sending response
+    return res.json(
+      new responseHandler(200, "Product deleted successfully", {})
+    );
   }
 );
 
@@ -246,4 +287,5 @@ export {
   getAllCategories,
   getLatestProducts,
   updateProduct,
+  deleteProduct,
 };

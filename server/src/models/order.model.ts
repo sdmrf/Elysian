@@ -11,7 +11,7 @@ interface IOrder extends Document {
     country: string;
     pinCode: number;
   };
-  user: string;
+  userId: Schema.Types.ObjectId;
   subtotal: number;
   tax: number;
   shippingCharges: number;
@@ -23,7 +23,7 @@ interface IOrder extends Document {
     photo: string;
     price: number;
     quantity: number;
-    productId: string;
+    productId: Schema.Types.ObjectId;
   }[];
 }
 
@@ -52,8 +52,8 @@ const orderSchema = new Schema<IOrder>(
         required: true,
       },
     },
-    user: {
-      type: String,
+    userId: {
+      type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
@@ -89,7 +89,7 @@ const orderSchema = new Schema<IOrder>(
         price: Number,
         quantity: Number,
         productId: {
-          type: mongoose.Types.ObjectId,
+          type: Schema.Types.ObjectId,
           ref: "Product",
         },
       },

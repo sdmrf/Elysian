@@ -17,7 +17,7 @@ interface IOrder extends Document {
   shippingCharges: number;
   discount: number;
   total: number;
-  status: "Processing" | "Shipped" | "Delivered";
+  status: "Processing" | "Shipped" | "Delivered" | "Already Delivered";
   orderItems: {
     name: string;
     photo: string;
@@ -79,7 +79,7 @@ const orderSchema = new Schema<IOrder>(
     },
     status: {
       type: String,
-      enum: ["Processing", "Shipped", "Delivered"],
+      enum: ["Processing", "Shipped", "Delivered", "Already Delivered"],
       default: "Processing",
     },
     orderItems: [

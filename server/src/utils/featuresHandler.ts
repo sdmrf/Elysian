@@ -27,7 +27,7 @@ const InvalidateCache = ({
     const productKeys: string[] = [
       "categories",
       "all-products",
-      "lastest-products",
+      "latest-products",
     ];
 
     // If productId is an array, then we will loop through the array and delete the cache of each product
@@ -77,9 +77,23 @@ const reduceStock = async (orderItems: OrderItem[]) => {
   orderItems.forEach(async (item : OrderItem) => {
     const product = await Product.findById(item.productId);
     if(!product) throw new ErrorHandler("Product not found", 404);
+    if(product.stock < item.quantity) throw new ErrorHandler("Out of stock", 400);
     product.stock -= item.quantity;
     await product.save({ validateBeforeSave: false });
   });
 }
 
-export { InvalidateCache, reduceStock };
+
+//* Restore the stock of the product by the quantity of canceled order
+const restoreStock = async (orderItems: any) => {
+  orderItems.forEach(async (item : any) => {
+    const product = await Product.findById(item.productId);
+    if(!product) throw new ErrorHandler("Product not found", 404);
+    product.stock += item.quantity;
+    await product.save({ validateBeforeSave: false });
+  });
+}
+
+
+
+export { InvalidateCache, reduceStock, restoreStock };

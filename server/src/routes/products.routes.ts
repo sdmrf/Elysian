@@ -2,18 +2,18 @@
 import express from "express";
 
 // Instance of router
-const router = express.Router();
+const productsRouter = express.Router();
 
 // Importing the controller
 import {
-    addProduct,
-    getAllProducts,
-    getAllCategories,
-    getLatestProducts,
-    getProductById,
-    getProductsByQuery,
-    updateProduct,
-    deleteProduct,
+  addProduct,
+  getAllProducts,
+  getAllCategories,
+  getLatestProducts,
+  getProductById,
+  getProductsByQuery,
+  updateProduct,
+  deleteProduct,
 } from "../controllers/product.controller.js";
 
 // Importing middlewares
@@ -22,14 +22,20 @@ import { verifyToken } from "../middlewares/verify.middleware.js";
 import { multipleUpload } from "../middlewares/multer.middleware.js";
 
 // Routes
-router.route("/addNewProduct").post(verifyToken, adminAuthHandler, multipleUpload, addProduct);
-router.route("/getAllProducts").get(getAllProducts);
-router.route("/getProductById/:id").get(getProductById);
-router.route("/getProductsByQuery").get(getProductsByQuery);
-router.route("/getAllCategories").get(getAllCategories);
-router.route("/getLatestProducts").get(getLatestProducts);
-router.route("/updateProduct/:id").put(verifyToken, adminAuthHandler, multipleUpload, updateProduct);
-router.route("/deleteProduct/:id").delete(verifyToken, adminAuthHandler, deleteProduct);
+productsRouter
+  .route("/addNewProduct")
+  .post(verifyToken, adminAuthHandler, multipleUpload, addProduct);
+productsRouter.route("/getAllProducts").get(getAllProducts);
+productsRouter.route("/getProductById/:id").get(getProductById);
+productsRouter.route("/getProductsByQuery").get(getProductsByQuery);
+productsRouter.route("/getAllCategories").get(getAllCategories);
+productsRouter.route("/getLatestProducts").get(getLatestProducts);
+productsRouter
+  .route("/updateProduct/:id")
+  .put(verifyToken, adminAuthHandler, multipleUpload, updateProduct);
+productsRouter
+  .route("/deleteProduct/:id")
+  .delete(verifyToken, adminAuthHandler, deleteProduct);
 
-// Exporting the router
-export default router;
+// Exporting the productsRouter
+export { productsRouter };

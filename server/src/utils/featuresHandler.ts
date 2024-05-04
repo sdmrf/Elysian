@@ -1,7 +1,18 @@
 // Imports
-import { InvalidateCacheProps } from "../types/types.js";
+import { InvalidateCacheProps, OrderItem } from "../types/types.js";
 import { redisClient } from "../config/redis.config.js";
 
+
+// Models
+import { Product } from "../models/product.model.js";
+
+// Utils
+import { ErrorHandler } from "./errorHandler.js";
+
+
+// Features 
+
+// * Invalidate the cache of the specified keys
 const InvalidateCache = ({
   product,
   order,
@@ -60,4 +71,15 @@ const InvalidateCache = ({
   }
 };
 
-export { InvalidateCache };
+
+// * Reduce the stock of the product by the quantity ordered
+const reduceStock = async (orderItems: OrderItem[]) => {
+  orderItems.forEach(async (item : OrderItem) => {
+    const product = await Product.findById(item.productId);
+    if(!product) throw new ErrorHandler("Product not found", 404);
+    product.stock -= item.quantity;
+    await product.save({ validateBeforeSave: false });
+  });
+}
+
+export { InvalidateCache, reduceStock };

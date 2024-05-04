@@ -43,7 +43,7 @@ interface ShippingInfo {
   pinCode: number;
 }
 
-interface Order {
+interface OrderItemRequest {
   shippingInfo: ShippingInfo;
   userId: string;
   subtotal: number;
@@ -123,7 +123,7 @@ export {
   Product,
   OrderItem,
   ShippingInfo,
-  Order,
+  OrderItemRequest,
   UserRole,
   Gender,
   ControllerType,

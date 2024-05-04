@@ -9,6 +9,14 @@ interface ICoupon extends Document {
   expiry: Date;
 }
 
+// Function to calculate expiry one month from now
+function calculateExpiry() {
+  const now = new Date();
+  // Adding one month to the current date
+  now.setMonth(now.getMonth() + 1);
+  return now;
+}
+
 // Mongoose schema
 const couponSchema = new Schema({
   code: {
@@ -22,10 +30,7 @@ const couponSchema = new Schema({
   },
   expiry: {
     type: Date,
-    default: Date.now,
-    expires: 60,
-    get: (createdAt: Date) => createdAt.getTime(),
-    set: (createdAt: number) => new Date(createdAt),
+    default: calculateExpiry, // Set default expiry to one month from now
   },
 });
 

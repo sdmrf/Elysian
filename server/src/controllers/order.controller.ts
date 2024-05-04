@@ -69,7 +69,7 @@ const getAllOrders = asyncHandler(
     if (await redisClient.exists("all-orders")) {
       orders = await redisClient.get("all-orders");
     } else {
-      orders = await Order.find();
+      orders = await Order.find().populate("userId", "name email phone address").populate("orderItems.productId", "name price category photos stock description");
       await redisClient.set("all-orders", JSON.stringify(orders));
     }
 

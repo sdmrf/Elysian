@@ -1,0 +1,14 @@
+{
+  "name": "elysian",
+  "version": "1.0.0",
+  "author": "codezeniths",
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "github:semantic-release/changelog",
+    "@semantic-release/git": "github:semantic-release/git",
+    "@semantic-release/github": "github:semantic-release/github",
+    "semantic-release": "^23.0.8"
+  }
+}

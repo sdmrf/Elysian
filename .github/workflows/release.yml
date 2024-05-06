@@ -1,4 +1,4 @@
-name: Release
+name: Semantic Release Workflow
 
 on:
   push:
@@ -13,15 +13,24 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 
-      - uses: actions/setup-node@v3 
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
-      - run: npm ci
-      - run: npm run build
-      - name: Install semantic-release
+          node-version: 14
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Install Semantic Release
         run: npm install -g semantic-release@latest @semantic-release/changelog @semantic-release/git @semantic-release/github
-      - name: Run semantic-release
+
+      - name: Execute Semantic Release
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

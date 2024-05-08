@@ -1,0 +1,83 @@
+// Importing Fonts
+@import url("https://fonts.googleapis.com/css2?family=Andika&display=swap");
+
+/* Importing Partial scss files */
+// Mixins and variables
+@import "components/variables";
+@import "components/mixins";
+
+// Admin Styles
+@import "components/admin/apps/styles";
+@import "components/admin/charts/styles";
+@import "components/admin/customer/styles";
+@import "components/admin/dashboard/styles";
+@import "components/admin/loader/styles";
+@import "components/admin/management/styles";
+@import "components/admin/products/styles";
+@import "components/admin/sidebar/styles";
+@import "components/admin/table/styles";
+
+// User Styles
+@import "components/user/cart/styles";
+@import "components/user/content-wrapper/styles";
+@import "components/user/error/styles";
+@import "components/user/footer/styles";
+@import "components/user/header/styles";
+@import "components/user/loader/styles";
+@import "components/user/navbar/styles";
+@import "components/user/order/styles";
+@import "components/user/product//styles";
+@import "components/user/protected-route/styles";
+@import "components/user/search/styles";
+@import "components/user/skeleton/styles";
+
+
+:root {
+  //Font
+  font-family: "Andika", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 16px;
+  font-synthesis: none;
+
+  // Others
+  line-height: 1;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Swiper
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: $primary;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: $primary !important;
+  }
+}
+
+* {
+  margin: 10;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bg-dark;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app {
+  color : $primary;
+  font-size: $xl;
+}
+

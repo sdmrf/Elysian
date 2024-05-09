@@ -2,16 +2,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Andika&display=swap");
 
 /* Importing Partial scss files */
+// Common Styles
+@import "components/common/content-wrapper/styles";
+@import "components/common/header/styles";
+@import "components/common/footer/styles";
+@import "components/common/loader/styles";
+@import "components/common/navbar/styles";
+@import "components/common/error/styles";
+@import "components/common/protected-route/styles";
+@import "components/common/skeleton/styles";
+
 // Mixins and variables
-@import "components/variables";
-@import "components/mixins";
+@import "components/common/variables";
+@import "components/common/mixins";
 
 // Admin Styles
 @import "components/admin/apps/styles";
 @import "components/admin/charts/styles";
 @import "components/admin/customer/styles";
 @import "components/admin/dashboard/styles";
-@import "components/admin/loader/styles";
 @import "components/admin/management/styles";
 @import "components/admin/products/styles";
 @import "components/admin/sidebar/styles";
@@ -19,17 +28,11 @@
 
 // User Styles
 @import "components/user/cart/styles";
-@import "components/user/content-wrapper/styles";
-@import "components/user/error/styles";
-@import "components/user/footer/styles";
-@import "components/user/header/styles";
-@import "components/user/loader/styles";
-@import "components/user/navbar/styles";
+@import "components/user/checkout/styles";
 @import "components/user/order/styles";
 @import "components/user/product//styles";
-@import "components/user/protected-route/styles";
+@import "components/user/shipping/styles";
 @import "components/user/search/styles";
-@import "components/user/skeleton/styles";
 
 
 :root {

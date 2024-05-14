@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Ecommerce solution powered by MERN Stack",
   "main": "index.js",
+  "author": "codezeniths",
+  "license": "ISC",
   "scripts": {
     "release": "semantic-release"
   },
@@ -15,8 +17,6 @@
     "Fullstack",
     "E-commerce"
   ],
-  "author": "codezeniths",
-  "license": "ISC",
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^12.0.0",

@@ -2,9 +2,8 @@ name: Release
 
 on:
   pull_request:
-    branches:
-      - main
-      - beta*
+    types: [opened, synchronize, reopened]
+    branches: [main, beta*]
 
 jobs:
   release:

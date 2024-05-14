@@ -2,8 +2,11 @@ name: Release
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
-    branches: [main, beta*]
+    branches:
+      - main
+      - 'beta*'
+    types:
+      - closed
 
 jobs:
   release:
@@ -11,9 +14,8 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js 20

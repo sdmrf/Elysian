@@ -1,8 +1,10 @@
-name: Release
+name: Semantic Release
 
 on:
   pull_request:
-    branches: [main, beta*]
+    branches:
+      - main
+      - beta*
 
 jobs:
   release:
@@ -10,14 +12,22 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
+      
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
-          node-version: 20
-      - run: npm ci
-      - run: npm run release
+          node-version: 14 
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Semantic Release
+        run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

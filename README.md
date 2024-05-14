@@ -51,7 +51,7 @@ To run Elysian locally, follow these steps:
 4. Install dependencies for the backend:
 
    ```bash
-   cd backend
+   cd server
    npm install
    ```
 

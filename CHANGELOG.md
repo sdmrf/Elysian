@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/codezeniths/Elysian/compare/v1.1.0...v1.1.1) (2024-05-16)
+
+
+### Bug Fixes
+
+* navbar ([a52934a](https://github.com/codezeniths/Elysian/commit/a52934ac024f530bd0bc9af3c7e1e0aac38b61f1))
+
 # [1.1.0](https://github.com/codezeniths/Elysian/compare/v1.0.0...v1.1.0) (2024-05-16)
 
 

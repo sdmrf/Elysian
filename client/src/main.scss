@@ -1,6 +1,10 @@
 // Importing Fonts
 @import url("https://fonts.googleapis.com/css2?family=Andika&display=swap");
 
+// Mixins and variables
+@import "components/common/variables";
+@import "components/common/mixins";
+
 // Common Styles
 @import "components/common/content-wrapper/styles";
 @import "components/common/header/styles";
@@ -11,9 +15,6 @@
 @import "components/common/protected-route/styles";
 @import "components/common/skeleton/styles";
 
-// Mixins and variables
-@import "components/common/variables";
-@import "components/common/mixins";
 
 // Admin Styles
 @import "components/admin/apps/styles";

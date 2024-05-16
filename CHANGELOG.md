@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/codezeniths/Elysian/compare/v1.3.0...v1.4.0) (2024-05-16)
+
+
+### Features
+
+* add routes and components :sparkles: ([027faf8](https://github.com/codezeniths/Elysian/commit/027faf86fec6a0a7aab09852b8e5bdd706b71539))
+
 # [1.3.0](https://github.com/codezeniths/Elysian/compare/v1.2.0...v1.3.0) (2024-05-16)
 
 

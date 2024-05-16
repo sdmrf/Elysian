@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/codezeniths/Elysian/compare/v1.2.0...v1.3.0) (2024-05-16)
+
+
+### Features
+
+* add loader ([59dbce3](https://github.com/codezeniths/Elysian/commit/59dbce390ad0e481769cdd527802ce0d4e1964b2))
+
 # [1.2.0](https://github.com/codezeniths/Elysian/compare/v1.1.1...v1.2.0) (2024-05-16)
 
 

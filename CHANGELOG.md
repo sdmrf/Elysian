@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/codezeniths/Elysian/compare/v1.0.0...v1.1.0) (2024-05-16)
+
+
+### Features
+
+* add header and navbar ([6cc32c6](https://github.com/codezeniths/Elysian/commit/6cc32c611245fb22c2d2e36465b6441646278dc5))
+* initialize landing page ([368b3e3](https://github.com/codezeniths/Elysian/commit/368b3e32aad3b2c1380da0de59ef62e796612bf7))
+
 # 1.0.0 (2024-05-16)
 
 

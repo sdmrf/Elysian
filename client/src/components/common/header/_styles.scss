@@ -2,14 +2,24 @@
 @import "../mixins";
 @import "../variables";
 
-header{
-    background-color: transparent;
-    @include flex(center, space-between);
+header {
+  background-color: transparent;
+  padding: 10px 20px;
+  @include flex(center, space-between);
 
-    // Font settings
-    font-size: $md;
-    font-weight: $medium;
-    color: $text-light;
-    font-family: $font-1;
+  // Font settings
+  font-size: $md;
+  font-weight: $medium;
+  color: $text-light;
+  font-family: $font-1;
 
+  .account {
+    @include flex(row, center, center, 1rem);
+
+    ul {
+      li {
+        cursor: pointer;
+      }
+    }
+  }
 }

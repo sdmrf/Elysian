@@ -5,6 +5,7 @@
 header {
   background-color: transparent;
   padding: 10px 20px;
+  position: sticky;
   @include flex(center, space-between);
 
   // Font settings

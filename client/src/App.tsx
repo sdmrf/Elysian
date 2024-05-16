@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Loader from './components/common/loader/loader';
 // User Imports
 const Home = lazy(() => import('./pages/user/home'));
+const Landing = lazy(() => import('./pages/user/landing'));
 const Cart = lazy(() => import('./pages/user/cart'));
 const Products = lazy(() => import('./pages/user/products'));
 const Order = lazy(() => import('./pages/user/order'));
@@ -20,6 +21,7 @@ const App = () => {
         <Routes>
           {/* User Routes */}
           <Route path="/" element={<Home />} />
+          <Route path="/landing" element={<Landing />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/products" element={<Products />} />
           <Route path="/order" element={<Order />} />

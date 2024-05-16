@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/codezeniths/Elysian/compare/v1.1.1...v1.2.0) (2024-05-16)
+
+
+### Features
+
+* add content in main section of landing page ([3e5ebd0](https://github.com/codezeniths/Elysian/commit/3e5ebd042238fff41b8a59a3fb2d257b6f6cdbc3))
+
 ## [1.1.1](https://github.com/codezeniths/Elysian/compare/v1.1.0...v1.1.1) (2024-05-16)
 
 

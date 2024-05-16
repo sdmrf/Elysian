@@ -1,0 +1,41 @@
+.landing {
+  main {
+    background: url("/Images/landingBg.png") no-repeat center center/cover;
+    height: 100vh;
+
+    .content {
+      height: 100%;
+      @include flex(column, center, center);
+
+      .info {
+        flex: 1;
+        margin-top: 75px;
+        @include flex(column, center, center, 20px);
+        @include square(575px);
+        text-align: center;
+
+        h1 {
+          font-size: $xxxl;
+          font-weight: $bold;
+          color: $text-light;
+          font-family: $font-1;
+          text-align: center;
+          line-height: 1.2;
+        }
+
+        p {
+          font-size: $md;
+          font-weight: $medium;
+          color: rgba($text-light, 0.8);
+          font-family: $font-1;
+          text-align: center;
+          line-height: 1.5;
+        }
+      }
+
+      .sofa {
+        flex: 1;
+      }
+    }
+  }
+}

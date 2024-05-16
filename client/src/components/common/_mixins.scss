@@ -50,14 +50,14 @@
 
 @mixin flex(
   $dir: row,
-  $justifyContent: center,
   $alignItems: center,
+  $justifyContent: center,
   $gap: 1rem
 ) {
   display: flex;
   flex-direction: $dir;
-  justify-content: $justifyContent;
   align-items: $alignItems;
+  justify-content: $justifyContent;
   gap: $gap;
 }
 @mixin grid($col: 1fr, $gap: 1rem, $row: unset) {

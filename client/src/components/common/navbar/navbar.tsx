@@ -1,5 +1,3 @@
-// Imports
-import "./_styles.scss";
 import { Link } from "react-router-dom";
 import { CaretDown } from "@phosphor-icons/react";
 

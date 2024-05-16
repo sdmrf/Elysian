@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { ReactNode } from 'react';
 
-const Contentwrapper = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+interface ContentWrapperProps {
+  children: ReactNode;
 }
 
-export default Contentwrapper
+const ContentWrapper: React.FC<ContentWrapperProps> = ({ children }) => {
+  return <div className="contentWrapper">{children}</div>;
+};
+
+export default ContentWrapper;
+

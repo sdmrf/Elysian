@@ -1,8 +1,14 @@
+// Imports
+
+// Components
+import Header from "../../components/common/header/header";
 
 const Landing = () => {
   return (
-    <div>Landing</div>
-  )
-}
+    <div className="landing">
+      <Header />
+    </div>
+  );
+};
 
-export default Landing
+export default Landing;

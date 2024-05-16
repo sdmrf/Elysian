@@ -1,12 +1,15 @@
 // Imports
+import "./_styles.scss";
 
 // Components
-import Header from "../../components/common/header/header";
+import Header from "../../../components/common/header/header";
 
 const Landing = () => {
   return (
     <div className="landing">
-      <Header />
+      <main>
+        <Header />
+      </main>
     </div>
   );
 };

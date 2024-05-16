@@ -18,11 +18,15 @@ const Header = () => {
 
       {/* Account */}
       <ul className="account">
-        <li className="Link">
-          <Link to="/login">Login</Link>
+        <li className="link">
+          <Link to="/login" className="link">
+            Login
+          </Link>
         </li>
-        <li className="Link">
-          <Link to="/signup">Sign Up</Link>
+        <li className="link">
+          <Link to="/signup" className="link">
+            Sign Up
+          </Link>
         </li>
       </ul>
     </header>

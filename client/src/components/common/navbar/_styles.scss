@@ -1,18 +1,13 @@
-// Imports
-@import "../mixins";
-@import "../variables";
-
 nav {
   .navItems {
-    @include flex(row, center, space-between, 2rem);
+    @include flex(row, space-between, center, 2rem);
 
-    li{
+    li {
       cursor: pointer;
 
-      .furniture{
+      .furniture {
         @include flex(row, center, center, 0.5rem);
       }
     }
-    
   }
 }

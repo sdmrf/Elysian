@@ -1,10 +1,8 @@
-// Imports
-import "./_styles.scss";
 import { Link } from "react-router-dom";
 
 // Components
 import Navbar from "../navbar/navbar";
-
+import ContentWrapper from "../content-wrapper/contentwrapper";
 const Header = () => {
   return (
     <header>

@@ -1,15 +1,7 @@
-// Imports
-import "./_styles.scss";
-
-// Components
-import Header from "../../../components/common/header/header";
-
-const Landing = () => {
+const LandingX = () => {
   return (
     <div className="landing">
       <main>
-        <Header />
-
         <div className="content">
           <div className="info">
             <h1>Make Your Interior More Minimalistic & Modern</h1>
@@ -25,4 +17,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default LandingX;

@@ -1,0 +1,15 @@
+// Imports
+@import "../mixins";
+@import "../variables";
+
+header{
+    background-color: transparent;
+    @include flex(center, space-between);
+
+    // Font settings
+    font-size: $md;
+    font-weight: $medium;
+    color: $text-light;
+    font-family: $font-1;
+
+}

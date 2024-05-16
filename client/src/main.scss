@@ -1,7 +1,6 @@
 // Importing Fonts
 @import url("https://fonts.googleapis.com/css2?family=Andika&display=swap");
 
-/* Importing Partial scss files */
 // Common Styles
 @import "components/common/content-wrapper/styles";
 @import "components/common/header/styles";
@@ -30,13 +29,12 @@
 @import "components/user/cart/styles";
 @import "components/user/checkout/styles";
 @import "components/user/order/styles";
-@import "components/user/product//styles";
+@import "components/user/product/styles";
 @import "components/user/shipping/styles";
 @import "components/user/search/styles";
 
-
 :root {
-  //Font
+  // Font
   font-family: "Andika", sans-serif;
   font-weight: 100;
   font-style: normal;
@@ -61,7 +59,7 @@
 }
 
 * {
-  margin: 10;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -79,8 +77,12 @@ a {
   text-decoration: none;
 }
 
-.app {
-  color : $primary;
-  font-size: $xl;
+.Link {
+  list-style: none;
+  color: inherit;
 }
 
+.app {
+  color: $primary;
+  font-size: $xl;
+}

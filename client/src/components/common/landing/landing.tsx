@@ -1,3 +1,4 @@
+import { MagnifyingGlass } from "@phosphor-icons/react";
 const LandingX = () => {
   return (
     <div className="landing">
@@ -9,8 +10,15 @@ const LandingX = () => {
               Turn your room with panto into a lot more minimalist and modern
               with ease and speed
             </p>
+            <div className="search">
+            <input type="text" placeholder="Search for furnitures" /> 
+            <div className="icon">
+            <MagnifyingGlass className="searchIcon" />
+            </div>
+           </div>
           </div>
-          <div className="sofa"></div>
+          <div className="bottom">
+          </div>
         </div>
       </main>
     </div>

@@ -1,18 +1,32 @@
 .landing {
   main {
     background: url("/Images/landingBg.png") no-repeat center center/cover;
+    width: 100vw;
     height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+    @include md{
+      height: 50vh;
+      background-size:cover;
+    }
 
     .content {
-      height: 100%;
       @include flex(column, center, center);
+      height: 100%;
 
       .info {
-        flex: 1;
-        margin-top: 75px;
         @include flex(column, center, center, 20px);
         @include square(575px);
+        flex: 1;
+        margin-top: 85px;
         text-align: center;
+
+        @include md{
+          margin-top: 75px;
+          @include flex(column, center, center, 10px);
+          @include square(300px);
+        }
 
         h1 {
           font-size: $xxxl;
@@ -21,20 +35,87 @@
           font-family: $font-1;
           text-align: center;
           line-height: 1.2;
+
+          @include md{
+            font-size: $lg;
+          }
         }
 
         p {
+          display: block;
+          width: 400px;
           font-size: $md;
-          font-weight: $medium;
+          font-weight: lighter;
           color: rgba($text-light, 0.8);
           font-family: $font-1;
           text-align: center;
           line-height: 1.5;
+
+          @include md{
+            width: 200px;
+            font-size: $xs;
+          }
+        }
+
+        .search{
+          @include flex(row, center, space-between, 10px);
+          margin-top: 20px;
+          width: 275px;
+          height: 45px;
+          padding: 0px 5px 0px 20px;
+          border-radius: 25px;
+          background-color: rgba($text-light, 0.15);
+          // backdrop-filter: blur(3.5px);
+          // -webkit-backdrop-filter: blur(3.5px);
+
+          @include md{
+            margin-top: 10px;
+            width: 150px;
+            height: 25px;
+            padding: 0px 5px 0px 10px;
+            border-radius: 15px;
+          }
+          
+          input{
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: $text-light;
+            font-weight: $thin;
+            &::placeholder{
+              color: rgba($text-light, 0.8);
+              font-weight: $thin;
+            }
+
+            @include md{
+              font-size: $xs;
+            }
+          }
+          .icon{
+            @include square(35px);
+            @include flex(row, center, center, 1px);
+            background-color: $primary;
+            border-radius: 50%;
+
+            @include md{
+              @include square(17.5px);
+              border-radius: 50%;
+            }
+            .searchIcon{
+              color: $text-light;
+              font-size: $lg;
+              @include md{
+                font-size: $xs;
+              }
+            
+            }
+          }
         }
       }
 
-      .sofa {
+      .bottom {
         flex: 1;
+        @include flex(column, center, start, 20px);  
       }
     }
   }

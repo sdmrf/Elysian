@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { CaretDown } from "@phosphor-icons/react";
-
+import { useState } from "react";
+import Dropdown from "./dropdown";
 const Navbar = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   return (
     <nav>
       <ul className="navItems">
-        <li className="link">
-          <Link to="/furniture" className="link furniture">
+        <li className="furniture">
             Furniture
-            <CaretDown />
-          </Link>
+            <CaretDown onClick={() => setIsDropdownOpen(!isDropdownOpen)}/>
         </li>
         <li className="link">
           <Link to="/shop" className="link">
@@ -27,6 +27,7 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
+      {isDropdownOpen && <Dropdown />}
     </nav>
   );
 };

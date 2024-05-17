@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-
+import { SignIn, UserCirclePlus }from '@phosphor-icons/react'
+import { List } from "@phosphor-icons/react";
 // Components
 import Navbar from "../navbar/navbar";
-import ContentWrapper from "../content-wrapper/contentwrapper";
 const Header = () => {
+  
   return (
     <header>
       {/* Logo */}
@@ -15,18 +16,21 @@ const Header = () => {
       <Navbar />
 
       {/* Account */}
-      <ul className="account">
-        <li className="link">
-          <Link to="/login" className="link">
-            Login
-          </Link>
-        </li>
-        <li className="link">
-          <Link to="/signup" className="link">
-            Sign Up
-          </Link>
-        </li>
-      </ul>
+      <div className="buttons">
+        <Link to="/login">
+          {" "}
+          <button type="button" className="btn1">
+          <SignIn className="icon"/>
+            Login</button>
+        </Link>
+        <Link to="/register">
+          {" "}
+          <button type="button" className="btn2">
+          <UserCirclePlus className="icon"/>
+          Register</button>
+        </Link>
+      </div>
+      <List className="toggle"/>
     </header>
   );
 };

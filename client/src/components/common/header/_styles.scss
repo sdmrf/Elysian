@@ -1,9 +1,11 @@
 header {
-  background-color: transparent;
+  @include flex(row, center, space-around);
+  // background: rgba(0, 0, 0, 0.25);
+  // backdrop-filter: blur(3.5px);
+  // -webkit-backdrop-filter: blur(3.5px);
   padding: 10px 20px;
   position: fixed;
   width: 100%;
-  @include flex(row, center, space-between);
 
   // Font settings
   font-size: $md;
@@ -11,13 +13,41 @@ header {
   color: $text-light;
   font-family: $font-1;
 
-  .account {
-    @include flex(row, center, center, 1rem);
+  .logo {
+    @include md{
+      font-size: $sm;
+    }
+  }
 
-    ul {
-      li {
-        cursor: pointer;
+  .buttons {
+    @include flex(row, center, space-between, 1rem);
+    @include md{
+      display: none;
+    }
+    button {
+      @include flex(row, center, center, 0.5rem);
+      font-size: 15px;
+
+      .icon {
+        font-size: $lg;
       }
+    }
+    .btn1 {
+      @include btn1(0.5rem 1rem, $primary, $text-light, 5px);
+      opacity: 0.9;
+    }
+    .btn2 {
+      @include btn2(0.5rem 1rem, $primary, 5px);
+    }
+  }
+
+  .toggle{
+    display: none;
+
+    @include md{
+      display: block;
+      cursor: pointer;
+      font-size: $xl;
     }
   }
 }

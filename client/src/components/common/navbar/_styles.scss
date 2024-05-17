@@ -1,13 +1,87 @@
 nav {
   .navItems {
-    @include flex(row, space-between, center, 2rem);
-
+    @include flex(row, center, space-between, 2.5rem);
+    @include md{
+      display: none;
+    }
     li {
       cursor: pointer;
+      list-style-type: none;
+      opacity: 0.9;
+    }
+    .furniture {
+      list-style-type: none;
+      @include flex(row, center, center, 0.5rem);
+    }
+  }
 
-      .furniture {
-        @include flex(row, center, center, 0.5rem);
+  .Dropdown {
+    @include flex(row, center, center, 0);
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    height: 300px;
+  
+    .container {
+      @include flex(row, center, center, 1rem);
+      background: $bg-dark;
+      padding: 2.5rem 4rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      height: 100%;
+      border: 1px solid rgba($text-light-2, 0.5);
+  
+      &:before {
+        content: "";
+        position: absolute;
+        top: -0.5rem;
+        left: 20%;
+        transform: translateX(-50%);
+        border-width: 0 0.5rem 0.5rem 0.5rem;
+        border-style: solid;
+        border-color: transparent transparent rgba($text-light-2, 0.75) transparent;
+      }
+  
+      .line {
+        width: 1px;
+        height: 80%;
+        background: $text-light-2;
+        margin: 0 1rem;
+        opacity: 0.5;
+      }
+  
+      .links {
+        @include flex(column, start, start, 0.75rem);
+        h1 {
+          margin: 0;
+          padding-bottom: 0.5rem;
+          font-size: $lg;
+          color: $text-light;
+        }
+  
+        ul {
+          @include flex(column, start, start, 0.25rem);
+          margin: 0;
+          padding: 0;
+  
+          li {
+            cursor: pointer;
+            list-style-type: none;
+            margin: 0.25rem 0;
+            font-size: 15px;
+            font-weight: lighter !important;
+            opacity: 0.75;
+  
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
       }
     }
   }
+  
 }
+

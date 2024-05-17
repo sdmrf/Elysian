@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/codezeniths/Elysian/compare/v1.4.0...v1.5.0) (2024-05-17)
+
+
+### Features
+
+* add navbar, header, and make it responsive :sparkles: ([35d4de7](https://github.com/codezeniths/Elysian/commit/35d4de755042652ed0d485f10200a8c03d1ac624))
+
 # [1.4.0](https://github.com/codezeniths/Elysian/compare/v1.3.0...v1.4.0) (2024-05-16)
 
 

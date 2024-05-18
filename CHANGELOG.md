@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/codezeniths/Elysian/compare/v1.8.0...v1.9.0) (2024-05-18)
+
+
+### Features
+
+* add swiper wrapper with some fixtures :sparkles: ([51a53c8](https://github.com/codezeniths/Elysian/commit/51a53c8ff08f4d41fec49d30cb6a79a09a5cea7a))
+
 # [1.8.0](https://github.com/codezeniths/Elysian/compare/v1.7.0...v1.8.0) (2024-05-18)
 
 

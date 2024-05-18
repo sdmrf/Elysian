@@ -1,5 +1,6 @@
 // Imports
 import React from "react";
+import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import {
   Navigation,
   Pagination,
@@ -17,10 +18,14 @@ const SwiperSlider = ({ children }: { children: React.ReactNode }) => {
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-      spaceBetween={50}
-      slidesPerView={1}
-      navigation={{ enabled: true }}
-      pagination={{ clickable: true }}
+      spaceBetween={20}
+      slidesPerView={4}
+      navigation={{
+        enabled: true,
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }}
+      pagination={{ clickable: true, el: ".swiper-custom-pagination" }}
       autoplay={{
         delay: 4000,
         disableOnInteraction: false,
@@ -29,6 +34,13 @@ const SwiperSlider = ({ children }: { children: React.ReactNode }) => {
       {React.Children.map(children, (child, index) => (
         <SwiperSlide key={index}>{child}</SwiperSlide>
       ))}
+      <div className="swiper-button-prev">
+        <ArrowLeft className="icon" />
+      </div>
+      <div className="swiper-button-next">
+        <ArrowRight className="icon" />
+      </div>
+      <div className="swiper-custom-pagination"></div>
     </Swiper>
   );
 };

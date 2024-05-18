@@ -16,6 +16,7 @@
 @import "components/common/skeleton/styles";
 @import "components/common/card/styles";
 @import "components/common/landing/styles";
+@import "components/common/wrappers/swiper-wrapper/swiper-slider/styles";
 
 // Admin Styles
 @import "components/admin/apps/styles";
@@ -51,14 +52,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  // Swiper
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: $primary;
-  }
-  .swiper-pagination-bullet-active {
-    background-color: $primary !important;
-  }
 }
 
 * {
@@ -91,7 +84,7 @@ a {
   font-size: $xl;
 }
 
-button{
+button {
   cursor: pointer;
   font-family: $font-1;
 }

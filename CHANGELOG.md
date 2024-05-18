@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/codezeniths/Elysian/compare/v1.5.0...v1.6.0) (2024-05-18)
+
+
+### Features
+
+* initialized home page and swiper component ([3df03ea](https://github.com/codezeniths/Elysian/commit/3df03ea3f79eaf70ef63ece4dfc389eb5cac2955))
+
 # [1.5.0](https://github.com/codezeniths/Elysian/compare/v1.4.0...v1.5.0) (2024-05-17)
 
 

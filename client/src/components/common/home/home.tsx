@@ -1,11 +1,12 @@
 // Imports
-import SwiperCarousel from "../swiper-carousel/swiperCarousel";
+import SwiperCarousel from "../swiper/swiper-carousel/swiperCarousel";
+import SwiperSlider from "../swiper/swiper-slider/swiperSlider";
 
 const HomeX = () => {
   return (
     <div className="Home">
       <main>
-        <SwiperCarousel />
+        <SwiperSlider />
       </main>
     </div>
   );

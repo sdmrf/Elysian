@@ -1,5 +1,5 @@
 // Imports
-import HomeX from "../../components/common/home/home"
+import HomeX from "../../components/user/home/home"
 
 const Home = () => {
   return (

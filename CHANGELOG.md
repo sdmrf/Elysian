@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/codezeniths/Elysian/compare/v1.7.0...v1.8.0) (2024-05-18)
+
+
+### Features
+
+* add swiper-slider-2 ([791d2ea](https://github.com/codezeniths/Elysian/commit/791d2eaaa98b1a11d03d39f7a69c1f7b871aefaa))
+
 # [1.7.0](https://github.com/codezeniths/Elysian/compare/v1.6.0...v1.7.0) (2024-05-18)
 
 

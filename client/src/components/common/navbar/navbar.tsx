@@ -7,9 +7,12 @@ const Navbar = () => {
   return (
     <nav>
       <ul className="navItems">
-        <li className="furniture">
-            Furniture
-            <CaretDown onClick={() => setIsDropdownOpen(!isDropdownOpen)}/>
+        <li
+          className="furniture"
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        >
+          Furniture
+          <CaretDown />
         </li>
         <li className="link">
           <Link to="/shop" className="link">

@@ -1,3 +1,4 @@
+// Imports
 import React from "react";
 import {
   Navigation,
@@ -12,7 +13,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-const SwiperWrapper = ({ children }: { children: React.ReactNode }) => {
+const SwiperSlider = ({ children }: { children: React.ReactNode }) => {
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
@@ -32,4 +33,4 @@ const SwiperWrapper = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default SwiperWrapper;
+export default SwiperSlider;

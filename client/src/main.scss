@@ -6,7 +6,7 @@
 @import "components/common/mixins";
 
 // Common Styles
-@import "components/common/content-wrapper/styles";
+@import "components/common/wrappers/content-wrapper/styles";
 @import "components/common/header/styles";
 @import "components/common/footer/styles";
 @import "components/common/loader/styles";
@@ -14,8 +14,8 @@
 @import "components/common/error/styles";
 @import "components/common/protected-route/styles";
 @import "components/common/skeleton/styles";
+@import "components/common/card/styles";
 @import "components/common/landing/styles";
-@import "components/common/home/styles";
 
 // Admin Styles
 @import "components/admin/apps/styles";
@@ -28,6 +28,7 @@
 @import "components/admin/table/styles";
 
 // User Styles
+@import "components/user/home/styles";
 @import "components/user/cart/styles";
 @import "components/user/checkout/styles";
 @import "components/user/order/styles";

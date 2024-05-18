@@ -1,5 +1,89 @@
-.card{
+.card {
     @include card();
+    @include flex(column, center, center);
     cursor: pointer;
-
-}
+    padding: 10px;
+    transition: all 0.3s;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: $card-light;
+  
+    &:hover {
+      background-color: $card-hover-light;
+      transform: scale(1.05);
+    }
+  
+    .img {
+      width: 100%;
+      position: relative;
+      padding-bottom: 75%;
+      overflow: hidden;
+      border-radius: inherit;
+  
+      img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+      }
+    }
+  
+    .content {
+      width: 100%;
+      padding: 10px 0;
+  
+      .category {
+        font-size: $sm;
+        color: $text-dark-2;
+        font-family: $font-1;
+        margin: 12px 0;
+      }
+  
+      .name {
+        font-size: $lg;
+        font-weight: bold;
+        margin: 12px 0;
+        color: $text-dark;
+        font-family: $font-1;
+      }
+  
+      .rating {
+        display: flex;
+        gap: 5px;
+        margin: 12px 0;
+      }
+  
+      .bottom {
+        margin-top: 25px;
+        @include flex(row, center, space-between);
+  
+        .info {
+          .price {
+            font-size: $md;
+            font-weight: bolder;
+            color: $bg-dark;
+            margin: 10px 0;
+            font-family: $font-1;
+          }
+  
+          .stock {
+            font-size: $sm;
+            color: $text-dark-2;
+            font-family: $font-1;
+          }
+        }
+  
+        .btn {
+          height: 30px;
+          width: 30px;
+          border: none;
+          border-radius: 50%;
+          background-color: $btn-dark;
+          @include flex(row, center, center);
+        }
+      }
+    }
+  }
+  

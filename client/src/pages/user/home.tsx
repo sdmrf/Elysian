@@ -1,9 +1,9 @@
+// Imports
+import HomeX from "../../components/common/home/home"
 
 const Home = () => {
   return (
-    <div>
-      Home Page
-    </div>
+    <HomeX />
   )
 }
 

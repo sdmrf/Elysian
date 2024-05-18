@@ -2,14 +2,7 @@
 import { Product } from "../../../types/types";
 import { Star, Plus } from "@phosphor-icons/react";
 
-const Card: React.FC<Product> = ({
-  image,
-  category,
-  name,
-  rating,
-  price,
-  stock,
-}) => (
+const Card = ({ image, category, name, rating, price, stock }: Product) => (
   <div className="card">
     <div className="img">
       <img src={image} alt={name} />

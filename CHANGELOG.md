@@ -1,3 +1,16 @@
+# [1.7.0](https://github.com/codezeniths/Elysian/compare/v1.6.0...v1.7.0) (2024-05-18)
+
+
+### Bug Fixes
+
+* change smaller font in dropdown box ([e183e57](https://github.com/codezeniths/Elysian/commit/e183e574da0fc8018dabb37a224a5388ffa12c00))
+
+
+### Features
+
+* add card ([2390b47](https://github.com/codezeniths/Elysian/commit/2390b475f0fc14e3333e53594f35ca6c65b44c6e))
+* initalize swiper-slider component ([3257f1f](https://github.com/codezeniths/Elysian/commit/3257f1f841d09a2c1af6b27fa8380f4003201d29))
+
 # [1.6.0](https://github.com/codezeniths/Elysian/compare/v1.5.0...v1.6.0) (2024-05-18)
 
 

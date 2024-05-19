@@ -1,44 +1,51 @@
-:root{
-    .swiper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between; 
-        position: relative;
-        
-        .swiper-button-next,
-        .swiper-button-prev {
-          width: 40px; 
-          height: 40px; 
-          border-radius: 50%;
-          background-color: $primary; 
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
+:root {
+  .swiper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    .swiper-button-prev {
+      position: fixed;
+      left: 7.5%;
+    }
+    .swiper-button-next {
+      position: fixed;
+      right: 11%;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
 
-          &::after {
-            display: none; // Hide the default arrow
-          }
-
-          .icon {
-            width: 20px; 
-            height: 20px; 
-            color: $text-light;
-          }
-        }
-        .swiper-custom-pagination{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-        }
-        .swiper-pagination-bullet {
-          background-color: $text-light;
-        }
-      
-        .swiper-pagination-bullet-active {
-          background-color: $primary;
-        }
+      &::after {
+        display: none; // Hide the default arrow
       }
+
+      .icon {
+        width: 20px;
+        height: 20px;
+        color: $text-light;
+      }
+    }
+    .swiper-custom-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+    .swiper-pagination-bullet {
+      background-color: $text-light;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: $primary;
+    }
+  }
 }

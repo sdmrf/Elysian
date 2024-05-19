@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/codezeniths/Elysian/compare/v1.10.0...v1.11.0) (2024-05-19)
+
+
+### Features
+
+* add swiper-carousel ([bf1ef15](https://github.com/codezeniths/Elysian/commit/bf1ef153e0e167e904f0ba02cc77fef0a2ac822d))
+
 # [1.10.0](https://github.com/codezeniths/Elysian/compare/v1.9.0...v1.10.0) (2024-05-19)
 
 

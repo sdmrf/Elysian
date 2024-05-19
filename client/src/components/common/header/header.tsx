@@ -18,7 +18,7 @@ const Header = () => {
 
       {/* Navbar */}
 
-      <Navbar isMenuOpen={isMenuOpen}/>
+      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
 
       {/* Account */}
       <div className="buttons">

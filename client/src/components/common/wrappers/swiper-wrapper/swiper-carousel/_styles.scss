@@ -5,8 +5,8 @@
 
   .swiper-slide {
     @include flex();
-    height: 275px;
-    width: 400px;
+    height: 375px;
+    width: 600px;
     position: relative;
 
     img {
@@ -83,10 +83,9 @@
         width: 40px;
         height: 40px;
         color: $text-light;
-
-        svg{
-          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-        }
+        font-size: 20px;
+        transition: all 0.5s ease;
+        box-shadow: 20px 10px 10px 0 rgba(0, 0, 0, 0.2);
       }
 
     }

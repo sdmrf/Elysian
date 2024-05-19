@@ -37,8 +37,8 @@ const SwiperCarousel = ({ children }: { children: React.ReactNode }) => {
       slidesPerView={"auto"}
       coverflowEffect={{
         rotate: 0,
-        stretch: 0,
-        depth: 100,
+        stretch: 25,
+        depth: 150,
         modifier: 2.5,
         slideShadows: true,
       }}

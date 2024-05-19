@@ -10,7 +10,6 @@ import { furnitures } from "../../../assets/data/homeData";
 const HomeX = () => {
   return (
     <div className="Home">
-      <ContentWrapper>
         <main>
           {/* <SwiperSlider>
             {furnitures.map((furniture, index) => (
@@ -23,7 +22,6 @@ const HomeX = () => {
             ))}
           </SwiperCarousel>
         </main>
-      </ContentWrapper>
     </div>
   );
 };

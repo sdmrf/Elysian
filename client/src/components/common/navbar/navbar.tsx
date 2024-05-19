@@ -3,8 +3,12 @@ import { CaretDown } from "@phosphor-icons/react";
 import { useState } from "react";
 import Dropdown from "./dropdown";
 import Menu from "./menu";
-const Navbar = ({isMenuOpen}: {isMenuOpen: boolean}) => {
+
+
+const Navbar = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  
   return (
     <nav>
       <ul className="navItems">
@@ -31,7 +35,12 @@ const Navbar = ({isMenuOpen}: {isMenuOpen: boolean}) => {
           </Link>
         </li>
       </ul>
-      {isDropdownOpen && <Dropdown />}
+      {isDropdownOpen && (
+        <Dropdown
+          isVisible={isDropdownOpen}
+          toggleVisibility={setIsDropdownOpen}
+        />
+      )}
       {isMenuOpen && <Menu />}
     </nav>
   );

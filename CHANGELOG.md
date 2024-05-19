@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/codezeniths/Elysian/compare/v1.11.1...v1.12.0) (2024-05-19)
+
+
+### Features
+
+* initialise logo-slider ([7e2c45f](https://github.com/codezeniths/Elysian/commit/7e2c45ff8977c2115d13fb0b3b1067ef8aa917b9))
+
 ## [1.11.1](https://github.com/codezeniths/Elysian/compare/v1.11.0...v1.11.1) (2024-05-19)
 
 

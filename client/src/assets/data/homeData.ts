@@ -3,7 +3,7 @@ import { Product } from "../../types/types";
 export const furnitures: Product[] = [
   {
     _id: "1",
-    image: "https://toro.la-studioweb.com/wp-content/uploads/2019/01/home18-img-04-1.png",
+    image: "https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg",
     category: "Chair",
     name: "Baltsar Chair",
     rating: 4,
@@ -21,7 +21,7 @@ export const furnitures: Product[] = [
   },
   {
     _id: "3",
-    image: "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg",
+    image: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg",
     category: "Chair",
     name: "Oak Chair",
     rating: 3,
@@ -30,7 +30,7 @@ export const furnitures: Product[] = [
   },
   {
     _id: "4",
-    image: "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg",
+    image: "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg",
     category: "Chair",
     name: "Pine Chair",
     rating: 4,
@@ -39,7 +39,7 @@ export const furnitures: Product[] = [
   },
   {
     _id: "5",
-    image: "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg",
+    image: "https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg",
     category: "Chair",
     name: "Birch Chair",
     rating: 4,
@@ -48,7 +48,7 @@ export const furnitures: Product[] = [
   },
   {
     _id: "6",
-    image: "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg",
+    image: "https://images.pexels.com/photos/275484/pexels-photo-275484.jpeg",
     category: "Chair",
     name: "Mahogany Chair",
     rating: 5,
@@ -57,7 +57,7 @@ export const furnitures: Product[] = [
   },
   {
     _id: "7",
-    image: "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg",
+    image: "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
     category: "Chair",
     name: "Walnut Chair",
     rating: 3,
@@ -66,7 +66,7 @@ export const furnitures: Product[] = [
   },
   {
     _id: "8",
-    image: "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg",
+    image: "https://images.pexels.com/photos/1543447/pexels-photo-1543447.jpeg",
     category: "Chair",
     name: "Teak Chair",
     rating: 4,

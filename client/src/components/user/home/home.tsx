@@ -1,6 +1,6 @@
 // Imports
 import SwiperSlider from "../../common/wrappers/swiper-wrapper/swiper-slider/swiperSlider";
-import SwiperSlider2 from "../../common/wrappers/swiper-wrapper/swiper-slider-2/swiperSlider2";
+import SwiperCarousel from "../../common/wrappers/swiper-wrapper/swiper-carousel/swiperCarousel";
 import ContentWrapper from "../../common/wrappers/content-wrapper/contentWrapper";
 import Card from "../../common/card/card";
 
@@ -12,11 +12,16 @@ const HomeX = () => {
     <div className="Home">
       <ContentWrapper>
         <main>
-          <SwiperSlider>
+          {/* <SwiperSlider>
             {furnitures.map((furniture, index) => (
               <Card key={index} {...furniture} />
             ))}
-          </SwiperSlider>
+          </SwiperSlider> */}
+          <SwiperCarousel>
+            {furnitures.map((furniture, index) => (
+              <img key={index} src={furniture.image} />
+            ))}
+          </SwiperCarousel>
         </main>
       </ContentWrapper>
     </div>

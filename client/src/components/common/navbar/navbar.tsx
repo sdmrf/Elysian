@@ -4,11 +4,15 @@ import { useState } from "react";
 import Dropdown from "./dropdown";
 import Menu from "./menu";
 
-
-const Navbar = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
-
+const Navbar = ({
+  isMenuOpen,
+  setIsMenuOpen,
+}: {
+  isMenuOpen: boolean;
+  setIsMenuOpen: (isMenuOpen: boolean) => void;
+}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  
+
   return (
     <nav>
       <ul className="navItems">
@@ -41,7 +45,9 @@ const Navbar = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
           toggleVisibility={setIsDropdownOpen}
         />
       )}
-      {isMenuOpen && <Menu />}
+      {isMenuOpen && (
+        <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      )}
     </nav>
   );
 };

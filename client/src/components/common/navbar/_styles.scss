@@ -1,7 +1,7 @@
 nav {
   .navItems {
     @include flex(row, center, space-between, 2.5rem);
-    @include md {
+    @include md-max {
       display: none;
     }
     li {

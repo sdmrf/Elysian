@@ -6,7 +6,7 @@
     background-size: cover;
     background-position: center;
 
-    @include md{
+    @include md-max{
       height: 50vh;
       background-size:cover;
     }
@@ -22,7 +22,7 @@
         margin-top: 85px;
         text-align: center;
 
-        @include md{
+        @include md-max{
           margin-top: 75px;
           @include flex(column, center, center, 10px);
           @include square(300px);
@@ -36,7 +36,7 @@
           text-align: center;
           line-height: 1.2;
 
-          @include md{
+          @include md-max{
             font-size: $lg;
           }
         }
@@ -51,7 +51,7 @@
           text-align: center;
           line-height: 1.5;
 
-          @include md{
+          @include md-max{
             width: 200px;
             font-size: $xs;
           }
@@ -68,7 +68,7 @@
           // backdrop-filter: blur(3.5px);
           // -webkit-backdrop-filter: blur(3.5px);
 
-          @include md{
+          @include md-max{
             margin-top: 10px;
             width: 150px;
             height: 25px;
@@ -87,7 +87,7 @@
               font-weight: $thin;
             }
 
-            @include md{
+            @include md-max{
               font-size: $xs;
             }
           }
@@ -97,14 +97,14 @@
             background-color: $primary;
             border-radius: 50%;
 
-            @include md{
+            @include md-max{
               @include square(17.5px);
               border-radius: 50%;
             }
             .searchIcon{
               color: $text-light;
               font-size: $lg;
-              @include md{
+              @include md-max{
                 font-size: $xs;
               }
             

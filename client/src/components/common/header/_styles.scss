@@ -7,7 +7,7 @@ header {
   position: fixed;
   width: 100%;
 
-  @include md{
+  @include md-max{
     padding: 10px 60px;
     @include flex(row, center, space-between);
   }
@@ -19,14 +19,14 @@ header {
   font-family: $font-1;
 
   .logo {
-    @include md{
+    @include md-max{
       font-size: $sm;
     }
   }
 
   .buttons {
     @include flex(row, center, space-between, 1rem);
-    @include md{
+    @include md-max{
       display: none;
     }
     button {
@@ -49,7 +49,7 @@ header {
   .toggle{
     display: none;
 
-    @include md{
+    @include md-max{
       display: block;
       cursor: pointer;
       font-size: $xl;

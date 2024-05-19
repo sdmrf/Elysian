@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/codezeniths/Elysian/compare/v1.12.0...v1.12.1) (2024-05-19)
+
+
+### Bug Fixes
+
+* fix the dropdown render issue :bug: ([316a0fd](https://github.com/codezeniths/Elysian/commit/316a0fd35044b50a988169300654f492b4eeab25))
+
 # [1.12.0](https://github.com/codezeniths/Elysian/compare/v1.11.1...v1.12.0) (2024-05-19)
 
 

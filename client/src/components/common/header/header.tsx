@@ -3,7 +3,12 @@ import { SignIn, UserCirclePlus } from "@phosphor-icons/react";
 import { List } from "@phosphor-icons/react";
 // Components
 import Navbar from "../navbar/navbar";
+import { useState } from "react";
+
 const Header = () => {
+
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
   return (
     <header>
       {/* Logo */}
@@ -12,7 +17,8 @@ const Header = () => {
       </div>
 
       {/* Navbar */}
-      <Navbar />
+
+      <Navbar isMenuOpen={isMenuOpen}/>
 
       {/* Account */}
       <div className="buttons">
@@ -29,7 +35,7 @@ const Header = () => {
           </button>
         </Link>
       </div>
-      <List className="toggle" />
+      <List className="toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} />
     </header>
   );
 };

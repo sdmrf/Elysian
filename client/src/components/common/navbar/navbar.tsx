@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { CaretDown } from "@phosphor-icons/react";
 import { useState } from "react";
 import Dropdown from "./dropdown";
-const Navbar = () => {
+import Menu from "./menu";
+const Navbar = ({isMenuOpen}: {isMenuOpen: boolean}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   return (
     <nav>
@@ -31,6 +32,7 @@ const Navbar = () => {
         </li>
       </ul>
       {isDropdownOpen && <Dropdown />}
+      {isMenuOpen && <Menu />}
     </nav>
   );
 };

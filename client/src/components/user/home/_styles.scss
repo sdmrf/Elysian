@@ -1,8 +1,6 @@
-.Home{
-    main{
-        width: 100%;
-        height: 100vh;
-        @include flex();
-        padding: 0 50px;
-    }
+.Home {
+  main {
+    height: 100vh;
+    @include flex(column, center, center, 5rem);
+  }
 }

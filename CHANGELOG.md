@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/codezeniths/Elysian/compare/v1.9.0...v1.10.0) (2024-05-19)
+
+
+### Features
+
+* add hamburger menu and fix swiper :sparkles: ([b1e523b](https://github.com/codezeniths/Elysian/commit/b1e523b81b3f3ff33ef27648f543892d215550fc))
+
 # [1.9.0](https://github.com/codezeniths/Elysian/compare/v1.8.0...v1.9.0) (2024-05-18)
 
 

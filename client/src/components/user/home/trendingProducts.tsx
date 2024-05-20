@@ -6,7 +6,7 @@ import SwiperSlider from "../../common/wrappers/swiper-wrapper/swiper-slider/swi
 // Demo Data
 import { sofas, chairs } from "../../../assets/data/homeData";
 
-const trendingCategories = ["All", "Sofa", "Chair", "Table", "Bed"];
+const trendingCategories = ["All", "Sofa", "Chair", "Table", "Bed", "Decor", "Kitchen"];
 
 const TrendingProducts = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");

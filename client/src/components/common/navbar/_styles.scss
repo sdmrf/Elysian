@@ -189,5 +189,21 @@ nav {
         @include btn2(0.4rem 0.8rem, $primary, 5px);
       }
     }
+
+    .profile{
+      @include flex(row, center, center, 10px);
+      .avatar{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+  
+        img{
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+    }
   }
 }

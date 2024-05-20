@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/codezeniths/Elysian/compare/v1.13.0...v1.13.1) (2024-05-20)
+
+
+### Bug Fixes
+
+* swiper slider ([8b57e6b](https://github.com/codezeniths/Elysian/commit/8b57e6b35d236506c3650b9fed7b6ca7d790b50a))
+
 # [1.13.0](https://github.com/codezeniths/Elysian/compare/v1.12.1...v1.13.0) (2024-05-20)
 
 

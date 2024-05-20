@@ -5,6 +5,11 @@ const LandingX = () => {
   return (
     <div className="landing">
       <main>
+      <div className="Backdrop-img">
+        <img src="/Images/landingBg.png" />
+      </div>
+      <div className="leftfade"></div>
+      <div className="overlay"></div>
         <div className="content">
           <div className="info">
             <h1>Make Your Interior More Minimalistic & Modern</h1>
@@ -19,9 +24,11 @@ const LandingX = () => {
               </div>
             </div>
           </div>
-          <div className="bottom"></div>
         </div>
       </main>
+      <section>
+
+      </section>
     </div>
   );
 };

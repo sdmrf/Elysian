@@ -1,6 +1,6 @@
 import { Product } from "../../types/types";
 
-export const furnitures: Product[] = [
+const sofas: Product[] = [
   {
     _id: "1",
     image: "https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg",
@@ -74,3 +74,80 @@ export const furnitures: Product[] = [
     stock: 10,
   },
 ];
+
+const chairs: Product[] = [
+  {
+    _id: "1",
+    image: "https://images.pexels.com/photos/276651/pexels-photo-276651.jpeg",
+    category: "Table",
+    name: "Maple Table",
+    rating: 4,
+    price: 499,
+    stock: 5,
+  },
+  {
+    _id: "2",
+    image: "https://images.pexels.com/photos/1082355/pexels-photo-1082355.jpeg",
+    category: "Table",
+    name: "Cherry Table",
+    rating: 5,
+    price: 599,
+    stock: 7,
+  },
+  {
+    _id: "3",
+    image: "https://images.pexels.com/photos/1571467/pexels-photo-1571467.jpeg",
+    category: "Table",
+    name: "Pine Table",
+    rating: 3,
+    price: 299,
+    stock: 12,
+  },
+  {
+    _id: "4",
+    image: "https://images.pexels.com/photos/363780/pexels-photo-363780.jpeg",
+    category: "Table",
+    name: "Oak Table",
+    rating: 4,
+    price: 399,
+    stock: 8,
+  },
+  {
+    _id: "5",
+    image: "https://images.pexels.com/photos/19680/pexels-photo.jpg",
+    category: "Table",
+    name: "Birch Table",
+    rating: 4,
+    price: 499,
+    stock: 10,
+  },
+  {
+    _id: "6",
+    image: "https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg",
+    category: "Table",
+    name: "Mahogany Table",
+    rating: 5,
+    price: 699,
+    stock: 6,
+  },
+  {
+    _id: "7",
+    image: "https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg",
+    category: "Table",
+    name: "Walnut Table",
+    rating: 3,
+    price: 299,
+    stock: 11,
+  },
+  {
+    _id: "8",
+    image: "https://images.pexels.com/photos/276647/pexels-photo-276647.jpeg",
+    category: "Table",
+    name: "Teak Table",
+    rating: 4,
+    price: 399,
+    stock: 9,
+  },
+];
+
+export { sofas, chairs };

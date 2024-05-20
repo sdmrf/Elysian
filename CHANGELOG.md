@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/codezeniths/Elysian/compare/v1.14.1...v1.15.0) (2024-05-20)
+
+
+### Features
+
+* add darkmode toggle button and made it responsive ([4064493](https://github.com/codezeniths/Elysian/commit/40644937fae9e7502315119cdcaf4eeb3575bd88))
+
 ## [1.14.1](https://github.com/codezeniths/Elysian/compare/v1.14.0...v1.14.1) (2024-05-20)
 
 

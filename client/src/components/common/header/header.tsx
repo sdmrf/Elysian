@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { SignIn, UserCirclePlus, List } from "@phosphor-icons/react";
 import { useState, useEffect } from "react";
 import Navbar from "../navbar/navbar";
+import Darkmode from "./darkmode";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);

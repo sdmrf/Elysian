@@ -18,15 +18,15 @@
       margin-top: 10px;
 
       .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         background-color: $primary;
-        margin: 0 5px;
+        margin: 0px;
         cursor: pointer;
 
         &.swiper-pagination-bullet-active {
-          background-color: $text-light;
+          background-color: $primary;
         }
       }
     }
@@ -67,7 +67,7 @@
   }
 
   .swiperBtnPrev {
-    left: 7.5%;
+    left: 8.5%;
   }
 
   .swiperBtnNext {

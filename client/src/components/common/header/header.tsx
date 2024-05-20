@@ -1,24 +1,34 @@
+// Imports
 import { Link } from "react-router-dom";
-import { SignIn, UserCirclePlus } from "@phosphor-icons/react";
-import { List } from "@phosphor-icons/react";
-// Components
+import { SignIn, UserCirclePlus, List } from "@phosphor-icons/react";
+import { useState, useEffect } from "react";
 import Navbar from "../navbar/navbar";
-import { useState } from "react";
 
 const Header = () => {
-
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY !== 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <header>
+    <header className={isScrolled ? "header scrolled" : "header"}>
       {/* Logo */}
       <div className="logo">
         <h1>Elysian</h1>
       </div>
 
       {/* Navbar */}
-
-      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       {/* Account */}
       <div className="buttons">

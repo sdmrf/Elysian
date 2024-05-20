@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/codezeniths/Elysian/compare/v1.13.1...v1.14.0) (2024-05-20)
+
+
+### Features
+
+* add trending section ([af2be2f](https://github.com/codezeniths/Elysian/commit/af2be2f2c5f96c0a3e43d7ea7cff5b5b6f2df5dd))
+
 ## [1.13.1](https://github.com/codezeniths/Elysian/compare/v1.13.0...v1.13.1) (2024-05-20)
 
 

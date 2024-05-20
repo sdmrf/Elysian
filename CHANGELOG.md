@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/codezeniths/Elysian/compare/v1.15.0...v1.16.0) (2024-05-20)
+
+
+### Features
+
+* add footer and refactor mixins with responsive :sparkles: ([841320e](https://github.com/codezeniths/Elysian/commit/841320eefb7b9cd32578bc22aa98b771306969c4))
+
 # [1.15.0](https://github.com/codezeniths/Elysian/compare/v1.14.1...v1.15.0) (2024-05-20)
 
 

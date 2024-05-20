@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/codezeniths/Elysian/compare/v1.14.0...v1.14.1) (2024-05-20)
+
+
+### Bug Fixes
+
+* landing page and make responsive :bug: ([e9e3a14](https://github.com/codezeniths/Elysian/commit/e9e3a1413f94efee77468807e0dabd12dfda4acc))
+
 # [1.14.0](https://github.com/codezeniths/Elysian/compare/v1.13.1...v1.14.0) (2024-05-20)
 
 

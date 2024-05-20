@@ -1,7 +1,9 @@
 // Imports
 import SwiperCarousel from "../../common/wrappers/swiper-wrapper/swiper-carousel/swiperCarousel";
 import SwiperLogo from "../../common/wrappers/swiper-wrapper/swiper-logo/swiperLogo";
-import SliderSection from "../../common/slider-section/sliderSection";
+
+// Components
+import TrendingProducts from "./trendingProducts";
 
 // Demo Data
 import { furnitures } from "../../../assets/data/homeData";
@@ -11,11 +13,6 @@ const HomeX = () => {
   return (
     <div className="Home">
       <main>
-        {/* <SwiperSlider>
-            {furnitures.map((furniture, index) => (
-              <Card key={index} {...furniture} />
-            ))}
-          </SwiperSlider> */}
         <SwiperCarousel>
           {furnitures.map((furniture, index) => (
             <img key={index} src={furniture.image} />
@@ -28,7 +25,7 @@ const HomeX = () => {
         </SwiperLogo>
       </main>
       <section>
-        <SliderSection />
+        <TrendingProducts />
       </section>
     </div>
   );

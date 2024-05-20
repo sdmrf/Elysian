@@ -1,11 +1,21 @@
 .Home {
   main {
     height: 100vh;
+    padding: 0 25px;
     @include flex(column, center, center, 5rem);
   }
 
   section{
     height: 100vh;
+    padding: 0 25px;
     @include flex(column, center, center, 5rem);
+
+    .trendingProducts{
+      width: 100%;
+      height: 100%;
+      padding: 0 25px;
+      @include flex(column, space-between, center, 5rem);
+    }
   }
+
 }

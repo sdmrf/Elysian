@@ -97,7 +97,7 @@ export const logos = [
     },
     {
         id: 25,
-        logo: "/brands/patreon.svg"
+        logo: "/brands/nextdoor.svg"
     },
     {
         id: 26,

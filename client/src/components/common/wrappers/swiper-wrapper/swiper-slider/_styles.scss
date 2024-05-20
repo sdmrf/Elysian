@@ -1,50 +1,76 @@
-.swiper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+.swiperSlider {
+  width: 100%;
   position: relative;
   padding: 20px 10px;
-  .swiper-button-prev {
-    position: fixed;
-    left: 7.5%;
+  @include flex(column, center, center, 5rem);
+
+  .swiper {
+    width: 75%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 10px;
+
+    .swiperPagination {
+      @include flex();
+      margin-top: 10px;
+
+      .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: $primary;
+        margin: 0 5px;
+        cursor: pointer;
+
+        &.swiper-pagination-bullet-active {
+          background-color: $text-light;
+        }
+      }
+    }
   }
-  .swiper-button-next {
-    position: fixed;
-    right: 11%;
-  }
-  .swiper-button-next,
-  .swiper-button-prev {
-    width: 40px;
-    height: 40px;
+
+  .swiperBtnPrev,
+  .swiperBtnNext {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: $primary;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
-    &::after {
-      display: none; // Hide the default arrow
-    }
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-50%);
+    z-index: 1;
 
     .icon {
-      width: 20px;
-      height: 20px;
       color: $text-light;
     }
-  }
-  .swiper-custom-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-  }
-  .swiper-pagination-bullet {
-    background-color: $text-light;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      transform: translateY(-50%) scale(1.1);
+      background-color: $text-light;
+
+      .icon {
+        color: $primary;
+      }
+    }
   }
 
-  .swiper-pagination-bullet-active {
-    background-color: $primary;
+  .swiperBtnPrev {
+    left: 7.5%;
+  }
+
+  .swiperBtnNext {
+    right: 10%;
   }
 }

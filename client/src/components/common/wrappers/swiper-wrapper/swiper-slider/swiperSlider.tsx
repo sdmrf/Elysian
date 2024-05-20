@@ -47,7 +47,6 @@ const SwiperSlider = ({ children }: { children: React.ReactNode }) => {
       <div className="swiperBtnNext">
         <ArrowRight className="icon" weight="bold" />
       </div>
-
     </div>
   );
 };

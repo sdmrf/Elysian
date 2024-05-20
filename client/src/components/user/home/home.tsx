@@ -6,7 +6,7 @@ import SwiperLogo from "../../common/wrappers/swiper-wrapper/swiper-logo/swiperL
 import TrendingProducts from "./trendingProducts";
 
 // Demo Data
-import { furnitures } from "../../../assets/data/homeData";
+import { sofas } from "../../../assets/data/homeData";
 import { logos } from "../../../assets/data/logosData";
 
 const HomeX = () => {
@@ -14,8 +14,8 @@ const HomeX = () => {
     <div className="Home">
       <main>
         <SwiperCarousel>
-          {furnitures.map((furniture, index) => (
-            <img key={index} src={furniture.image} />
+          {sofas.map((sofa, index) => (
+            <img key={index} src={sofa.image} />
           ))}
         </SwiperCarousel>
         <SwiperLogo>

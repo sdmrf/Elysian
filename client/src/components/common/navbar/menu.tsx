@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import { CaretDown, SignIn, UserCirclePlus } from "@phosphor-icons/react";
+import Darkmode from "../darkmode/darkmode";
 
 const Menu = ({
   isMenuOpen,
@@ -12,6 +13,7 @@ const Menu = ({
 }) => {
   
   const [isDropdown, setIsDropdown] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
     useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -42,6 +44,7 @@ const Menu = ({
 
   return ReactDOM.createPortal(
     <section className="Menu">
+
       <div className="container">
         <ul>
           <li className="furniture" onClick={() => setIsDropdown(!isDropdown)} >
@@ -75,6 +78,16 @@ const Menu = ({
             </Link>
           </li>
         </ul>
+        {isLogin ? (
+        <div className="profile">
+          <Darkmode />
+          <Link to="/profile">
+            <div className="avatar">
+              <img src="/favicon.png" alt="User Avatar" />
+            </div>
+          </Link>
+        </div>
+      ) : (
         <div className="buttons">
           <Link to="/login">
             <button type="button" className="btn1">
@@ -89,6 +102,7 @@ const Menu = ({
             </button>
           </Link>
         </div>
+      )}
       </div>
     </section>,
     portalRoot

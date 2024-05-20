@@ -3,4 +3,60 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
+  
+    @include xs-max {
+      padding: 0 10px;
+      max-width: 100%;
+    }
+  
+    @include sm-min {
+      padding: 0 15px;
+      max-width: 540px;
+    }
+  
+    @include sm-max {
+      padding: 0 15px;
+      max-width: 540px;
+    }
+  
+    @include md-min {
+      padding: 0 20px;
+      max-width: 720px;
+    }
+  
+    @include md-max {
+      padding: 0 20px;
+      max-width: 720px;
+    }
+  
+    @include lg-min {
+      padding: 0 25px;
+      max-width: 960px;
+    }
+  
+    @include lg-max {
+      padding: 0 25px;
+      max-width: 960px;
+    }
+  
+    @include xl-min {
+      padding: 0 30px;
+      max-width: 1140px;
+    }
+  
+    @include xl-max {
+      padding: 0 30px;
+      max-width: 1140px;
+    }
+  
+    @include xxl-min {
+      padding: 0 35px;
+      max-width: 1320px;
+    }
+  
+    @include xxl-max {
+      padding: 0 35px;
+      max-width: 1320px;
+    }
+  }
+  

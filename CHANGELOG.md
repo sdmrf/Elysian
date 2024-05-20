@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/codezeniths/Elysian/compare/v1.12.1...v1.13.0) (2024-05-20)
+
+
+### Features
+
+* add scroll effect on header ([c5f266d](https://github.com/codezeniths/Elysian/commit/c5f266dc17e9224cb465ef52d265f65be3ed986b))
+
 ## [1.12.1](https://github.com/codezeniths/Elysian/compare/v1.12.0...v1.12.1) (2024-05-19)
 
 

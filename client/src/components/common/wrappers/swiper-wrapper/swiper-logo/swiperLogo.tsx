@@ -12,7 +12,7 @@ const SwiperLogo = ({ children }: { children: React.ReactNode }) => {
         loop={true}
         slidesPerView={"auto"}
         speed={5000}
-        allowTouchMove={false}
+        allowTouchMove={true}
         autoplay={{
           delay: 1,
           disableOnInteraction: false,

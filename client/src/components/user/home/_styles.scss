@@ -3,4 +3,9 @@
     height: 100vh;
     @include flex(column, center, center, 5rem);
   }
+
+  section{
+    height: 100vh;
+    @include flex(column, center, center, 5rem);
+  }
 }

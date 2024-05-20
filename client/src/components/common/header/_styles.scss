@@ -1,13 +1,17 @@
 header {
   @include flex(row, center, space-around);
-  // background: rgba(0, 0, 0, 0.25);
-  // backdrop-filter: blur(3.5px);
-  // -webkit-backdrop-filter: blur(3.5px);
   padding: 10px 20px;
   position: fixed;
   width: 100%;
+  z-index: 1000;
+  transition: 0.5s ease-in-out;
 
-  @include md-max{
+  &.scrolled {
+    background: rgba($bg-dark, 0.95);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+
+  @include md-max {
     padding: 10px 60px;
     @include flex(row, center, space-between);
   }
@@ -19,16 +23,18 @@ header {
   font-family: $font-1;
 
   .logo {
-    @include md-max{
+    @include md-max {
       font-size: $sm;
     }
   }
 
   .buttons {
     @include flex(row, center, space-between, 1rem);
-    @include md-max{
+
+    @include md-max {
       display: none;
     }
+
     button {
       @include flex(row, center, center, 0.5rem);
       font-size: 15px;
@@ -37,19 +43,21 @@ header {
         font-size: $lg;
       }
     }
+
     .btn1 {
       @include btn1(0.5rem 1rem, $primary, $text-light, 5px);
       opacity: 0.9;
     }
+
     .btn2 {
       @include btn2(0.5rem 1rem, $primary, 5px);
     }
   }
 
-  .toggle{
+  .toggle {
     display: none;
 
-    @include md-max{
+    @include md-max {
       display: block;
       cursor: pointer;
       font-size: $xl;

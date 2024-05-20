@@ -78,5 +78,101 @@ export const logos = [
     {
         id: 20,
         logo: "/brands/link.svg"
+    },
+    {
+        id: 21,
+        logo: "/brands/linkedin.svg"
+    },
+    {
+        id: 22,
+        logo: "/brands/mail.svg"
+    },
+    {
+        id: 23,
+        logo: "/brands/mastodon.svg"
+    },
+    {
+        id: 24,
+        logo: "/brands/medium.svg"
+    },
+    {
+        id: 25,
+        logo: "/brands/patreon.svg"
+    },
+    {
+        id: 26,
+        logo: "/brands/polldaddy.svg"
+    },
+    {
+        id: 27,
+        logo: "/brands/pinterest.svg"
+    },
+    {
+        id: 28,
+        logo: "/brands/pocket.svg"
+    },
+    {
+        id: 29,
+        logo: "/brands/print.svg"
+    },
+    {
+        id: 30,
+        logo: "/brands/share.svg"
+    },
+    {
+        id: 31,
+        logo: "/brands/skype.svg"
+    },
+    {
+        id: 32,
+        logo: "/brands/sms.svg"
+    },
+    {
+        id: 33,
+        logo: "/brands/squarespace.svg"
+    },
+    {
+        id: 34,
+        logo: "/brands/stumbleupon.svg"
+    },
+    {
+        id: 35,
+        logo: "/brands/threads.svg"
+    },
+    {
+        id: 36,
+        logo: "/brands/woocommerce.svg"
+    },
+    {
+        id: 37,
+        logo: "/brands/telegram.svg"
+    },
+    {
+        id: 38,
+        logo: "/brands/tiktok.svg"
+    },
+    {
+        id: 39,
+        logo: "/brands/tumblr.svg"
+    },
+    {
+        id: 40,
+        logo: "/brands/twitch.svg"
+    },
+    {
+        id: 41,
+        logo: "/brands/twitter.svg"
+    },
+    {
+        id: 42,
+        logo: "/brands/vimeo.svg"
+    },
+    {
+        id: 43,
+        logo: "/brands/whatsapp.svg"
+    },
+    {
+        id: 44,
+        logo: "/brands/youtube.svg"
     }
 ];

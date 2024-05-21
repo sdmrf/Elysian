@@ -26,7 +26,7 @@ const Header = () => {
     <header className={isScrolled ? "header scrolled" : "header"}>
       {/* Logo */}
       <div className="logo">
-        <h1>Elysian</h1>
+        <img src="/logo-light.png" alt="" />
       </div>
 
       {/* Navbar */}

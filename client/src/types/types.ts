@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type User = {
   name: string;
   email: string;
@@ -17,6 +19,14 @@ export type Product = {
   stock: number;
   _id: string;
 };
+
+export type Category = {
+  icon: ReactNode;
+  heading: string;
+  desc: string;
+  link: string;
+  products: number;
+}
 
 export type ShippingInfo = {
   address: string;

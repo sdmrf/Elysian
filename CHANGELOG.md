@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/codezeniths/Elysian/compare/v1.17.1...v1.18.0) (2024-05-21)
+
+
+### Features
+
+* add categories in landing page :sparkles: ([7684877](https://github.com/codezeniths/Elysian/commit/76848776ede9a94c0d48e4271cf38e0d1baf8b53))
+
 ## [1.17.1](https://github.com/codezeniths/Elysian/compare/v1.17.0...v1.17.1) (2024-05-21)
 
 

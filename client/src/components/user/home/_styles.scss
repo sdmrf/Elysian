@@ -34,7 +34,8 @@
           padding: 0 25px;
           border-radius: 25px;
           //background-color: rgba($color: $card-light, $alpha: 0.85);
-          background-color: rgba($card-light, 0.75);
+          border: 1px solid rgba($color: $text-light-2, $alpha: 0.25);
+          background-color: rgba($card-dark, 0.75);
           backdrop-filter: blur(3.5px);
           -webkit-backdrop-filter: blur(3.5px);
 
@@ -43,120 +44,17 @@
           .trendingCategory {
             padding: 8px 12px;
             border-radius: 25px;
+            color: rgba($color: $text-light, $alpha: 1);
             cursor: pointer;
             transition: all 0.3s ease-in-out;
 
             &.activeCategory {
-              background-color: rgba($color: $card-light, $alpha: 1);
+              background-color: rgba($color: $primary, $alpha: 0.75);
+              backdrop-filter: blur(3.5px);
+              -webkit-backdrop-filter: blur(3.5px);
               box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             }
           }
-        }
-      }
-    }
-
-    .hotDeals {
-      @include flex(row, space-between, flex-start);
-      padding: 20px;
-      // background-color: rgba($card-light, 0.98);
-      border-radius: 8px;
-      // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-      .hotDealsContent {
-        flex: 3;
-        margin-right: 20px;
-
-        h1 {
-          font-size: 2rem;
-          color: $text-light;
-          margin-bottom: 10px;
-          // height: 50px;
-          // padding: 0 25px;
-          // border-radius: 25px;
-          //background-color: rgba($color: $card-light, $alpha: 0.85);
-
-          // display: flex;
-          // align-items: center;
-          // justify-content: center;
-          // background-color: rgba($primary, 0.75);
-          // backdrop-filter: blur(3.5px);
-          // -webkit-backdrop-filter: blur(3.5px);
-          // text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        p {
-          font-size: 0.8rem;
-          color: $text-light-2;
-          line-height: 1.6;
-          margin-bottom: 20px;
-        }
-
-        .timeRemaining{
-          @include flex();
-          margin-top: 40px;
-          .timeRemainingItem{
-            border: 1px solid $text-light;
-            padding: 10px;
-            margin-right: 10px;
-            border-radius: 8px;
-            font-size: $sm;
-            color: $text-light;
-            text-align: center;
-            width: 100px;
-            height: 100px;
-
-            @include flex(column, center, center, 1rem);
-
-            h3{
-              font-size: $xl;
-              color: $text-light;
-              font-weight: bold;
-            }
-
-            p{
-              font-size: $sm;
-              color: $text-light;
-              font-weight: $light;
-              margin: 0;
-            }
-
-
-          }
-        }
-
-        .AllProductsBtn{
-          padding: 10px 20px;
-          border-radius: 8px;
-          background-color: $primary;
-          color: $text-light;
-          font-size: $sm;
-          font-weight: bold;
-          margin-top: 30px;
-          cursor: pointer;
-          transition: all 0.3s ease-in-out;
-
-          @include flex(center, center);
-
-          &:hover{
-            background-color: $text-light;
-            color: $primary;
-          }
-        }
-      }
-
-      .hotDealsImage {
-        flex: 2;
-        background-color: rgba($color: $card-light, $alpha: 0.95);
-        border-radius: 8px;
-        @include flex(center, center);
-        color: #999;
-        font-size: 1rem;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 8px;
         }
       }
     }
@@ -182,18 +80,24 @@
         .productCategoriesItem {
           position: relative;
           padding: 20px;
-          background-color: rgba($card-light, 0.95);
+          background-color: $card-dark;
+          border: 1px solid rgba($color: $text-light-2, $alpha: 0.25);
           border-radius: 8px;
           margin: 0 auto;
           cursor: pointer;
           transition: all 0.3s ease-in-out;
 
-    
+          &:hover {
+            background-color: $card-hover-dark;
+            transform: scale(1.05);
+          }
+
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 8px;
+            opacity: 0.75;
           }
 
           h2{
@@ -217,6 +121,117 @@
               background-color: rgba($color: $primary, $alpha: 1);
               box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
             }
+          }
+        }
+      }
+    }
+  }
+
+  section{
+    height: 85vh;
+    padding: 0 25px;
+    margin-top: 30px;
+    @include flex(column, center, center, 5rem);
+    .hotDeals {
+      @include flex(row, start, space-between, 0px);
+      width: 100%;
+      padding: 30px;
+      background-color: rgba($card-dark, 0.98);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      .hotDealsImage {
+        width: 500px;
+        height: 300px;
+        border-radius: 8px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+      }
+
+      .hotDealsContent {
+        margin-left: 20px;
+        h1 {
+          font-size: 2rem;
+          color: $text-light;
+          margin-bottom: 10px;
+          // height: 50px;
+          // padding: 0 25px;
+          // border-radius: 25px;
+          //background-color: rgba($color: $card-light, $alpha: 0.85);
+
+          // display: flex;
+          // align-items: center;
+          // justify-content: center;
+          // background-color: rgba($primary, 0.75);
+          // backdrop-filter: blur(3.5px);
+          // -webkit-backdrop-filter: blur(3.5px);
+          // text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+          display: block;
+          width: 500px;
+          font-size: 0.8rem;
+          color: $text-light-2;
+          line-height: 1.6;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        .timeRemaining{
+          @include flex(row, start, start);
+          margin-top: 10px;
+          .timeRemainingItem{
+            border: 1px solid $text-light;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: $sm;
+            color: $text-light;
+            text-align: center;
+            width: 75px;
+            height: 75px;
+
+            @include flex(column, center, center, 10px);
+
+            h3{
+              font-size: $lg;
+              color: $text-light;
+              font-weight: bold;
+            }
+
+            p{
+              font-size: $sm;
+              color: $text-light;
+              font-weight: $light;
+              margin: 0;
+            }
+
+
+          }
+        }
+
+        .AllProductsBtn{
+          padding: 10px 20px;
+          border-radius: 8px;
+          background-color: $primary;
+          border: none;
+          outline: none;
+          color: $text-light;
+          font-size: $sm;
+          font-weight: bold;
+          margin-top: 30px;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+          @include flex(center, center);
+          &:hover{
+            background-color: transparent;
+            border: 1px solid rgba($color: $primary, $alpha: 0.75);
+            color: $primary;
           }
         }
       }

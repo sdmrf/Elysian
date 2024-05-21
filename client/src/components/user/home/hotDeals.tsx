@@ -31,7 +31,7 @@ const HotDeals = () => {
         </div>
       </div>
       <button className="AllProductsBtn">
-        View All Products
+        Hurry Now !
         <ArrowRight size={18} />
       </button>
     </div>

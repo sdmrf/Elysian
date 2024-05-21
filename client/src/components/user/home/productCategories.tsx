@@ -1,7 +1,9 @@
 // Imports
+import ContentWrapper from "../../common/wrappers/content-wrapper/contentWrapper";
 
 const ProductCategories = () => {
   return (
+    <ContentWrapper>
     <div className="productCategories">
       <h1>Shop by Category</h1>
       <div className="productCategoriesContent">
@@ -37,16 +39,9 @@ const ProductCategories = () => {
           <img src={"/furnitures/F-bg-4.jpg"} alt="" />
           <h2>Kitchen</h2>
         </div>
-        <div className="productCategoriesItem">
-          <img src={"/furnitures/F-bg-5.jpg"} alt="" />
-          <h2>Office</h2>
-        </div>
-        <div className="productCategoriesItem">
-          <img src={"/furnitures/F-bg-6.jpg"} alt="" />
-          <h2>Outdoor</h2>
-        </div>
       </div>
     </div>
+    </ContentWrapper>
   );
 };
 

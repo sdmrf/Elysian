@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/codezeniths/Elysian/compare/v1.17.0...v1.17.1) (2024-05-21)
+
+
+### Bug Fixes
+
+* fix home page components and design :bug: ([4feeeff](https://github.com/codezeniths/Elysian/commit/4feeefff71a9fcd528c0e7e9f6f7d2fa86ab4146))
+
 # [1.17.0](https://github.com/codezeniths/Elysian/compare/v1.16.0...v1.17.0) (2024-05-21)
 
 

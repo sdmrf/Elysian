@@ -2,7 +2,7 @@ import ContentWrapper from "../wrappers/content-wrapper/contentWrapper";
 import { YoutubeLogo, MetaLogo, XLogo, InstagramLogo } from "@phosphor-icons/react";
 const Footer = () => {
   return (
-    <div className="Footer">
+    <footer>
       <ContentWrapper>
         <div className="container">
           <div className="top">
@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
         </div>
       </ContentWrapper>
-    </div>
+      </footer>
   );
 };
 

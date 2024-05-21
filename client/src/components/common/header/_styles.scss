@@ -23,8 +23,12 @@ header {
   font-family: $font-1;
 
   .logo {
-    @include md-max {
-      font-size: $sm;
+    height: 25px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      opacity: 0.75;
     }
   }
 
@@ -64,17 +68,17 @@ header {
     }
   }
 
-  .profile{
+  .profile {
     @include flex(row, center, center, 10px);
-    @include md-max{
+    @include md-max {
       display: none;
     }
-    .avatar{
+    .avatar {
       width: 30px;
       height: 30px;
       border-radius: 50%;
 
-      img{
+      img {
         width: 100%;
         height: 100%;
         border-radius: 50%;

@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/codezeniths/Elysian/compare/v1.16.0...v1.17.0) (2024-05-21)
+
+
+### Features
+
+* add hotDeals and shop by category ([a0fda8a](https://github.com/codezeniths/Elysian/commit/a0fda8abaab3b552993a91e906c76abbdd766e8c))
+
 # [1.16.0](https://github.com/codezeniths/Elysian/compare/v1.15.0...v1.16.0) (2024-05-20)
 
 

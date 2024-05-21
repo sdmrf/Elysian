@@ -4,6 +4,8 @@ import SwiperLogo from "../../common/wrappers/swiper-wrapper/swiper-logo/swiperL
 
 // Components
 import TrendingProducts from "./trendingProducts";
+import HotDeals from "./hotDeals";
+import ProductCategories from "./productCategories";
 
 // Demo Data
 import { sofas } from "../../../assets/data/homeData";
@@ -26,6 +28,18 @@ const HomeX = () => {
       </main>
       <section>
         <TrendingProducts />
+      </section>
+      <section>
+        <HotDeals />
+      </section>
+      <section>
+        <TrendingProducts />
+      </section>
+      <section>
+        <HotDeals />
+      </section>
+      <section>
+        <ProductCategories />
       </section>
     </div>
   );

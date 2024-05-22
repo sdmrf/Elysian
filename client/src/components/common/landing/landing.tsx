@@ -3,7 +3,13 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 import { logos } from "../../../assets/data/logosData";
 import SwiperLogo from "../wrappers/swiper-wrapper/swiper-logo/swiperLogo";
 import Categories from "./categories";
+import UserSection from "./usersection";
+import Adminsection from "./adminsection";
+import Achievements from "./achievements";
+import Admincard from "./admincard";
+
 const LandingX = () => {
+
   const Top = (
     <div className="hero">
       <div className="Backdrop-img">
@@ -28,6 +34,8 @@ const LandingX = () => {
       </div>
     </div>
   );
+
+  
   return (
     <div className="landing">
       <main>
@@ -40,6 +48,18 @@ const LandingX = () => {
       </main>
       <section>
         <Categories />
+      </section>
+      <section>
+        <UserSection />
+      </section>
+      <section>
+        <Adminsection />
+      </section>
+      <section>
+        <Achievements />
+      </section>
+      <section>
+        <Admincard />
       </section>
     </div>
   );

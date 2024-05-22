@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/codezeniths/Elysian/compare/v1.19.0...v1.20.0) (2024-05-22)
+
+
+### Features
+
+* add testimonials and make it responsive :sparkles: ([5eda384](https://github.com/codezeniths/Elysian/commit/5eda3847a912140804ac8f29eb70395f9526edc6))
+
 # [1.19.0](https://github.com/codezeniths/Elysian/compare/v1.18.0...v1.19.0) (2024-05-22)
 
 

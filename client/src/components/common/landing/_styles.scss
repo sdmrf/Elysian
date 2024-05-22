@@ -1,4 +1,5 @@
 .landing {
+  //************************************** Main Sections Starts Here **************************************//
   main {
     @include flex(column, center, center, 5rem);
     .hero {
@@ -157,12 +158,17 @@
     }
   }
 
+  //************************************** Main Sections Ends Here **************************************//
+
+  //************************************** Features Section Starts Here **************************************//
+
   section {
     padding: 0 25px;
     margin-bottom: 50px;
     margin-top: 50px;
     @include flex(column, center, center, 5rem);
 
+    //* Categories Begins Here
     .categories {
       width: 100%;
       @include flex(column, center, center, 4rem);
@@ -207,7 +213,7 @@
           grid-template-columns: repeat(2, 1fr);
         }
 
-        @include xl-min{
+        @include xl-min {
           grid-template-columns: repeat(3, 1fr);
         }
 
@@ -217,7 +223,7 @@
         .singlecategory {
           @include flex(column, start, flex-start, 20px);
           // @include square(350px);
-          padding: 20px 35px;
+          padding: 3.5rem;
           background-color: $card-dark;
           border: 1px solid rgba($color: $text-light-2, $alpha: 0.25);
           border-radius: 8px;
@@ -225,7 +231,7 @@
           transition: all 0.3s ease-in-out;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-          &:hover{
+          &:hover {
             background-color: $card-hover-dark;
           }
 
@@ -234,7 +240,6 @@
             @include square(60px);
             background-color: $primary;
             border-radius: 5px;
-            margin-top: 50px;
 
             .svg {
               color: $text-light;
@@ -266,7 +271,7 @@
               }
             }
 
-            .arrow{
+            .arrow {
               font-size: $lg;
               color: $text-light-2;
               margin-left: 5px;
@@ -275,5 +280,354 @@
         }
       }
     }
+    //* Categories Ends Here
+
+    //* User Section - Admin Section Starts Here
+    .adminsection,
+    .usersection {
+      width: 100%;
+      margin-top: 100px;
+      .container {
+        @include flex(row, start, space-between, 10px);
+        width: 100%;
+        padding: 25px;
+        .img {
+          position: relative;
+          height: 400px;
+
+          @include lg-max {
+            display: none;
+          }
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            background-color: rgba($card-light, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(3.5px);
+            -webkit-backdrop-filter: blur(3.5px);
+            z-index: 1;
+
+            @include lg-max {
+              display: none;
+            }
+          }
+
+          &::before {
+            top: -30px;
+            left: -30px;
+            width: 200px;
+            height: 200px;
+          }
+
+          &::after {
+            bottom: -30px;
+            right: -30px;
+            width: 200px;
+            height: 200px;
+          }
+
+          img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+            z-index: 2;
+          }
+        }
+        .content {
+          @include flex(column, start, start, 20px);
+          margin: 25px;
+
+          .link {
+            @include flex(row, center, center, 10px);
+            a {
+              font-size: $md;
+              font-weight: lighter;
+              color: $primary;
+              text-decoration: none;
+              transition: all 0.3s ease-in-out;
+              &:hover {
+                color: $secondary;
+              }
+            }
+            svg {
+              font-size: $lg;
+              color: $text-light-2;
+              margin-left: 5px;
+            }
+          }
+          > span {
+            font-size: $md;
+            font-weight: lighter;
+            color: rgba($text-light, 1);
+            text-align: center;
+            line-height: 1.5;
+            background-color: rgba($color: $primary, $alpha: 1);
+            padding: 2.5px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba($text-light-2, 0.25);
+          }
+          > h2 {
+            display: block;
+            width: 400px;
+            font-size: $xxxl;
+            font-weight: $bold;
+            color: $text-light;
+            line-height: 1.2;
+          }
+          > p {
+            display: block;
+            width: 500px;
+            font-size: $md;
+            font-weight: lighter;
+            color: rgba($text-light-2, 0.8);
+            line-height: 1.5;
+          }
+          .features {
+            @include flex(column, start, start, 30px);
+            .feature {
+              @include flex(row, center, center, 10px);
+              .left {
+                @include flex(row, center, center, 0px);
+                @include square(60px);
+                background-color: rgba($color: $card-dark, $alpha: 1);
+                border-radius: 50%;
+                border: 1px solid rgba($color: $text-light-2, $alpha: 0.25);
+                color: $text-light;
+              }
+              .right {
+                @include flex(column, start, center, 10px);
+                > h4 {
+                  font-size: $lg;
+                  font-weight: $bold;
+                  color: $text-light;
+                }
+                > p {
+                  display: block;
+                  width: 400px;
+                  font-size: 14px;
+                  font-weight: lighter;
+                  color: rgba($text-light-2, 0.8);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    //* User Section - Admin Section Ends Here
+
+    //* Achievements Section Starts Here
+    .achievements {
+      position: relative;
+      width: 100%;
+      margin-top: 75px;
+      background-color: rgba($color: $card-dark, $alpha: 1);
+      border-radius: 15px;
+      padding: 60px 20px;
+
+      .illustrationX {
+        position: absolute;
+        top: -70px;
+        left: 0;
+        width: 250px;
+        height: 250px;
+
+        @include lg-max {
+          width: 150px;
+          height: 150px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+      .illustrationY {
+        position: absolute;
+        bottom: -50px;
+        right: 0;
+        width: 250px;
+        height: 250px;
+        @include lg-max {
+          width: 150px;
+          height: 150px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+      .container {
+        @include flex(column, center, center, 20px);
+        width: 100%;
+        margin: 20px;
+        .heading {
+          @include flex(column, center, center, 20px);
+          > h2 {
+            font-size: 48px;
+            font-weight: $bold;
+            color: $text-light;
+            text-align: center;
+            line-height: 1.2;
+
+            @include lg-max {
+              font-size: 36px;
+            }
+          }
+          > p {
+            display: block;
+            width: 550px;
+            font-size: $md;
+            font-weight: lighter;
+            text-align: center;
+            color: rgba($text-light-2, 0.8);
+
+            @include lg-max {
+              width: 400px;
+              font-size: $sm;
+            }
+          }
+          > span {
+            font-size: $md;
+            font-weight: lighter;
+            color: rgba($text-light, 1);
+            text-align: center;
+            line-height: 1.5;
+            background-color: rgba($color: $primary, $alpha: 1);
+            padding: 2.5px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba($text-light-2, 0.25);
+          }
+        }
+        .stats {
+          @include flex(row, center, center, 25px);
+          @include md-max {
+            @include flex(column, center, center, 25px);
+          }
+          margin-top: 25px;
+          .stat {
+            @include flex(column, center, center, 10px);
+            h2 {
+              font-size: 36px;
+              font-weight: $bold;
+              color: $text-light;
+              text-align: center;
+              line-height: 1.2;
+            }
+            p {
+              display: block;
+              width: 200px;
+              font-size: 14px;
+              font-weight: lighter;
+              text-align: center;
+              color: rgba($text-light-2, 0.8);
+            }
+          }
+        }
+      }
+    }
+    //* Achievements Section Ends Here
+
+    //* Admin Card Section Starts Here
+    .admincard {
+      width: 100%;
+      margin-top: 75px;
+      background-color: rgba($color: $card-dark, $alpha: 1);
+      border: 1px solid rgba($color: $text-light-2, $alpha: 0.25);
+      border-radius: 10px;
+      padding: 40px 10px;
+
+      .container {
+        @include flex(row, center, space-around, 20px);
+        width: 100%;
+
+        @include lg-max{
+          @include flex(column, center, center, 20px);
+        }
+        .content {
+          @include flex(column, start, start, 20px);
+          @include lg-max{
+            @include flex(column, center, center, 20px);
+            text-align: center;
+          }
+          > span{
+            font-size: $md;
+            font-weight: lighter;
+            color: rgba($text-light, 1);
+            text-align: center;
+            line-height: 1.5;
+            background-color: rgba($color: $primary, $alpha: 1);
+            padding: 2.5px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba($text-light-2, 0.25);
+          }
+          > h2 {
+            display: block;
+            width: 500px;
+            font-size: $xxl;
+            font-weight: $bold;
+            color: $text-light;
+            line-height: 1.2;
+          }
+          > p {
+            display: block;
+            width: 500px;
+            font-size: $md;
+            font-weight: lighter;
+            color: rgba($text-light-2, 0.8);
+          }
+          .link {
+            @include flex(row, center, center, 10px);
+            margin-top: 10px;
+            a {
+              font-size: $md;
+              font-weight: lighter;
+              color: $primary;
+              text-decoration: none;
+              transition: all 0.3s ease-in-out;
+              &:hover {
+                color: $secondary;
+              }
+            }
+            svg {
+              font-size: $lg;
+              color: $text-light-2;
+              margin-left: 5px;
+            }
+          }
+        }
+        .illustration {
+          height: 250px;
+          @include lg-max{
+            height: 200px;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+        button {
+          @include flex(row, center, center, 10px);
+          padding: 10px 20px;
+          font-size: $md;
+          font-weight: lighter;
+          color: $text-light;
+          background-color: $primary;
+          border: none;
+          border-radius: 5px;
+        }
+      }
+    }
   }
+
+  //************************************** Features Section Ends Here **************************************//
 }

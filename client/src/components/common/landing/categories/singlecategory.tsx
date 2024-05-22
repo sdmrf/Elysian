@@ -1,5 +1,5 @@
 import React from "react";
-import { Category } from "../../../types/types";
+import { Category } from "../../../../types/types";
 import { ArrowRight } from "@phosphor-icons/react";
 
 const SingleCategory = ({icon, heading, desc, link, products}: Category) => {

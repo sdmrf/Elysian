@@ -1,5 +1,5 @@
 import React from "react";
-import ContentWrapper from "../wrappers/content-wrapper/contentWrapper";
+import ContentWrapper from "../../wrappers/content-wrapper/contentWrapper";
 const Usersection = () => {
   return (
     <div className="usersection">

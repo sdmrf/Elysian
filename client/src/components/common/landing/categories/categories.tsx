@@ -1,6 +1,6 @@
 import SingleCategory from "./singlecategory";
-import { categories } from "../../../assets/data/categoryData";
-import ContentWrapper from "../wrappers/content-wrapper/contentWrapper";
+import { categories } from "../../../../assets/data/categoryData";
+import ContentWrapper from "../../wrappers/content-wrapper/contentWrapper";
 const Categories = () => {
   return (
     <ContentWrapper>

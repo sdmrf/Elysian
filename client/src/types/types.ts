@@ -28,6 +28,15 @@ export type Category = {
   products: number;
 }
 
+export type Testimonial = {
+  img: string;
+  backdrop: string;
+  name: string;
+  heading: string;
+  review: string;
+  stars: number;
+}
+
 export type ShippingInfo = {
   address: string;
   city: string;

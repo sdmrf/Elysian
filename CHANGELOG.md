@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/codezeniths/Elysian/compare/v1.18.0...v1.19.0) (2024-05-22)
+
+
+### Features
+
+* ! add major landing page components with responsive :sparkles: ([daf5a66](https://github.com/codezeniths/Elysian/commit/daf5a662174753ed299362674dec6e0caca4d2f6))
+
 # [1.18.0](https://github.com/codezeniths/Elysian/compare/v1.17.1...v1.18.0) (2024-05-21)
 
 

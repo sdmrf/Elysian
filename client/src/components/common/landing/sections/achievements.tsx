@@ -1,10 +1,10 @@
-import ContentWrapper from "../wrappers/content-wrapper/contentWrapper";
+import ContentWrapper from "../../wrappers/content-wrapper/contentWrapper";
 
 const Achievements = () => {
   return (
     <ContentWrapper>
       <div className="achievements">
-        <img src="/Images/achievement.png" alt="" className="illustrationX" />
+        <img src="/Images/shape-04.png" alt="" className="illustrationX" />
         <img src="/Images/shape-05.png" alt="" className="illustrationY" />
         <div className="container">
           <div className="heading">

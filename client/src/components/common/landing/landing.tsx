@@ -2,11 +2,12 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { logos } from "../../../assets/data/logosData";
 import SwiperLogo from "../wrappers/swiper-wrapper/swiper-logo/swiperLogo";
-import Categories from "./categories";
-import UserSection from "./usersection";
-import Adminsection from "./adminsection";
-import Achievements from "./achievements";
-import Admincard from "./admincard";
+import Categories from "./categories/categories";
+import UserSection from "./sections/usersection";
+import Adminsection from "./sections/adminsection";
+import Achievements from "./sections/achievements";
+import Admincard from "./sections/admincard";
+import Testimonials from "./testimonials/testimonial";
 
 const LandingX = () => {
 
@@ -60,6 +61,9 @@ const LandingX = () => {
       </section>
       <section>
         <Admincard />
+      </section>
+      <section>
+        <Testimonials />
       </section>
     </div>
   );

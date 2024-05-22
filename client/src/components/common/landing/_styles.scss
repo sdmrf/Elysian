@@ -385,6 +385,10 @@
             font-weight: lighter;
             color: rgba($text-light-2, 0.8);
             line-height: 1.5;
+
+            @include lg-max {
+              width: 350px;
+            }
           }
           .features {
             @include flex(column, start, start, 30px);
@@ -404,6 +408,12 @@
                   font-size: $lg;
                   font-weight: $bold;
                   color: $text-light;
+
+                  @include lg-max {
+                    font-size: $md;
+                    display: block;
+                    width: 200px;
+                  }
                 }
                 > p {
                   display: block;
@@ -411,6 +421,12 @@
                   font-size: 14px;
                   font-weight: lighter;
                   color: rgba($text-light-2, 0.8);
+
+                  @include lg-max {
+                    font-size: $sm;
+                    display: block;
+                    width: 200px;
+                  }
                 }
               }
             }
@@ -490,7 +506,7 @@
             color: rgba($text-light-2, 0.8);
 
             @include lg-max {
-              width: 400px;
+              width: 300px;
               font-size: $sm;
             }
           }
@@ -545,19 +561,18 @@
       padding: 40px 10px;
 
       .container {
-        @include flex(row, center, space-around, 20px);
+        @include flex(row, center, space-evenly, 20px);
         width: 100%;
-
-        @include lg-max{
+        @include lg-max {
           @include flex(column, center, center, 20px);
         }
         .content {
           @include flex(column, start, start, 20px);
-          @include lg-max{
+          @include lg-max {
             @include flex(column, center, center, 20px);
             text-align: center;
           }
-          > span{
+          > span {
             font-size: $md;
             font-weight: lighter;
             color: rgba($text-light, 1);
@@ -575,6 +590,12 @@
             font-weight: $bold;
             color: $text-light;
             line-height: 1.2;
+
+            @include lg-max{
+              font-size: $xl;
+              display: block;
+              width: 300px;
+            }
           }
           > p {
             display: block;
@@ -582,6 +603,12 @@
             font-size: $md;
             font-weight: lighter;
             color: rgba($text-light-2, 0.8);
+            
+            @include lg-max{
+              font-size: $sm;
+              display: block;
+              width: 300px;
+            }
           }
           .link {
             @include flex(row, center, center, 10px);
@@ -605,7 +632,7 @@
         }
         .illustration {
           height: 250px;
-          @include lg-max{
+          @include lg-max {
             height: 200px;
           }
           img {
@@ -624,6 +651,135 @@
           background-color: $primary;
           border: none;
           border-radius: 5px;
+        }
+      }
+    }
+    //* Admin Card Ends Here
+
+    //* Testimonials Section Starts Here
+    .testimonial {
+      @include flex(column, center, center, 10px);
+      width: 100%;
+      margin-top: 75px;
+      .heading {
+        @include flex(column, center, center, 15px);
+        text-align: center;
+        > span {
+          font-size: $md;
+          font-weight: lighter;
+          color: rgba($text-light-2, 0.8);
+          text-align: center;
+          line-height: 1.5;
+          background-color: rgba($color: $card-dark, $alpha: 1);
+          padding: 5px 15px;
+          border-radius: 20px;
+          border: 1px solid rgba($text-light-2, 0.25);
+        }
+        > h2 {
+          display: block;
+          width: 500px;
+          font-size: $xxl;
+          font-weight: $bold;
+          color: $text-light;
+          line-height: 1.2;
+        }
+        > p {
+          display: block;
+          width: 500px;
+          font-size: $md;
+          font-weight: lighter;
+          color: rgba($text-light-2, 0.8);
+          text-align: center;
+          line-height: 1.5;
+        }
+      }
+      .singletestimonial {
+        @include flex(column, center, flex-end, 20px);
+        position: relative;
+        height: 375px;
+        padding: 15px 0px;
+
+        .backdrop {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          border: 1px solid rgba($color: $text-light-2, $alpha: 0.25);
+          opacity: 0.85;
+          > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+            opacity: 0.95;
+          }
+        }
+        .container {
+          z-index: 1;
+          @include flex(column, center, center, 20px);
+          background-color: rgba($color: $card-dark, $alpha: 1);
+          border-radius: 10px;
+          border: 1px solid rgba($color: $primary, $alpha: 0.5);
+          width: 90%;
+          border-radius: 15px;
+
+          .content {
+            @include flex(column, center, center, 10px);
+            padding: 0px 20px 20px 20px;
+            position: relative;
+            top: -15px;
+            z-index: 10;
+            text-align: center;
+            height: 100%;
+            .img {
+              @include square(40px);
+              img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+                box-shadow: 2px 3px 5px rgba($card-light, 0.2);
+                z-index: 1;
+              }
+            }
+            .text {
+              @include flex(column, center, center, 5px);
+              > h2 {
+                display: block;
+                width: 500px;
+                font-size: $lg;
+                font-weight: $bold;
+                color: $text-light;
+                line-height: 1.2;
+              }
+              > span {
+                font-size: 14px;
+                font-weight: lighter;
+                color: rgba($text-light-2, 1);
+                text-align: center;
+                line-height: 1.5;
+                border-radius: 20px;
+              }
+              > p {
+                margin-top: 10px;
+                display: block;
+                width: 225px;
+                font-size: $sm;
+                font-weight: lighter;
+                color: rgba($text-light-2, 0.8);
+              }
+            }
+            .review {
+              @include flex(row, center, center, 5px);
+              svg {
+                font-size: $lg;
+                color: $primary;
+              }
+            }
+          }
         }
       }
     }

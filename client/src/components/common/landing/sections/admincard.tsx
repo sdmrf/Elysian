@@ -1,5 +1,5 @@
 import { ArrowRight } from "@phosphor-icons/react";
-import ContentWrapper from "../wrappers/content-wrapper/contentWrapper";
+import ContentWrapper from "../../wrappers/content-wrapper/contentWrapper";
 
 const Admincard = () => {
   return (

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import ContentWrapper from "../../components/common/wrappers/content-wrapper/contentWrapper";
+import ContentWrapper from "../../../components/common/wrappers/content-wrapper/contentWrapper";
 import { GoogleLogo } from "@phosphor-icons/react";
 import { FacebookLogo } from "@phosphor-icons/react";
 import { ArrowRight } from "@phosphor-icons/react";
@@ -36,7 +36,7 @@ const SigninX = () => {
 
   return (
     <ContentWrapper>
-    <div className="Signin">
+      <div className="Signin">
         <div className="container">
           <div className="wrapper">
             <div className="opacity-layer" />
@@ -85,7 +85,11 @@ const SigninX = () => {
                           className="eye-icon"
                           onClick={() => setShowPassword(!showPassword)}
                         >
-                          {showPassword ? <EyeSlash weight="fill"/> : <Eye weight="fill" />}
+                          {showPassword ? (
+                            <EyeSlash weight="fill" />
+                          ) : (
+                            <Eye weight="fill" />
+                          )}
                         </span>
                       </div>
                       {errors.password && touched.password && (
@@ -107,7 +111,7 @@ const SigninX = () => {
                   <div className="line" />
                   <div className="already">
                     <p>
-                      Don't have an account? <a href="/Signup">Sign Up</a>
+                      Don't have an account? <a href="/register">Sign Up</a>
                     </p>
                   </div>
                   {error && <div className="error">{error.message}</div>}
@@ -116,7 +120,7 @@ const SigninX = () => {
             </Formik>
           </div>
         </div>
-    </div>
+      </div>
     </ContentWrapper>
   );
 };

@@ -1,4 +1,4 @@
-import SigninX from "../../auth/user/signin"
+import SigninX from "../../auth/user/signin/signin"
 
 const Signin = () => {
   return (

@@ -1,3 +1,4 @@
+.Signup,
 .Signin {
   .container {
     @include flex();
@@ -35,6 +36,8 @@
         border-radius: 12px;
         border: 1px solid rgba($text-light-2, 0.25);
         padding: 25px;
+
+        .createBtn,
         .loginBtn {
           @include flex(row, center, center, 15px);
           background-color: $card-hover-dark;

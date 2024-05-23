@@ -13,6 +13,7 @@ import Header from "./components/common/header/header";
 import Footer from "./components/common/footer/footer";
 // Auth Imports
 const Signin = lazy(() => import("./pages/auth/signin"));
+const Singup = lazy(() => import("./pages/auth/singup"));
 
 // User Imports
 const Home = lazy(() => import("./pages/user/home"));
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="/products" element={<Products />} />
             <Route path="/order" element={<Order />} />
             <Route path="/login" element={<Signin />} />
+            <Route path="/register" element={<Singup />} />
 
             {/* Admin Routes */}
             <Route path="/admin/dashboard" element={<Dashboard />} />

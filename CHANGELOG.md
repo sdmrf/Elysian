@@ -1,3 +1,10 @@
+## [1.24.1](https://github.com/codezeniths/Elysian/compare/v1.24.0...v1.24.1) (2024-05-23)
+
+
+### Bug Fixes
+
+* fix brands component & other minor fixtures :bug: ([ea73d5b](https://github.com/codezeniths/Elysian/commit/ea73d5b1aa945365b182607a7de69b2fb7d4fbff))
+
 # [1.24.0](https://github.com/codezeniths/Elysian/compare/v1.23.0...v1.24.0) (2024-05-23)
 
 

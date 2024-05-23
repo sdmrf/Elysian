@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/codezeniths/Elysian/compare/v1.23.0...v1.24.0) (2024-05-23)
+
+
+### Features
+
+* add register component with validation :sparkles: ([7bb94b3](https://github.com/codezeniths/Elysian/commit/7bb94b3ddbf7d5356e5ab3a76191fc9f9b0a3524))
+
 # [1.23.0](https://github.com/codezeniths/Elysian/compare/v1.22.0...v1.23.0) (2024-05-23)
 
 

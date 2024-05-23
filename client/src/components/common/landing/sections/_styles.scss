@@ -1,0 +1,151 @@
+.adminsection,
+.usersection {
+  width: 100%;
+  margin-top: 100px;
+  .container {
+    @include flex(row, start, space-between, 10px);
+    width: 100%;
+    padding: 25px;
+    .img {
+      position: relative;
+      height: 400px;
+
+      @include lg-max {
+        display: none;
+      }
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: rgba($card-light, 0.1);
+        border-radius: 10px;
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+        z-index: 1;
+
+        @include lg-max {
+          display: none;
+        }
+      }
+
+      &::before {
+        top: -30px;
+        left: -30px;
+        width: 200px;
+        height: 200px;
+      }
+
+      &::after {
+        bottom: -30px;
+        right: -30px;
+        width: 200px;
+        height: 200px;
+      }
+
+      img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10px;
+        z-index: 2;
+      }
+    }
+    .content {
+      @include flex(column, start, start, 20px);
+      margin: 25px;
+
+      .link {
+        @include flex(row, center, center, 10px);
+        a {
+          font-size: $md;
+          font-weight: lighter;
+          color: $primary;
+          text-decoration: none;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            color: $secondary;
+          }
+        }
+        svg {
+          font-size: $lg;
+          color: $text-light-2;
+          margin-left: 5px;
+        }
+      }
+      > span {
+        font-size: $md;
+        font-weight: lighter;
+        color: rgba($text-light, 1);
+        text-align: center;
+        line-height: 1.5;
+        background-color: rgba($color: $primary, $alpha: 1);
+        padding: 2.5px 15px;
+        border-radius: 20px;
+        border: 1px solid rgba($text-light-2, 0.25);
+      }
+      > h2 {
+        display: block;
+        width: 400px;
+        font-size: $xxxl;
+        font-weight: $bold;
+        color: $text-light;
+        line-height: 1.2;
+      }
+      > p {
+        display: block;
+        width: 500px;
+        font-size: $md;
+        font-weight: lighter;
+        color: rgba($text-light-2, 0.8);
+        line-height: 1.5;
+
+        @include lg-max {
+          width: 350px;
+        }
+      }
+      .features {
+        @include flex(column, start, start, 30px);
+        .feature {
+          @include flex(row, center, center, 10px);
+          .left {
+            @include flex(row, center, center, 0px);
+            @include square(60px);
+            background-color: rgba($color: $card-dark, $alpha: 1);
+            border-radius: 50%;
+            border: 1px solid rgba($color: $text-light-2, $alpha: 0.25);
+            color: $text-light;
+          }
+          .right {
+            @include flex(column, start, center, 10px);
+            > h4 {
+              font-size: $lg;
+              font-weight: $bold;
+              color: $text-light;
+
+              @include lg-max {
+                font-size: $md;
+                display: block;
+                width: 200px;
+              }
+            }
+            > p {
+              display: block;
+              width: 400px;
+              font-size: 14px;
+              font-weight: lighter;
+              color: rgba($text-light-2, 0.8);
+
+              @include lg-max {
+                font-size: $sm;
+                display: block;
+                width: 200px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

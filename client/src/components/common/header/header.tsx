@@ -8,7 +8,7 @@ import Darkmode from "../darkmode/darkmode";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {

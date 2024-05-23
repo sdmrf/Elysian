@@ -1,0 +1,112 @@
+.achievements {
+    position: relative;
+    width: 100%;
+    margin-top: 75px;
+    background-color: rgba($color: $card-dark, $alpha: 1);
+    border-radius: 15px;
+    padding: 60px 20px;
+
+    .illustrationX {
+      position: absolute;
+      top: -70px;
+      left: 0;
+      width: 250px;
+      height: 250px;
+
+      @include lg-max {
+        width: 150px;
+        height: 150px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    .illustrationY {
+      position: absolute;
+      bottom: -50px;
+      right: 0;
+      width: 250px;
+      height: 250px;
+      @include lg-max {
+        width: 150px;
+        height: 150px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    .container {
+      @include flex(column, center, center, 20px);
+      width: 100%;
+      margin: 20px;
+      .heading {
+        @include flex(column, center, center, 20px);
+        > h2 {
+          font-size: 48px;
+          font-weight: $bold;
+          color: $text-light;
+          text-align: center;
+          line-height: 1.2;
+
+          @include lg-max {
+            font-size: 36px;
+          }
+        }
+        > p {
+          display: block;
+          width: 550px;
+          font-size: $md;
+          font-weight: lighter;
+          text-align: center;
+          color: rgba($text-light-2, 0.8);
+
+          @include lg-max {
+            width: 300px;
+            font-size: $sm;
+          }
+        }
+        > span {
+          font-size: $md;
+          font-weight: lighter;
+          color: rgba($text-light, 1);
+          text-align: center;
+          line-height: 1.5;
+          background-color: rgba($color: $primary, $alpha: 1);
+          padding: 2.5px 15px;
+          border-radius: 20px;
+          border: 1px solid rgba($text-light-2, 0.25);
+        }
+      }
+      .stats {
+        @include flex(row, center, center, 25px);
+        @include md-max {
+          @include flex(column, center, center, 25px);
+        }
+        margin-top: 25px;
+        .stat {
+          @include flex(column, center, center, 10px);
+          h2 {
+            font-size: 36px;
+            font-weight: $bold;
+            color: $text-light;
+            text-align: center;
+            line-height: 1.2;
+          }
+          p {
+            display: block;
+            width: 200px;
+            font-size: 14px;
+            font-weight: lighter;
+            text-align: center;
+            color: rgba($text-light-2, 0.8);
+          }
+        }
+      }
+    }
+  }

@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/codezeniths/Elysian/compare/v1.21.0...v1.22.0) (2024-05-23)
+
+
+### Features
+
+* add shop by brands section ([f6b6db4](https://github.com/codezeniths/Elysian/commit/f6b6db4d00ea37613ddd91276f6c331c0b5776e5))
+
 # [1.21.0](https://github.com/codezeniths/Elysian/compare/v1.20.0...v1.21.0) (2024-05-23)
 
 

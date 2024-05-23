@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/codezeniths/Elysian/compare/v1.20.0...v1.21.0) (2024-05-23)
+
+
+### Features
+
+* add categories, product section and promotion card components and improvised some of the files ([4553b7a](https://github.com/codezeniths/Elysian/commit/4553b7a20f635539d775684014701d077d3f7cf3))
+
 # [1.20.0](https://github.com/codezeniths/Elysian/compare/v1.19.0...v1.20.0) (2024-05-22)
 
 

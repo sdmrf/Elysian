@@ -1,5 +1,6 @@
 // Imports
 import ContentWrapper from "../../../common/wrappers/content-wrapper/contentWrapper";
+import { ArrowRight } from "@phosphor-icons/react";
 
 // Demo Data
 import { brands } from "../../../../assets/data/brandsData";
@@ -13,9 +14,15 @@ const ShopByBrands = () => {
           {brands.map((brand) => (
             <div className="brandCard" key={brand.id}>
               <div className="brandContent">
-                <h1 className="brandName">{brand.name}</h1>
-                <div className="brandImg">
-                  <img src={brand.image} alt={brand.name} />
+                <div className="brandData">
+                  <div className="brandImg">
+                    <img src={brand.image} alt={brand.name} />
+                  </div>
+                  <h1 className="brandName">{brand.name}</h1>
+                </div>
+                <div className="link">
+                  <span>Explore</span>
+                  <ArrowRight className="arrow" />
                 </div>
               </div>
               <div className="furnitureImg">

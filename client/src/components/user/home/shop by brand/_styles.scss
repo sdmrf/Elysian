@@ -6,15 +6,16 @@
     margin-top: 20px;
     font-size: $xxl;
     font-weight: 700;
-    color: rgba($color: $text-light, $alpha: 0.8);
+    color: rgba($text-light, 0.8);
   }
 
   .brandsContent {
     width: 100%;
     padding: 0 25px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 4fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 1rem;
+
     .brandCard {
       @include card(
         200px,
@@ -23,7 +24,7 @@
         $card-dark,
         10px,
         0 2px 4px rgba(0, 0, 0, 0.2),
-        1px solid rgba($color: $text-light-2, $alpha: 0.15),
+        1px solid rgba($text-light-2, 0.15),
         $card-hover-dark,
         0 4px 8px rgba(0, 0, 0, 0.2)
       );
@@ -34,7 +35,7 @@
       border-radius: 10px;
       overflow: hidden;
       background-color: $card-dark;
-      border: 1px solid rgba($color: $text-light-2, $alpha: 0.15);
+      border: 1px solid rgba($text-light-2, 0.15);
 
       &:hover {
         background-color: $card-hover-dark;
@@ -44,24 +45,52 @@
       .brandContent {
         flex: 1;
         @include dimensions();
-        @include flex(column, center, center);
+        @include flex(column, start, center);
 
-        .brandName {
-          @include flex(center, center);
-          text-align: center;
-          font-size: 1.5rem;
-          font-weight: 500;
-          margin-bottom: 1rem;
-          color: rgba($color: $text-light, $alpha: 0.95);
+        .brandData {
+          @include flex(row, center, start);
+          @include dimensions();
+
+          .brandName {
+            @include flex(center, center);
+            text-align: center;
+            font-size: $md;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: rgba($text-light, 0.95);
+          }
+
+          .brandImg {
+            height: 50px;
+            max-width: 50px;
+
+            img {
+              @include dimensions();
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
         }
 
-        .brandImg {
-          @include dimensions(75px, 75px);
-          border-radius: 50%;
-          img {
-            @include dimensions();
-            border-radius: 50%;
-            object-fit: cover;
+        .link {
+          @include flex(row, center, center, 2px);
+
+          span {
+            font-size: $md;
+            font-weight: lighter;
+            color: $primary;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              color: $secondary;
+            }
+          }
+
+          .arrow {
+            font-size: $lg;
+            color: $text-light-2;
+            margin-left: 5px;
           }
         }
       }

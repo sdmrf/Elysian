@@ -101,6 +101,7 @@
   justify-content: $justifyContent;
   gap: $gap;
 }
+
 @mixin grid($col: 1fr, $gap: 1rem, $row: unset) {
   display: grid;
   grid-template-columns: $col;
@@ -132,10 +133,10 @@
   $ht: 350px,
   $wd: 225px,
   $p: 1rem,
-  $bg: #fff,
+  $bg: rgba($card-dark, 0.8),
   $br: 20px,
   $shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
-  $border: none,
+  $border: 1px solid rgba($text-light-2, 0.2),
   $hover-bg: $bg,
   $hover-shadow: $shadow
 ) {
@@ -168,7 +169,7 @@
   border-radius: $br;
 }
 
-@mixin btn2($p: 0.5rem 1rem, $color, $br){
+@mixin btn2($p: 0.5rem 1rem, $color, $br) {
   cursor: pointer;
   border: 2px solid $color;
   outline: none;

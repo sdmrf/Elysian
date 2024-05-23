@@ -14,6 +14,14 @@
       width: 600px;
       position: relative;
 
+      @include md-max {
+        @include dimensions(100%, 300px);
+      }
+
+      @include sm-max {
+        @include dimensions(100%, 250px);
+      }
+
       .carouselContent {
         @include flex();
         width: 100%;

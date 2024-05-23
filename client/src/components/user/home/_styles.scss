@@ -1,8 +1,11 @@
 .home {
   main,
   section {
-    height: 100vh;
     padding: 0 25px;
     @include flex(column, center, center, 5rem);
+  }
+
+  section{
+    margin-top: 5rem;
   }
 }

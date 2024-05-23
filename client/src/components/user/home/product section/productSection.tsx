@@ -1,7 +1,7 @@
 // Imports
 import { useState } from "react";
-import Card from "../card/card";
-import SwiperSlider from "../wrappers/swiper-wrapper/swiper-slider/swiperSlider";
+import Card from "../../../common/card/card";
+import SwiperSlider from "../../../common/wrappers/swiper-wrapper/swiper-slider/swiperSlider";
 
 // Interfaces
 interface IProductSection {

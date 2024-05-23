@@ -1,178 +1,178 @@
 export const logos = [
     {
         id: 1,
-        logo: "/brands/amazon.svg"
+        logo: "/logos/amazon.svg"
     },
     {
         id: 2,
-        logo: "/brands/behance.svg"
+        logo: "/logos/behance.svg"
     },
     {
         id: 3,
-        logo: "/brands/blogger-alt.svg"
+        logo: "/logos/blogger-alt.svg"
     },
     {
         id: 4,
-        logo: "/brands/blogger.svg"
+        logo: "/logos/blogger.svg"
     },
     {
         id: 5,
-        logo: "/brands/bluesky.svg"
+        logo: "/logos/bluesky.svg"
     },
     {
         id: 6,
-        logo: "/brands/codepen.svg"
+        logo: "/logos/codepen.svg"
     },
     {
         id: 7,
-        logo: "/brands/dribbble.svg"
+        logo: "/logos/dribbble.svg"
     },
     {
         id: 8,
-        logo: "/brands/dropbox.svg"
+        logo: "/logos/dropbox.svg"
     },
     {
         id: 9,
-        logo: "/brands/eventbrite.svg"
+        logo: "/logos/eventbrite.svg"
     },
     {
         id: 10,
-        logo: "/brands/facebook.svg"
+        logo: "/logos/facebook.svg"
     },
     {
         id: 11,
-        logo: "/brands/fediverse.svg"
+        logo: "/logos/fediverse.svg"
     },
     {
         id: 12,
-        logo: "/brands/feed.svg"
+        logo: "/logos/feed.svg"
     },
     {
         id: 13,
-        logo: "/brands/flickr.svg"
+        logo: "/logos/flickr.svg"
     },
     {
         id: 14,
-        logo: "/brands/foursquare.svg"
+        logo: "/logos/foursquare.svg"
     },
     {
         id: 15,
-        logo: "/brands/ghost.svg"
+        logo: "/logos/ghost.svg"
     },
     {
         id: 16,
-        logo: "/brands/github.svg"
+        logo: "/logos/github.svg"
     },
     {
         id: 17,
-        logo: "/brands/google-alt.svg"
+        logo: "/logos/google-alt.svg"
     },
     {
         id: 18,
-        logo: "/brands/google.svg"
+        logo: "/logos/google.svg"
     },
     {
         id: 19,
-        logo: "/brands/instagram.svg"
+        logo: "/logos/instagram.svg"
     },
     {
         id: 20,
-        logo: "/brands/link.svg"
+        logo: "/logos/link.svg"
     },
     {
         id: 21,
-        logo: "/brands/linkedin.svg"
+        logo: "/logos/linkedin.svg"
     },
     {
         id: 22,
-        logo: "/brands/mail.svg"
+        logo: "/logos/mail.svg"
     },
     {
         id: 23,
-        logo: "/brands/mastodon.svg"
+        logo: "/logos/mastodon.svg"
     },
     {
         id: 24,
-        logo: "/brands/medium.svg"
+        logo: "/logos/medium.svg"
     },
     {
         id: 25,
-        logo: "/brands/nextdoor.svg"
+        logo: "/logos/nextdoor.svg"
     },
     {
         id: 26,
-        logo: "/brands/polldaddy.svg"
+        logo: "/logos/polldaddy.svg"
     },
     {
         id: 27,
-        logo: "/brands/pinterest.svg"
+        logo: "/logos/pinterest.svg"
     },
     {
         id: 28,
-        logo: "/brands/pocket.svg"
+        logo: "/logos/pocket.svg"
     },
     {
         id: 29,
-        logo: "/brands/print.svg"
+        logo: "/logos/print.svg"
     },
     {
         id: 30,
-        logo: "/brands/share.svg"
+        logo: "/logos/share.svg"
     },
     {
         id: 31,
-        logo: "/brands/skype.svg"
+        logo: "/logos/skype.svg"
     },
     {
         id: 32,
-        logo: "/brands/sms.svg"
+        logo: "/logos/sms.svg"
     },
     {
         id: 33,
-        logo: "/brands/squarespace.svg"
+        logo: "/logos/squarespace.svg"
     },
     {
         id: 34,
-        logo: "/brands/stumbleupon.svg"
+        logo: "/logos/stumbleupon.svg"
     },
     {
         id: 35,
-        logo: "/brands/threads.svg"
+        logo: "/logos/threads.svg"
     },
     {
         id: 36,
-        logo: "/brands/woocommerce.svg"
+        logo: "/logos/woocommerce.svg"
     },
     {
         id: 37,
-        logo: "/brands/telegram.svg"
+        logo: "/logos/telegram.svg"
     },
     {
         id: 38,
-        logo: "/brands/tiktok.svg"
+        logo: "/logos/tiktok.svg"
     },
     {
         id: 39,
-        logo: "/brands/tumblr.svg"
+        logo: "/logos/tumblr.svg"
     },
     {
         id: 40,
-        logo: "/brands/twitch.svg"
+        logo: "/logos/twitch.svg"
     },
     {
         id: 41,
-        logo: "/brands/twitter.svg"
+        logo: "/logos/twitter.svg"
     },
     {
         id: 42,
-        logo: "/brands/vimeo.svg"
+        logo: "/logos/vimeo.svg"
     },
     {
         id: 43,
-        logo: "/brands/whatsapp.svg"
+        logo: "/logos/whatsapp.svg"
     },
     {
         id: 44,
-        logo: "/brands/youtube.svg"
+        logo: "/logos/youtube.svg"
     }
 ];

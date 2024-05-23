@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/codezeniths/Elysian/compare/v1.22.0...v1.23.0) (2024-05-23)
+
+
+### Features
+
+* add signin page with validation and formik :sparkles: ([ca5a1ba](https://github.com/codezeniths/Elysian/commit/ca5a1ba7a3c1037cbf22fba54d64b388aa7250ba))
+
 # [1.22.0](https://github.com/codezeniths/Elysian/compare/v1.21.0...v1.22.0) (2024-05-23)
 
 

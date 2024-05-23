@@ -6,7 +6,6 @@ import PromotionCard from "./promotion card/promotionCard";
 import LatestLauch from "./latest launch/latestLauch";
 import Categories from "./categories/categories";
 import ShopByBrands from "./shop by brand/shopByBrands";
-
 // Demo Data
 import { sofas, chairs } from "../../../assets/data/homeData";
 import { logos } from "../../../assets/data/logosData";
@@ -35,6 +34,7 @@ const brandCategories = [
 ];
 
 const HomeX = () => {
+
   return (
     <div className="home">
       <main>

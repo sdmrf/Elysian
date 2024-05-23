@@ -3,6 +3,7 @@ import ContentWrapper from "../../../common/wrappers/content-wrapper/contentWrap
 
 // Demo Data
 import { brands } from "../../../../assets/data/brandsData";
+import { ArrowRight } from "@phosphor-icons/react";
 
 const ShopByBrands = () => {
   return (
@@ -13,10 +14,17 @@ const ShopByBrands = () => {
           {brands.map((brand) => (
             <div className="brandCard" key={brand.id}>
               <div className="brandContent">
-                <h1 className="brandName">{brand.name}</h1>
+                <div className="top">
                 <div className="brandImg">
                   <img src={brand.image} alt={brand.name} />
                 </div>
+                <h1 className="brandName">{brand.name}</h1>
+                </div>
+                <p>{`Explore ${brand.name} to get best furnitures !`}</p>
+                <a>
+                  Explore
+                  <ArrowRight />
+                </a>
               </div>
               <div className="furnitureImg">
                 <img src={brand.furnitureImg} alt="furniture" />

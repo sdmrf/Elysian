@@ -9,12 +9,18 @@ import { Eye } from "@phosphor-icons/react";
 import { EyeSlash } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 import { FormikHelpers } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { setLogin } from "../../../context/reducers/userSlice";
 
 const SigninX = () => {
+
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<{ message: string } | null>(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isLogin = useSelector((state : any) => state.userSlice.isLogin);
 
+  console.log(isLogin)
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("*Invalid email").required("*Email is required"),
     password: Yup.string().required("*Password is required"),
@@ -25,12 +31,13 @@ const SigninX = () => {
     { setSubmitting }: FormikHelpers<any>
   ) => {
     try {
-      navigate("/home");
+      dispatch(setLogin(true));
     } catch (err: any) {
       setError({ message: err.message });
       console.log(err);
     } finally {
       setSubmitting(false);
+      navigate("/home")
     }
   };
 

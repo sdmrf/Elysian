@@ -3,6 +3,7 @@ import { CartItem, ShippingInfo, User, Order, Product } from "./types";
 export interface UserReducerInitialState {
   user: User | null;
   loading: boolean;
+  isLogin: boolean;
 }
 
 export interface CartReducerInitialState {

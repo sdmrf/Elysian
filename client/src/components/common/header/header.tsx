@@ -4,11 +4,12 @@ import { SignIn, UserCirclePlus, List } from "@phosphor-icons/react";
 import { useState, useEffect } from "react";
 import Navbar from "../navbar/navbar";
 import Darkmode from "../darkmode/darkmode";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [isLogin, setIsLogin] = useState(false);
+  const isLogin = useSelector((state: any) => state.userSlice.isLogin);
 
   useEffect(() => {
     const handleScroll = () => {

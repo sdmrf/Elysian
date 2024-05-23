@@ -1,0 +1,48 @@
+.productSection {
+  width: 100%;
+  height: 100%;
+  padding: 0 25px;
+  @include flex(column, space-between, center, 2rem);
+
+  .productHeading {
+    @include flex(column, center, center, 3rem);
+    padding: 0 20px;
+    margin-top: 10px;
+
+    h1 {
+      margin-top: 20px;
+      font-size: $xxl;
+      font-weight: 700;
+      color: rgba($color: $text-light, $alpha: 0.8);
+    }
+
+    .productCategories {
+      height: 50px;
+      width: auto;
+      padding: 0 25px;
+      border-radius: 25px;
+      //background-color: rgba($color: $card-light, $alpha: 0.85);
+      border: 1px solid rgba($color: $text-light-2, $alpha: 0.25);
+      background-color: rgba($card-dark, 0.75);
+      backdrop-filter: blur(3.5px);
+      -webkit-backdrop-filter: blur(3.5px);
+
+      @include flex(row, center, space-between, 1rem);
+
+      .productCategory {
+        padding: 8px 12px;
+        border-radius: 25px;
+        color: rgba($color: $text-light, $alpha: 1);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &.activeCategory {
+          background-color: rgba($color: $primary, $alpha: 0.75);
+          backdrop-filter: blur(3.5px);
+          -webkit-backdrop-filter: blur(3.5px);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+}

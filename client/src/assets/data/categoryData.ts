@@ -1,5 +1,4 @@
 import { Category } from "../../types/types";
-import { ForkKnife } from "@phosphor-icons/react";
 import { createIcon } from "./icons";
 
 const categories: Category[] = [

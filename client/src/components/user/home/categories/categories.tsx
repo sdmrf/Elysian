@@ -1,5 +1,5 @@
 // Imports
-import ContentWrapper from "../../common/wrappers/content-wrapper/contentWrapper";
+import ContentWrapper from "../../../common/wrappers/content-wrapper/contentWrapper";
 
 // Interfaces
 interface Category {

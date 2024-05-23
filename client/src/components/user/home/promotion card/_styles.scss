@@ -6,6 +6,7 @@
     background-color: rgba($card-dark, 0.98);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba($color: $text-light-2, $alpha: 0.15);
   
     .promotionCardImage {
       width: 500px;

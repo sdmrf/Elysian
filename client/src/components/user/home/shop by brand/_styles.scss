@@ -1,0 +1,81 @@
+.shopByBrands {
+  width: 100%;
+  @include flex(column, center, center, 5rem);
+
+  h1 {
+    margin-top: 20px;
+    font-size: $xxl;
+    font-weight: 700;
+    color: rgba($color: $text-light, $alpha: 0.8);
+  }
+
+  .brandsContent {
+    width: 100%;
+    padding: 0 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 4fr));
+    gap: 1rem;
+    .brandCard {
+      @include card(
+        200px,
+        375px,
+        1rem,
+        $card-dark,
+        10px,
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        1px solid rgba($color: $text-light-2, $alpha: 0.15),
+        $card-hover-dark,
+        0 4px 8px rgba(0, 0, 0, 0.2)
+      );
+      @include flex(center, center);
+      cursor: pointer;
+      padding: 10px;
+      transition: background-color 0.3s, transform 0.3s;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: $card-dark;
+      border: 1px solid rgba($color: $text-light-2, $alpha: 0.15);
+
+      &:hover {
+        background-color: $card-hover-dark;
+        transform: scale(1.05);
+      }
+
+      .brandContent {
+        flex: 1;
+        @include dimensions();
+        @include flex(column, center, center);
+
+        .brandName {
+          @include flex(center, center);
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: 500;
+          margin-bottom: 1rem;
+          color: rgba($color: $text-light, $alpha: 0.95);
+        }
+
+        .brandImg {
+          @include dimensions(75px, 75px);
+          border-radius: 50%;
+          img {
+            @include dimensions();
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .furnitureImg {
+        flex: 1;
+        @include dimensions();
+
+        img {
+          @include dimensions();
+          border-radius: 10px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

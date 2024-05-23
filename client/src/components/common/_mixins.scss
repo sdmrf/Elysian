@@ -84,6 +84,11 @@
   text-transform: $case;
 }
 
+@mixin dimensions($w: 100%, $h: 100%) {
+  width: $w;
+  height: $h;
+}
+
 @mixin flex(
   $dir: row,
   $alignItems: center,

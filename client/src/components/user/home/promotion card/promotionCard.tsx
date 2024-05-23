@@ -1,5 +1,5 @@
 // Imports
-import ContentWrapper from "../wrappers/content-wrapper/contentWrapper";
+import ContentWrapper from "../../../common/wrappers/content-wrapper/contentWrapper";
 import { ArrowRight } from "@phosphor-icons/react";
 
 // Interfaces
@@ -14,6 +14,7 @@ interface PromotionCardProps {
   imageSrc: string;
   timeRemaining: TimeRemaining[];
   buttonText: string;
+  showTimer?: boolean;
 }
 
 const PromotionCard = ({
@@ -22,6 +23,7 @@ const PromotionCard = ({
   imageSrc,
   timeRemaining,
   buttonText,
+  showTimer = true,
 }: PromotionCardProps) => {
   const renderTimeRemaining = () => (
     <div className="timeRemaining">
@@ -40,7 +42,7 @@ const PromotionCard = ({
         <div className="promotionCardContent">
           <h1>{title}</h1>
           <p>{description}</p>
-          {renderTimeRemaining()}
+          {showTimer && renderTimeRemaining()}
           <button className="allProductsBtn">
             {buttonText} <ArrowRight size={18} />
           </button>

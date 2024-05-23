@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+// Imports
+import { useState } from "react";
 import { SunDim, Moon } from "@phosphor-icons/react";
+
 
 const Darkmode = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);

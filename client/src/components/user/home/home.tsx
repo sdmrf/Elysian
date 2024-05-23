@@ -1,9 +1,11 @@
 // Imports
 import SwiperCarousel from "../../common/wrappers/swiper-wrapper/swiper-carousel/swiperCarousel";
 import SwiperLogo from "../../common/wrappers/swiper-wrapper/swiper-logo/swiperLogo";
-import ProductSection from "../../common/product section/productSection";
-import PromotionCard from "../../common/promotion card/promotionCard";
-import Categories from "../../common/categories/categories";
+import ProductSection from "./product section/productSection";
+import PromotionCard from "./promotion card/promotionCard";
+import LatestLauch from "./latest launch/latestLauch";
+import Categories from "./categories/categories";
+import ShopByBrands from "./shop by brand/shopByBrands";
 
 // Demo Data
 import { sofas, chairs } from "../../../assets/data/homeData";
@@ -38,7 +40,14 @@ const HomeX = () => {
       <main>
         <SwiperCarousel>
           {sofas.map((sofa, index) => (
-            <img key={index} src={sofa.image} alt={`Sofa ${index}`} />
+            <div className="carouselContent">
+              <img src={sofa.image} alt={`Sofa ${index}`} />
+              <div className="textContent">
+                <h1 className="title">{sofa.name}</h1>
+                <p className="category">{sofa.category}</p>
+                <button className="btn">Shop Now</button>
+              </div>
+            </div>
           ))}
         </SwiperCarousel>
         <SwiperLogo>
@@ -63,18 +72,7 @@ const HomeX = () => {
         />
       </section>
       <section>
-        <PromotionCard
-          title="New Sofa Collection"
-          description="Explore our latest sofa collection, featuring innovative designs crafted for both comfort and style. Elevate your living space with our premium selection of sofas, designed to enhance your relaxation and entertainment experience."
-          imageSrc="/furnitures/F-bg-1.jpg"
-          timeRemaining={[
-            { value: 12, label: "Days" },
-            { value: 8, label: "Hours" },
-            { value: 34, label: "Minutes" },
-            { value: 55, label: "Seconds" },
-          ]}
-          buttonText="Check It Out!"
-        />
+        <LatestLauch />
       </section>
       <section>
         <Categories title="Shop by Category" categories={productCategories} />
@@ -101,7 +99,7 @@ const HomeX = () => {
         />
       </section>
       <section>
-        <Categories title="Shop by Brand" categories={brandCategories} />
+        <ShopByBrands />
       </section>
       <section>
         <PromotionCard
@@ -115,6 +113,7 @@ const HomeX = () => {
             { value: 15, label: "Seconds" },
           ]}
           buttonText="Discover More"
+          showTimer={false}
         />
       </section>
     </div>

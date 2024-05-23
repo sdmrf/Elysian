@@ -1,0 +1,180 @@
+.Signin {
+  .container {
+    @include flex();
+    height: 1000px;
+    width: 100%;
+    position: relative;
+    .wrapper {
+      @include flex();
+      padding: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 700px;
+      background-color: $bg-fade;
+      border-radius: 12px;
+      .opacity-layer {
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(
+          180deg,
+          rgba(4, 21, 45, 0) 0%,
+          #04152d 75.17%
+        );
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .Form {
+        @include flex(column, center, space-around, 0px);
+        width: 85%;
+        height: 85%;
+        background-color: $bg-dark;
+        border-radius: 12px;
+        border: 1px solid rgba($text-light-2, 0.25);
+        padding: 25px;
+        .loginBtn {
+          @include flex(row, center, center, 15px);
+          background-color: $card-hover-dark;
+          border: none;
+          padding: 10px 15px;
+          border-radius: 25px;
+          color: rgba($text-light, 0.25);
+          button {
+            background-color: transparent;
+            border: none;
+            color: rgba($text-light-2, 1);
+            font-size: 1rem;
+            cursor: pointer;
+          }
+        }
+        h1 {
+          color: rgba($text-light, 1);
+          font-size: $xxl;
+          font-weight: lighter;
+          margin-bottom: 20px;
+        }
+        .buttons {
+          @include flex(row, center, center, 50px);
+          .btn {
+            @include flex(row, center, center, 10px);
+            background-color: $card-hover-dark;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            color: rgba($text-light-2, 1);
+            font-size: 1rem;
+            opacity: 0.5;
+            cursor: pointer;
+            &:hover {
+              opacity: 1;
+              color: $primary;
+            }
+            svg {
+              font-size: 1.5rem;
+            }
+          }
+        }
+        .partition {
+          @include flex(row, center, center, 10px);
+          margin: 20px 0;
+          width: 85%;
+          .line1 {
+            flex: 1;
+            height: 1px;
+            background-color: rgba($text-light-2, 0.25);
+          }
+          .line2 {
+            flex: 1;
+            height: 1px;
+            background-color: rgba($text-light-2, 0.25);
+          }
+          p {
+            flex: 1;
+            text-align: center;
+            color: rgba($text-light-2, 0.25);
+          }
+        }
+        .Grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px 40px;
+          margin-bottom: 25px;
+          margin-top: 15px;
+          width: 85%;
+          .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .input {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              border: none;
+              border-bottom: 1px solid rgba($text-light-2, 0.25);
+              gap: 10px;
+              &:focus-within {
+                border: none;
+                border-bottom: 1px solid rgba($text-light-2, 1);
+              }
+              input {
+                border: none;
+                border-bottom: none;
+              }
+              span {
+                color: rgba($text-light-2, 0.25);
+                font-size: 1.5rem;
+                cursor: pointer;
+              }
+            }
+            input {
+              background-color: transparent;
+              border: none;
+              border-radius: 5px;
+              padding: 10px 15px;
+              font-size: 1rem;
+              color: rgba($text-light, 1);
+              border-bottom: 1px solid rgba($text-light-2, 0.25);
+              &:focus {
+                outline: none;
+                border-bottom-color: rgba($text-light-2, 1);
+              }
+            }
+            .error {
+              color: $primary;
+              font-size: $sm;
+              margin-top: 5px;
+              margin-left: 5px;
+              width: 100%;
+            }
+          }
+        }
+        .line {
+          width: 75%;
+          height: 1px;
+          background-color: rgba($text-light-2, 0.25);
+          margin: 20px 0;
+        }
+        .already {
+          p {
+            display: flex;
+            gap: 10px;
+            color: rgba($text-light-2, 0.5);
+            a {
+              color: $primary;
+              text-decoration: none;
+              cursor: pointer;
+            }
+          }
+        }
+        .error {
+          color: $primary;
+          font-size: $lg;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

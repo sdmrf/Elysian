@@ -1,7 +1,7 @@
 import { ArrowRight } from "@phosphor-icons/react";
 import ContentWrapper from "../../wrappers/content-wrapper/contentWrapper";
 
-const Admincard = () => {
+const ApplyAdmin = () => {
   return (
     <ContentWrapper>
       <div className="admincard">
@@ -31,4 +31,4 @@ const Admincard = () => {
   );
 };
 
-export default Admincard;
+export default ApplyAdmin;

@@ -42,6 +42,12 @@
           display: block;
           width: 300px;
         }
+
+        @include xs-max{
+          font-size: $lg;
+          display: block;
+          width: 200px;
+        }
       }
       > p {
         display: block;
@@ -54,6 +60,11 @@
           font-size: $sm;
           display: block;
           width: 300px;
+        }
+
+        @include xs-max{
+          display: block;
+          width: 200px;
         }
       }
       .link {

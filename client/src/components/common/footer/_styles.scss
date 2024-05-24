@@ -81,7 +81,7 @@ footer {
       .right {
         @include flex(row, start, space-between, 100px);
         @include lg-max {
-          @include flex(row, start, center, 50px);
+          @include flex(column, start, center, 50px);
         }
         .links {
           @include flex(column, 10px);

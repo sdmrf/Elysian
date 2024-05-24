@@ -1,9 +1,9 @@
 .hero {
-  width: 100vw;
+  width: 100%;
   position: relative;
   z-index: 100;
-  @include md-max {
-    height: 50vh;
+  @include lg-max {
+
   }
   .Backdrop-img {
     width: 100%;
@@ -72,7 +72,7 @@
         line-height: 1.2;
 
         @include md-max {
-          font-size: $xxl;
+          font-size: $xl;
         }
       }
 

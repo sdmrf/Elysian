@@ -1,19 +1,21 @@
-header {
+.header {
   @include flex(row, center, space-around);
   padding: 10px 20px;
   position: fixed;
   width: 100%;
-  z-index: 1000;
+  z-index: 101;
   transition: 0.5s ease-in-out;
+  box-sizing: border-box;
 
   &.scrolled {
     background: rgba($bg-dark, 0.95);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   }
 
-  @include md-max {
-    padding: 10px 60px;
-    @include flex(row, center, space-between);
+  @include lg-max {
+    padding: 10px;
+    position: sticky;
+    @include flex(row, center, space-evenly);
   }
 
   // Font settings
@@ -24,6 +26,7 @@ header {
 
   .logo {
     height: 25px;
+
     img {
       height: 100%;
       width: 100%;
@@ -70,9 +73,11 @@ header {
 
   .profile {
     @include flex(row, center, center, 10px);
+
     @include md-max {
       display: none;
     }
+
     .avatar {
       width: 30px;
       height: 30px;
@@ -85,5 +90,31 @@ header {
         object-fit: cover;
       }
     }
+  }
+}
+
+// Media queries for better mobile responsiveness
+@include md-max {
+  .header {
+    padding: 10px;
+    justify-content: space-between;
+
+    .buttons,
+    .profile {
+      display: none;
+    }
+
+    .toggle {
+      display: block;
+      font-size: $xl;
+    }
+  }
+}
+
+@include xs-max {
+  .header {
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
   }
 }

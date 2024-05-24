@@ -32,6 +32,10 @@
       color: rgba($text-light-2, 0.8);
       text-align: center;
       line-height: 1.5;
+
+      @include lg-max{
+        width: 350px;
+      }
     }
   }
   .singletestimonial {

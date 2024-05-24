@@ -3,7 +3,6 @@ import { YoutubeLogo, MetaLogo, XLogo, InstagramLogo } from "@phosphor-icons/rea
 const Footer = () => {
   return (
     <footer>
-      <ContentWrapper>
         <div className="container">
           <div className="top">
             <div className="left">
@@ -66,7 +65,6 @@ const Footer = () => {
             <h4>Copyright © 2024 Elysian. All rights reserved</h4>
           </div>
         </div>
-      </ContentWrapper>
       </footer>
   );
 };

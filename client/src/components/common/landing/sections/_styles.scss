@@ -2,10 +2,18 @@
 .usersection {
   width: 100%;
   margin-top: 100px;
+
+  @include xs-max{
+    margin-top: 0px;
+  }
   .container {
     @include flex(row, start, space-between, 10px);
     width: 100%;
     padding: 25px;
+
+    @include lg-max{
+      @include flex(column, center, center, 20px);
+    }
     .img {
       position: relative;
       height: 400px;
@@ -56,6 +64,10 @@
       @include flex(column, start, start, 20px);
       margin: 25px;
 
+      @include lg-max{
+        @include flex(column, center, center, 10px);
+        text-align: center;
+      }
       .link {
         @include flex(row, center, center, 10px);
         a {
@@ -92,6 +104,16 @@
         font-weight: $bold;
         color: $text-light;
         line-height: 1.2;
+
+        @include lg-max{
+          width: 300px;
+          font-size: $xl;
+        }
+
+        @include xs-max{
+          width: 200px;
+          font-size: $lg;
+        }
       }
       > p {
         display: block;
@@ -102,13 +124,22 @@
         line-height: 1.5;
 
         @include lg-max {
-          width: 350px;
+          width: 300px;
+        }
+
+        @include xs-max{
+          width: 200px;
+          font-size: $sm;
         }
       }
       .features {
         @include flex(column, start, start, 30px);
         .feature {
           @include flex(row, center, center, 10px);
+
+          @include lg-max{
+            @include flex(column, center, center, 10px);
+          }
           .left {
             @include flex(row, center, center, 0px);
             @include square(60px);

@@ -9,6 +9,13 @@
       color: $text-light;
       text-align: center;
       line-height: 1.2;
+
+      @include lg-max{
+        font-size: $xl;
+      }
+      @include xs-max{
+        font-size: $lg;
+      }
     }
     span {
       font-size: $md;
@@ -29,11 +36,18 @@
       color: rgba($text-light-2, 0.8);
       text-align: center;
       line-height: 1.5;
+
+      @include lg-max{
+        width: 300px;
+      }
+
+      @include xs-max{
+        width: 200px;
+      }
     }
   }
   .categoryItems {
     width: 100%;
-    padding: 0 25px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;

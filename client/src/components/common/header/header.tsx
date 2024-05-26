@@ -11,7 +11,7 @@ import DarkModeBtn from "../dark-mode-btn/darkModeBtn";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [isLogin, setIsLogin] = useState<boolean>(true);
+  const [isLogin, setIsLogin] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {

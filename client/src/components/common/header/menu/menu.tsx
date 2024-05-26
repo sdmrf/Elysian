@@ -65,10 +65,8 @@ const Menu = () => {
         </ul>
         {isLogin ? (
           <div className="menuProfile">
-            <Link to="/profile">
-              <div className="avatar">
+            <Link to="/profile" className="Avatar">
                 <img src="/favicon.png" alt="User Avatar" />
-              </div>
             </Link>
             <DarkModeBtn />
           </div>

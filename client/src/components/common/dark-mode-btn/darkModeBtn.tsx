@@ -3,16 +3,15 @@ import { useState } from "react";
 import { SunDim, Moon } from "@phosphor-icons/react";
 
 
-const Darkmode = () => {
+const DarkModeBtn = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-  console.log(isDarkMode);
   return (
-    <div className={`darkmode ${isDarkMode ? "" : "dark"}`}>
+    <div className={`darkModeBtn ${isDarkMode ? "" : "dark"}`}>
       <div id="shape" className={`changer ${isDarkMode ? "" : "change"}`}></div>
       <div
         id="toggle"
@@ -38,4 +37,4 @@ const Darkmode = () => {
   );
 };
 
-export default Darkmode;
+export default DarkModeBtn;

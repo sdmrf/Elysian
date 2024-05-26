@@ -1,0 +1,43 @@
+.menu {
+    @include dimensions();
+    @include border();
+    padding: $sp-md;
+    border-radius: $br-md;
+  
+    @include md-min {
+      display: none;
+    }
+  
+    .menuContainer {
+      ul {
+        @include flex(column, flex-start, flex-start);
+  
+        .menuFurniture {
+          @include flex(column, flex-start, center);
+          @include dimensions();
+  
+          .menuFurnitureHeading {
+            @include flex(row, space-between, center, 0.5rem);
+          }
+  
+          .menuFurnitureDropDown {
+            @include dimensions();
+  
+            ul {
+              @include flex(column, flex-start, flex-start);
+              @include border();
+              @include shadow();
+              padding: $sp-sm;
+              border-radius: $br-md;
+              background-color: $bg-card-dark;
+            }
+          }
+        }
+      }
+  
+      .menuProfile {
+        display: none;
+      }
+    }
+  }
+  

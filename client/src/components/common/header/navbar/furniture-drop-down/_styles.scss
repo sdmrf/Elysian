@@ -1,0 +1,66 @@
+.furnitureDropDown {
+    @include dimensions(500px, 250px);
+    @include flex();
+    @include shadow();
+    @include border();
+    @include transition(all, 0.3s ease);
+  
+    position: absolute;
+    padding: 2rem;
+    border-radius: $br-lg;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $bg-card-dark;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: -0.5rem;
+      left: 20%;
+      transform: translateX(-50%);
+      border-width: 0 0.5rem 0.5rem 0.5rem;
+      border-style: solid;
+      border-color: transparent transparent rgba($tc-light-2, 0.75) transparent;
+    }
+  
+    .dropDownContainer {
+      @include flex(row, start, start, 1rem);
+  
+      .links {
+        @include flex(row, start, start, 1rem);
+  
+        .linksContent {
+          @include flex(column, start, start, 1rem);
+  
+          h1 {
+            @include heading($fs-md, $tc-light);
+          }
+  
+          ul {
+            @include flex(column, start, start, 0.5rem);
+  
+            li {
+              @include heading($fs-sm, rgba($tc-light, 0.75));
+              cursor: pointer;
+              line-height: 1rem;
+  
+              &:hover {
+                color: $color-primary;
+              }
+            }
+          }
+        }
+  
+        .line {
+          @include dimensions(1px, 150px);
+          background-color: $tc-light-2;
+        }
+  
+        &:last-of-type .line {
+          display: none;
+        }
+      }
+    }
+  }
+  

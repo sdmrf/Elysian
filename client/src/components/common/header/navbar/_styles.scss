@@ -1,0 +1,48 @@
+nav{
+  position: relative;
+
+  @include transition();
+  @include md-max{
+    display: none;
+  }
+  
+  .navItems{
+    @include flex(row, center, space-between, 2rem);
+
+    .navItem {
+      @include transition(all, 0.3s);
+      position: relative;
+      padding: 0.5rem 0;
+
+      &:hover::before, 
+      &:hover::after {
+        width: 50%;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 2px;
+        width: 0;
+        background-color: $color-primary;
+        transition: width 0.3s ease;
+      }
+
+      &::before {
+        left: 50%;
+      }
+
+      &::after {
+        right: 50%;
+      }
+    }
+
+    .furniture{
+      @include flex(row, center, center, 0.5rem);
+      @include transition(all, 0.3s ease);
+      cursor: pointer;
+    }
+  }
+}

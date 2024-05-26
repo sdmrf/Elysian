@@ -1,3 +1,11 @@
+/* 
+  This file contains all the mixins used in the project.
+  Mixins are used to define styles that can be reused throughout the project.
+  This file includes mixins for media queries, text ellipsis, heading styles, dimensions, flex, grid, input styles, centering, square, card, base shadow, buttons, margin, padding, border, transition, placeholder, clearfix, visually hidden, shadows, and gradients.
+  Copyright (c) 2024 Codezeniths.
+*/
+
+// Media queries
 @mixin xs-min {
   @media only screen and (min-width: 480px) {
     @content;
@@ -70,6 +78,7 @@
   }
 }
 
+// Text ellipsis
 @mixin ellipsis($line: 2) {
   display: -webkit-box;
   -webkit-line-clamp: $line;
@@ -78,29 +87,29 @@
   text-overflow: ellipsis;
 }
 
-@mixin heading($spacing: 3px, $weight: 300, $case: uppercase) {
-  letter-spacing: $spacing;
-  font-weight: $weight;
-  text-transform: $case;
+// Heading styles
+@mixin heading($fs : $fs-xl, $cl : rgba($tc-light, 0.75), $wt : $fw-bold) {
+  font-size: $fs;
+  font-weight: $wt;
+  color: $cl;
 }
 
+// Dimensions
 @mixin dimensions($w: 100%, $h: 100%) {
   width: $w;
   height: $h;
 }
 
-@mixin flex(
-  $dir: row,
-  $alignItems: center,
-  $justifyContent: center,
-  $gap: 1rem
-) {
+// Flexbox
+@mixin flex($dir: row, $align: center, $justify: center, $gap: 1rem) {
   display: flex;
   flex-direction: $dir;
-  align-items: $alignItems;
-  justify-content: $justifyContent;
+  align-items: $align;
+  justify-content: $justify;
   gap: $gap;
 }
+
+// Grid
 @mixin grid($col: 1fr, $gap: 1rem, $row: unset) {
   display: grid;
   grid-template-columns: $col;
@@ -108,29 +117,33 @@
   gap: $gap;
 }
 
-@mixin inputStyle($w: 100%, $p: 1rem, $bgColor: inherit, $border: none) {
+// Input styles
+@mixin input-style($w: 100%, $p: 1rem, $bg: inherit, $border: none) {
   padding: $p;
   border: $border;
-  background-color: $bgColor;
+  background-color: $bg;
   width: $w;
   outline: none;
 }
 
-@mixin posCenter {
+// Centering
+@mixin pos-center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+// Square dimensions
 @mixin square($s: 1rem) {
   height: $s;
   width: $s;
 }
 
+// Card styles
 @mixin card(
-  $ht: 350px,
-  $wd: 225px,
+  $h: 350px,
+  $w: 225px,
   $p: 1rem,
   $bg: #fff,
   $br: 20px,
@@ -139,8 +152,8 @@
   $hover-bg: $bg,
   $hover-shadow: $shadow
 ) {
-  height: $ht;
-  width: $wd;
+  height: $h;
+  width: $w;
   padding: $p;
   background-color: $bg;
   border-radius: $br;
@@ -154,11 +167,13 @@
   }
 }
 
-@mixin baseShadow() {
+// Base shadow
+@mixin base-shadow() {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.384);
 }
 
-@mixin btn1($p: 0.5rem 1rem, $bg, $color, $br) {
+// Buttons
+@mixin btn-primary($p: 0.5rem 1rem, $bg, $color, $br) {
   cursor: pointer;
   border: none;
   outline: none;
@@ -168,7 +183,7 @@
   border-radius: $br;
 }
 
-@mixin btn2($p: 0.5rem 1rem, $color, $br){
+@mixin btn-secondary($p: 0.5rem 1rem, $color, $br) {
   cursor: pointer;
   border: 2px solid $color;
   outline: none;
@@ -176,4 +191,108 @@
   background-color: transparent;
   color: $color;
   border-radius: $br;
+}
+
+// Margin and padding
+@mixin m($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  margin: $top $right $bottom $left;
+}
+
+@mixin p($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  padding: $top $right $bottom $left;
+}
+
+// Border
+@mixin border($width: 1px, $style: solid, $color: rgba($tc-light-2, 0.5)) {
+  border: $width $style $color;
+}
+
+@mixin border-radius($radius: 4px) {
+  border-radius: $radius;
+}
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Text styles
+@mixin text($size: 16px, $weight: 400, $color: black) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+// Responsive text
+@mixin responsive-text($minSize: 16px, $maxSize: 24px) {
+  font-size: calc(
+    #{$minSize} + (#{$maxSize} - #{$minSize}) * ((100vw - 320px) / (1600 - 320))
+  );
+}
+
+// Placeholder
+@mixin placeholder($color: #999) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Visually hidden
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+// Transition
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Shadow
+@mixin shadow($x: 0px, $y: 0px, $blur: 10px, $color: rgba(0, 0, 0, 0.15)) {
+  box-shadow: $x $y $blur $color;
+}
+
+// Background gradient
+@mixin gradient($startColor, $endColor) {
+  background: linear-gradient(to right, $startColor, $endColor);
+}
+
+// Full viewport
+@mixin full-viewport {
+  width: 100vw;
+  height: 100vh;
+}
+
+// Center content
+@mixin center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

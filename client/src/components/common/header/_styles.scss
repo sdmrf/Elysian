@@ -1,120 +1,109 @@
-.header {
-  @include flex(row, center, space-around);
-  padding: 10px 20px;
+header {
+  @include dimensions(100%, 80px);
+  @include flex(row, center, space-between);
+  @include transition(all 0.3s ease-in-out);
+  @include md-max {
+    @include flex(column, center, center);
+    &.menuOpen {
+      @include dimensions(100%, auto);
+      padding-top: calc((80px - 25px) / 2);
+    }
+  }
+
+  padding: 0 $sp-lg;
   position: fixed;
-  width: 100%;
-  z-index: 101;
-  transition: 0.5s ease-in-out;
-  box-sizing: border-box;
+
+  // Font Settings
+  font-family: $ff-primary;
+  font-weight: $fw-medium;
+  @include responsive-text();
+  color: $tc-light;
 
   &.scrolled {
-    background: rgba($bg-dark, 0.95);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    background-color: $bg-dark;
+    @include shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   }
 
-  @include lg-max {
-    padding: 10px;
-    position: sticky;
-    @include flex(row, center, space-evenly);
-  }
+  .headerContainer {
+    @include flex(row, center, space-between);
+    @include dimensions();
+    @include transition(all 0.3s ease-in-out);
 
-  // Font settings
-  font-size: $md;
-  font-weight: $medium;
-  color: $text-light;
-  font-family: $font-1;
-
-  .logo {
-    height: 25px;
-
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      opacity: 0.75;
-    }
-  }
-
-  .buttons {
-    @include flex(row, center, space-between, 1rem);
-
-    @include md-max {
-      display: none;
-    }
-
-    button {
-      @include flex(row, center, center, 0.5rem);
-      font-size: 15px;
-
-      .icon {
-        font-size: $lg;
-      }
-    }
-
-    .btn1 {
-      @include btn1(0.5rem 1rem, $primary, $text-light, 5px);
-      opacity: 0.9;
-    }
-
-    .btn2 {
-      @include btn2(0.5rem 1rem, $primary, 5px);
-    }
-  }
-
-  .toggle {
-    display: none;
-
-    @include md-max {
-      display: block;
-      cursor: pointer;
-      font-size: $xl;
-    }
-  }
-
-  .profile {
-    @include flex(row, center, center, 10px);
-
-    @include md-max {
-      display: none;
-    }
-
-    .avatar {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
+    .headerLogo {
+      @include flex(row, center, center);
+      @include transition(all 0.3s ease-in-out);
+      @include dimensions(auto, 25px);
 
       img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        object-fit: cover;
+        @include dimensions();
+        margin-right: $sp-sm;
       }
     }
-  }
-}
 
-// Media queries for better mobile responsiveness
-@include md-max {
-  .header {
-    padding: 10px;
-    justify-content: space-between;
+    .headerBtns,
+    .headerProfile {
+      @include flex(row, center, center);
+      @include md-max {
+        display: none;
+      }
 
-    .buttons,
-    .profile {
+      button {
+        @include flex(row, center, center, 0.5rem);
+        @include shadow();
+        .icon {
+          @include dimensions(20px);
+        }
+      }
+
+      .loginBtn {
+        @include btn-primary(0.5rem 0.75rem, $color-primary, $tc-light, $br-md);
+      }
+
+      .signupBtn {
+        @include btn-secondary(0.5rem 0.75rem, $color-primary, $br-md);
+      }
+    }
+
+    .headerProfile {
+      @include flex();
+      @include transition(all, 0.5s, ease-in-out);
+      @include md-max {
+        display: none;
+      }
+
+      .profileAvatar {
+        @include dimensions(30px);
+
+        margin-right: $sp-sm;
+        img {
+          @include dimensions();
+          border-radius: $br-round;
+
+          &:hover {
+            @include shadow();
+            @include border();
+          }
+        }
+      }
+    }
+
+    .menuBtn {
       display: none;
+      @include md-max {
+        display: block;
+        @include dimensions(30px, 30px);
+        @include flex(row, center, center);
+        @include transition(all 0.3s ease-in-out);
+        cursor: pointer;
+        padding: 0;
+        background: none;
+        border: none;
+        box-shadow: none;
+        .icon {
+          @include dimensions(28px);
+          color: $tc-light;
+        }
+      }
     }
-
-    .toggle {
-      display: block;
-      font-size: $xl;
-    }
-  }
-}
-
-@include xs-max {
-  .header {
-    padding: 10px;
-    width: 100%;
-    justify-content: space-between;
   }
 }

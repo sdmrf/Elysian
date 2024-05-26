@@ -1,43 +1,79 @@
-/* font settings */
-// font sizes
-$xs: 8px;
-$sm: 12px;
-$md: 16px;
-$lg: 20px;
-$xl: 24px;
-$xxl: 32px;
-$xxxl: 36px;
+/* 
+  This file contains variables for font sizes, font weights, font families, 
+  text colors, background colors, primary colors, additional colors, spacing, and border radius.
+  Copyright (c) 2024 Codezeniths.
+*/
 
-// font weight
-$thin: 100;
-$light: 300;
-$regular: 400;
-$medium: 500;
-$bold: 700;
-$black: 900;
+/* Typography settings */
 
-// font family
-$font-1: "Andika", sans-serif;
+// Font sizes
+$fs-xxs: 6px;
+$fs-xs: 8px;
+$fs-sm: 12px;
+$fs-md: 16px;
+$fs-lg: 20px;
+$fs-xl: 24px;
+$fs-xxl: 32px;
+$fs-xxxl: 36px;
+$fs-xxxxl: 48px;
+
+// Font weights
+$fw-thin: 100;
+$fw-xl: 200; // Extra Light
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+$fw-xbold: 800; // Extra Bold
+$fw-black: 900;
+
+// Font families
+$ff-primary: "Andika", sans-serif;
+$ff-secondary: "Poppins", sans-serif;
+$ff-fallback: sans-serif;
 
 /* Color settings */
-// Text color
-$text-light: #eeeeee;
-$text-light-2: #8c97b8;
-$text-dark: #181c31;
-$text-dark-2: #becaec;
 
-// Background color
+// Text colors
+$tc-light: #eeeeee;
+$tc-light-2: #8c97b8;
+$tc-dark: #181c31;
+$tc-dark-2: #becaec;
+
+// Background colors
 $bg-fade: #0d253c;
 $bg-dark: #04152d;
 $bg-light: #eeeeee;
-$card-light: #f0f0f0;
-$card-dark: #051835;
-$card-hover-light: #f5f5f5;
-$card-hover-dark: #061c3d;
-$btn-dark: #0D1B39;
+$bg-card-light: #f0f0f0;
+$bg-card-dark: #051835;
+$bg-card-hover-light: #f5f5f5;
+$bg-card-hover-dark: #061c3d;
+$bg-btn-dark: #0d1b39;
 
 // Primary colors
-$primary: #00adb5;
-$secondary: #7209b7;
-$tertiary: #f6be3b;
-$main: #0091ff;
+$color-primary: #00adb5;
+$color-secondary: #7209b7;
+$color-tertiary: #f6be3b;
+$color-main: #0091ff;
+
+// Additional colors
+$color-warning: #ffc107;
+$color-error: #dc3545;
+$color-success: #28a745;
+$color-info: #17a2b8;
+
+/* Spacing settings */
+$sp-xs: 4px;
+$sp-sm: 8px;
+$sp-md: 16px;
+$sp-lg: 24px;
+$sp-xl: 32px;
+$sp-xxl: 40px;
+
+/* Border radius settings */
+$br-none: 0;
+$br-sm: 2px;
+$br-md: 4px;
+$br-lg: 8px;
+$br-xl: 12px;
+$br-round: 50%;

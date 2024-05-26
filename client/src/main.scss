@@ -8,50 +8,52 @@
 // Common Styles
 @import "components/common/wrappers/content-wrapper/styles";
 @import "components/common/header/styles";
-@import "components/common/footer/styles";
-@import "components/common/loader/styles";
-@import "components/common/navbar/styles";
-@import "components/common/error/styles";
-@import "components/common/protected-route/styles";
-@import "components/common/skeleton/styles";
-@import "components/common/card/styles";
-@import "components/common/landing/styles";
-@import "components/common/landing/achievements/styles";
-@import "components/common/landing/admin-apply/styles";
-@import "components/common/landing/caraousel/styles";
-@import "components/common/landing/categories/styles";
-@import "components/common/landing/sections/styles";
-@import "components/common/landing/testimonials/styles";
-@import "components/common/wrappers/swiper-wrapper/swiper-slider/styles";
-@import "components/common/wrappers/swiper-wrapper/swiper-carousel/styles";
-@import "components/common/wrappers/swiper-wrapper/swiper-logo/styles";
-@import "components/common/darkmode/styles";
+@import "components/common/header/menu/styles";
+// @import "components/common/footer/styles";
+// @import "components/common/loader/styles";
+@import "components/common/header/navbar/styles";
+@import "components/common/header/navbar/furniture-drop-down/styles";
+// @import "components/common/error/styles";
+// @import "components/common/protected-route/styles";
+// @import "components/common/skeleton/styles";
+// @import "components/common/card/styles";
+// @import "components/common/landing/styles";
+// @import "components/common/landing/achievements/styles";
+// @import "components/common/landing/admin-apply/styles";
+// @import "components/common/landing/caraousel/styles";
+// @import "components/common/landing/categories/styles";
+// @import "components/common/landing/sections/styles";
+// @import "components/common/landing/testimonials/styles";
+// @import "components/common/wrappers/swiper-wrapper/swiper-slider/styles";
+// @import "components/common/wrappers/swiper-wrapper/swiper-carousel/styles";
+// @import "components/common/wrappers/swiper-wrapper/swiper-logo/styles";
+@import "components/common/dark-mode-btn/styles";
 
 
-// Admin Styles
-@import "components/admin/apps/styles";
-@import "components/admin/charts/styles";
-@import "components/admin/customer/styles";
-@import "components/admin/dashboard/styles";
-@import "components/admin/management/styles";
-@import "components/admin/products/styles";
-@import "components/admin/sidebar/styles";
-@import "components/admin/table/styles";
+// // Admin Styles
+// @import "components/admin/apps/styles";
+// @import "components/admin/charts/styles";
+// @import "components/admin/customer/styles";
+// @import "components/admin/dashboard/styles";
+// @import "components/admin/management/styles";
+// @import "components/admin/products/styles";
+// @import "components/admin/sidebar/styles";
+// @import "components/admin/table/styles";
 
-// User Styles
-@import "components/user/home/styles";
-@import "components/user/cart/styles";
-@import "components/user/checkout/styles";
-@import "components/user/order/styles";
-@import "components/user/product/styles";
-@import "components/user/shipping/styles";
-@import "components/user/search/styles";
-@import "components/user/home/categories/styles";
-@import "components/user/home/product section/styles";
-@import "components/user/home/promotion card/styles";
-@import "components/user/home/latest launch/styles";
-@import "components/user/home/shop by brand/styles";
-@import "auth/user/styles";
+// // User Styles
+// @import "components/user/home/styles";
+// @import "components/user/cart/styles";
+// @import "components/user/checkout/styles";
+// @import "components/user/order/styles";
+// @import "components/user/product/styles";
+// @import "components/user/shipping/styles";
+// @import "components/user/search/styles";
+// @import "components/user/home/categories/styles";
+// @import "components/user/home/product section/styles";
+// @import "components/user/home/promotion card/styles";
+// @import "components/user/home/latest launch/styles";
+// @import "components/user/home/shop by brand/styles";
+// @import "auth/user/styles";
 
 :root {
   // Font
@@ -97,11 +99,11 @@ a {
 }
 
 .app {
-  color: $primary;
-  font-size: $xl;
+  color: $color-primary;
+  font-size: $fs-lg;
 }
 
 button {
   cursor: pointer;
-  font-family: $font-1;
+  font-family: $ff-primary;
 }

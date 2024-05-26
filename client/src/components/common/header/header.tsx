@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./navbar/navbar";
 import Menu from "./menu/menu";
 import DarkModeBtn from "../dark-mode-btn/darkModeBtn";
+import ContentWrapper from "../wrappers/content-wrapper/contentWrapper";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -26,7 +27,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`${isScrolled ? "scrolled" : ""} ${isMenuOpen ? "menuOpen" : ""}`}>
+    <header
+      className={`${isScrolled ? "scrolled" : ""} ${
+        isMenuOpen ? "menuOpen" : ""
+      }`}
+    >
+      <ContentWrapper>
       <div className="headerContainer">
         <div className="headerLogo">
           <img src="/logo-light.png" alt="Elysian Logo" />
@@ -70,6 +76,7 @@ const Header = () => {
         </button>
       </div>
       {isMenuOpen && <Menu />}
+      </ContentWrapper>
     </header>
   );
 };

@@ -1,80 +1,80 @@
 .footer {
   @include dimensions(100%, 300px);
   @include flex(column, center, center);
-  @include md-max{
-    @include dimensions(100%, auto);
-  }
-
-  padding: 0 $sp-lg;
   position: fixed;
   bottom: 0;
+  padding: 0 $sp-lg;
 
-  .footerContainer {
-    @include dimensions();
-    @include flex(row, flex-start, space-between);
-    @include transition(all 0.3s ease-in-out);
-    @include md-max{
-      @include flex(column, flex-start, space-between);
-    }
+  .footerWrapper {
+    @include dimensions(100%);
+    @include flex(column, flex-start, flex-start);
+    .footerContainer {
+      @include dimensions(100%);
+      @include flex(row, flex-start, space-between);
+      @include transition(all 0.3s ease-in-out);
 
-    .footerSection {
-      @include flex(column, flex-start, flex-start);
-
-      .footerHeading {
-        @include heading($fs-md);
+      @include md-max {
+        @include flex(column, flex-start, space-between);
       }
 
-      .footerLogo {
-        @include flex(row, center, center);
-        @include transition(all 0.3s ease-in-out);
-        @include dimensions(auto, 25px);
-
-        img {
-          @include dimensions();
-          margin-right: $sp-sm;
-        }
-      }
-
-      .footerLinks {
+      .footerSection {
         @include flex(column, flex-start, flex-start);
 
-        font-size: $fs-sm;
-        margin-top: $sp-md;
-        color: $tc-light-2;
+        .footerHeading {
+          @include heading($fs-md);
+        }
 
-        .link{
-          &:hover{
-            color: $color-primary;
+        .footerLogo {
+          @include flex(row, center, center);
+          @include dimensions(auto, 25px);
+          @include transition(all 0.3s ease-in-out);
+
+          img {
+            @include dimensions();
+            margin-right: $sp-sm;
           }
         }
 
-        &.footerSocial {
-          @include flex(row, flex-start, flex-start);
-          flex-wrap: wrap;
+        .footerLinks {
+          @include flex(column, flex-start, flex-start);
+          font-size: $fs-sm;
+          margin-top: $sp-md;
+          color: $tc-light-2;
 
-          .socialLink {
-            @include dimensions(20px, 20px);
-            margin-right: $sp-sm;
+          .link {
+            &:hover {
+              color: $color-primary;
+            }
+          }
 
-            svg {
-              @include dimensions();
+          &.footerSocial {
+            @include flex(row, flex-start, flex-start);
+            flex-wrap: wrap;
+
+            .socialLink {
+              @include dimensions(20px, 20px);
+              margin-right: $sp-sm;
+
+              svg {
+                @include dimensions();
+              }
             }
           }
         }
       }
     }
-  }
 
-  .line{
-    @include dimensions(100%, 1px);
-    background-color: $tc-light-2;
-    margin: $sp-md 0;
-  }
+    .line {
+      @include dimensions(100%, 1px);
+      background-color: $tc-light-2;
+      margin: $sp-md 0;
+    }
 
-  .footerCopyright {
-    @include dimensions();
-    @include flex();
-    font-size: $fs-sm;
-    color: $tc-light-2;
+    .footerCopyright {
+      @include dimensions();
+      @include flex();
+      font-size: $fs-sm;
+      color: $tc-light-2;
+    }
   }
 }

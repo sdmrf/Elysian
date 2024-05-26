@@ -2,8 +2,9 @@ header {
   @include dimensions(100%, 80px);
   @include flex(row, center, space-between);
   @include transition(all 0.3s ease-in-out);
+  @include shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   @include md-max {
-    @include flex(column, center, center);
+    @include flex(column, center, space-between);
     &.menuOpen {
       @include dimensions(100%, auto);
       padding-top: calc((80px - 25px) / 2);
@@ -31,6 +32,9 @@ header {
     @include flex(row, center, space-between);
     @include dimensions();
     @include transition(all 0.3s ease-in-out);
+    @include md-max {
+      margin-bottom: $sp-md;
+    }
 
     .headerLogo {
       @include flex(row, center, center);

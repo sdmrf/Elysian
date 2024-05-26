@@ -1,5 +1,7 @@
-import React, { ReactNode } from 'react';
+// Imports
+import React, { ReactNode } from "react";
 
+// Interfaces
 interface ContentWrapperProps {
   children: ReactNode;
 }
@@ -9,4 +11,3 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({ children }) => {
 };
 
 export default ContentWrapper;
-

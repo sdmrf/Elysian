@@ -7,6 +7,9 @@ import {
 } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 
+// Components
+import ContentWrapper from "../wrappers/content-wrapper/contentWrapper";
+
 // Interfaces
 interface FooterContentDataProps {
   title: string;
@@ -66,20 +69,24 @@ const FooterSection = ({ title, items }: FooterContentDataProps) => (
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footerContainer">
-        <div className="footerSection">
-          <Link to="/" className="link footerLogo">
-            <img src="/logo-light.png" alt="Elysian Logo" />
-          </Link>
+      <ContentWrapper>
+      <div className="footerWrapper">
+        <div className="footerContainer">
+          <div className="footerSection">
+            <Link to="/" className="link footerLogo">
+              <img src="/logo-light.png" alt="Elysian Logo" />
+            </Link>
+          </div>
+          {Object.entries(footerContentData).map(([title, items]) => (
+            <FooterSection key={title} title={title} items={items} />
+          ))}
         </div>
-        {Object.entries(footerContentData).map(([title, items]) => (
-          <FooterSection key={title} title={title} items={items} />
-        ))}
+        <div className="line"></div>
+        <div className="footerCopyright">
+          <p>&copy; 2024 Elysian. All rights reserved.</p>
+        </div>
       </div>
-      <div className="line"></div>
-      <div className="footerCopyright">
-        <p>&copy; 2024 Elysian. All rights reserved.</p>
-      </div>
+      </ContentWrapper>
     </footer>
   );
 };

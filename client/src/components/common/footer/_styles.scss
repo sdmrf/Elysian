@@ -1,141 +1,80 @@
-footer {
-  width: 100%;
-  @include flex();
-  transition: all ease 0.5s;
-  margin-top: 40px;
-  .container {
-    @include flex(column, center, space-between, 10px);
-    margin-top: 100px;
-    margin-bottom: 50px;
+.footer {
+  @include dimensions(100%, 300px);
+  @include flex(column, center, center);
+  @include md-max{
+    @include dimensions(100%, auto);
+  }
 
-    @include md-max {
-      margin-top: 50px;
-      margin-bottom: 20px;
+  padding: 0 $sp-lg;
+  position: fixed;
+  bottom: 0;
+
+  .footerContainer {
+    @include dimensions();
+    @include flex(row, flex-start, space-between);
+    @include transition(all 0.3s ease-in-out);
+    @include md-max{
+      @include flex(column, flex-start, space-between);
     }
-    .line {
-      width: 100%;
-      height: 1px;
-      background-color: rgba($color: $text-light-2, $alpha: 1);
-      opacity: 0.25;
-      margin-top: 50px;
 
-      @include md-max {
-        margin-top: 20px;
-      }
-    }
-    .top {
-      width: 100%;
-      @include flex(row, start, space-between, 10px);
-      padding: 10px 50px;
-      @include md-max {
-        @include flex(column, start, start, 50px);
-      }
-      .left {
-        @include flex(column, 10px);
-        .logo {
-          cursor: pointer;
-          img {
-            height: 50px;
-            object-fit: cover;
-          }
-        }
-        .desc {
-          display: block;
-          line-height: 20px;
-          color: rgba($color: $text-light, $alpha: 0.75);
-          opacity: 0.5;
-          font-size: $md;
-          margin-top: 20px;
-          width: 400px;
-          font-weight: lighter !important;
+    .footerSection {
+      @include flex(column, flex-start, flex-start);
 
-          @include lg-max {
-            width: 300px;
-            font-size: 14px;
-          }
-        }
-        .contacts {
-          @include flex(column, flex-start, 10px);
-          margin-top: 35px;
-          color: rgba($color: $text-light, $alpha: 0.75);
-          h4 {
-            font-size: $lg;
-            font-weight: lighter;
-            margin-bottom: 10px;
-          }
-          .icons {
-            @include flex(row, center, space-between, 10px);
-            margin-top: 10px;
-            opacity: 0.5;
-            a {
-              color: rgba($color: $text-light, $alpha: 0.75);
-              font-size: $xl;
-              transition: all ease 0.5s;
-              &:hover {
-                color: rgba($color: $primary, $alpha: 1);
-              }
-            }
-          }
+      .footerHeading {
+        @include heading($fs-md);
+      }
+
+      .footerLogo {
+        @include flex(row, center, center);
+        @include transition(all 0.3s ease-in-out);
+        @include dimensions(auto, 25px);
+
+        img {
+          @include dimensions();
+          margin-right: $sp-sm;
         }
       }
-      .right {
-        @include flex(row, start, space-between, 100px);
-        @include lg-max {
-          @include flex(column, start, center, 50px);
+
+      .footerLinks {
+        @include flex(column, flex-start, flex-start);
+
+        font-size: $fs-sm;
+        margin-top: $sp-md;
+        color: $tc-light-2;
+
+        .link{
+          &:hover{
+            color: $color-primary;
+          }
         }
-        .links {
-          @include flex(column, 10px);
-          h4 {
-            color: rgba($color: $text-light, $alpha: 0.75);
-            font-size: $xl;
-            margin-bottom: 20px;
 
-            @include lg-max {
-              font-size: $lg;
-            }
-          }
-          ul {
-            @include flex(column, start, center, 20px);
-            a,
-            li {
-              @include flex(row, center, start, 0px);
-              list-style-type: none;
-              color: rgba($color: $text-light, $alpha: 0.5);
-              font-size: $md;
-              cursor: pointer;
-              transition: all ease 0.5s;
-              text-decoration: none;
-              &:hover {
-                color: rgba($color: $primary, $alpha: 1);
-              }
+        &.footerSocial {
+          @include flex(row, flex-start, flex-start);
+          flex-wrap: wrap;
 
-              @include lg-max {
-                font-size: 14px;
-              }
-            }
-          }
-          span {
-            cursor: pointer;
-            color: rgba($color: $text-light, $alpha: 0.5);
-            font-size: $md;
-            &:hover {
-              color: rgba($color: $primary, $alpha: 1);
-            }
-            @include lg-max {
-              font-size: 14px;
+          .socialLink {
+            @include dimensions(20px, 20px);
+            margin-right: $sp-sm;
+
+            svg {
+              @include dimensions();
             }
           }
         }
       }
     }
-    .bottom {
-      margin-top: 40px;
-      h4 {
-        font-size: $md;
-        color: rgba($color: $text-light, $alpha: 0.75);
-        opacity: 0.5;
-        font-weight: lighter;
-      }
-    }
+  }
+
+  .line{
+    @include dimensions(100%, 1px);
+    background-color: $tc-light-2;
+    margin: $sp-md 0;
+  }
+
+  .footerCopyright {
+    @include dimensions();
+    @include flex();
+    font-size: $fs-sm;
+    color: $tc-light-2;
   }
 }

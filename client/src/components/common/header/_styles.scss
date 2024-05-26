@@ -10,8 +10,11 @@ header {
     }
   }
 
+  background-color: $bg-dark;
   padding: 0 $sp-lg;
   position: fixed;
+  top: 0;
+  z-index: 1000;
 
   // Font Settings
   font-family: $ff-primary;

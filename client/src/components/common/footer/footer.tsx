@@ -1,71 +1,86 @@
-import ContentWrapper from "../wrappers/content-wrapper/contentWrapper";
-import { YoutubeLogo, MetaLogo, XLogo, InstagramLogo } from "@phosphor-icons/react";
+// Imports
+import {
+  YoutubeLogo,
+  MetaLogo,
+  XLogo,
+  InstagramLogo,
+} from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
+
+// Interfaces
+interface FooterContentDataProps {
+  title: string;
+  items: (string | { icon: any; link: string })[];
+}
+
+// Data
+const footerContentData = {
+  Company: [
+    "About Us",
+    "Our Designers",
+    "Careers",
+    "Press",
+    "Affiliates",
+    "Sitemap",
+  ],
+  Help: [
+    "Contact Us",
+    "FAQ",
+    "Shipping",
+    "Returns",
+    "Terms & Conditions",
+    "Privacy Policy",
+  ],
+  Contact: ["codezeniths@gmail.com"],
+  Social: [
+    { icon: YoutubeLogo, link: "https://www.youtube.com/" },
+    { icon: MetaLogo, link: "https://www.meta.com/" },
+    { icon: XLogo, link: "https://www.x.com/" },
+    { icon: InstagramLogo, link: "https://www.instagram.com/" },
+  ],
+};
+
+const FooterSection = ({ title, items }: FooterContentDataProps) => (
+  <div className="footerSection">
+    <h3 className="footerHeading">{title}</h3>
+    <div className={`footerLinks ${title === "Social" ? "footerSocial" : ""}`}>
+      {items.map((item, index) =>
+        typeof item === "string" ? (
+          <Link
+            to={`/${item.toLowerCase().replace(/ /g, "-")}`}
+            key={index}
+            className="link"
+          >
+            {item}
+          </Link>
+        ) : (
+          <Link to={item.link} key={index} className="link socialLink">
+            <item.icon />
+          </Link>
+        )
+      )}
+    </div>
+  </div>
+);
+
 const Footer = () => {
   return (
-    <footer>
-        <div className="container">
-          <div className="top">
-            <div className="left">
-              <div className="logo">
-                <img src="/favicon.png" alt="" />
-              </div>
-              <span className="desc">
-                Elysian is the ultimate destination to discover the finest in
-                furniture, offering an extensive range of stylish and affordable pieces to suit any
-                home décor.
-              </span>
-              <div className="contacts">
-                <h4>Follow Us</h4>
-                <div className="icons">
-                  <a href="">
-                    {" "}
-                    <YoutubeLogo />{" "}
-                  </a>
-                  <a href="">
-                    {" "}
-                    <MetaLogo />{" "}
-                  </a>
-                  <a href="">
-                    {" "}
-                    <XLogo />{" "}
-                  </a>
-                  <a href="">
-                  <InstagramLogo /> {" "}
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="right">
-              <div className="links">
-                <h4>Services</h4>
-                <ul>
-                  <li>Branding</li>
-                  <li>Campaigns</li>
-                  <li>Marketing</li>
-                  <li>Ecommerce</li>
-                </ul>
-              </div>
-              <div className="links">
-                <h4>Furnitures</h4>
-                <ul>
-                  <a>Furnishing </a>
-                  <a>Modular </a>
-                  <a>Sofas</a>
-                  <a>Decor</a>
-                </ul>
-              </div>
-              <div className="links">
-                <h4>Contribute</h4>
-                <span>Write Article</span>
-              </div>
-            </div>
-          </div>
-          <div className="line" />
-          <div className="bottom">
-            <h4>Copyright © 2024 Elysian. All rights reserved</h4>
-          </div>
+    <footer className="footer">
+      <div className="footerContainer">
+        <div className="footerSection">
+          <Link to="/" className="link footerLogo">
+            <img src="/logo-light.png" alt="Elysian Logo" />
+          </Link>
         </div>
-      </footer>
+        {Object.entries(footerContentData).map(([title, items]) => (
+          <FooterSection key={title} title={title} items={items} />
+        ))}
+      </div>
+      <div className="line"></div>
+      <div className="footerCopyright">
+        <p>&copy; 2024 Elysian. All rights reserved.</p>
+      </div>
+    </footer>
   );
 };
 

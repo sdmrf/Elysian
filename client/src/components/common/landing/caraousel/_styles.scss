@@ -1,150 +1,92 @@
-.hero {
-  width: 100%;
+.carousel {
+  @include dimensions(100%, 100vh);
+  @include flex();
+
   position: relative;
-  z-index: 100;
-  @include lg-max {
+  background-image: url("/images/landingBg.png");
+  background-size: cover;
+  background-position: center;
 
-  }
-  .Backdrop-img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0.9;
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-  }
-
-  .leftfade {
-    width: 50px;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: linear-gradient(90deg, #04152d 0%, rgba(4, 21, 45, 0) 50%);
-
-    @include md-max {
-      width: 100px;
-    }
-  }
-
-  .overlay {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 100%);
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    @include md-max {
-      height: 125px;
-    }
-  }
-
-  .content {
+  .carouselContent {
     @include flex(column, center, center);
-    height: 100%;
-    position: relative;
+    @include dimensions(575px);
+    @include md-max {
+      width: 100%;
+      padding: $sp-sm;
+    }
+    position: absolute;
 
-    .info {
-      @include flex(column, center, center, 20px);
-      @include square(575px);
+    .contentInfo {
+      @include flex(column, center, center);
       text-align: center;
 
-      @include md-max {
-        margin: 0px;
-        @include flex(column, center, center, 10px);
-        @include square(400px);
-      }
-
       h1 {
-        font-size: $xxxl;
-        font-weight: $bold;
-        color: $text-light;
-        font-family: $font-1;
-        text-align: center;
-        line-height: 1.2;
-
         @include md-max {
-          font-size: $xl;
+          font-size: $fs-xl;
         }
+        font-size: $fs-xxxxl;
+        font-weight: $fw-bold;
+        line-height: 1.2;
+        color: $tc-light;
       }
 
       p {
-        display: block;
-        width: 400px;
-        font-size: $md;
-        font-weight: lighter;
-        color: rgba($text-light, 0.8);
-        font-family: $font-1;
-        text-align: center;
-        line-height: 1.5;
-
+        @include dimensions(400px);
         @include md-max {
-          width: 300px;
-          font-size: $sm;
+          font-size: $fs-xs;
+          @include dimensions(200px);
         }
-      }
-
-      .search {
-        @include flex(row, center, space-between, 10px);
-        margin-top: 20px;
-        width: 275px;
-        height: 45px;
-        padding: 0px 5px 0px 20px;
-        border-radius: 25px;
-        background-color: rgba($text-light, 0.15);
-        backdrop-filter: blur(3.5px);
-        -webkit-backdrop-filter: blur(3.5px);
-
-        @include md-max {
-          margin-top: 10px;
-          width: 150px;
-          height: 25px;
-          padding: 0px 5px 0px 10px;
-          border-radius: 15px;
-        }
-
-        input {
-          background-color: transparent;
-          border: none;
-          outline: none;
-          color: $text-light;
-          font-weight: $thin;
-          &::placeholder {
-            color: rgba($text-light, 0.8);
-            font-weight: $thin;
-          }
-
-          @include md-max {
-            font-size: $xs;
-          }
-        }
-        .icon {
-          @include square(35px);
-          @include flex(row, center, center, 1px);
-          background-color: $primary;
-          border-radius: 50%;
-
-          @include md-max {
-            @include square(17.5px);
-            border-radius: 50%;
-          }
-          .searchIcon {
-            color: $text-light;
-            font-size: $lg;
-            @include md-max {
-              font-size: $xs;
-            }
-          }
-        }
+        font-size: $fs-md;
+        line-height: 1.2;
+        color: rgba($tc-light, 0.8);
       }
     }
+
+    .contentSearchBar {
+      @include flex(row, center, center);
+      @include dimensions(275px, 50px);
+      @include border(1px solid rgba($tc-light, 0.18));
+      @include md-max{
+        @include dimensions(200px, 40px);
+        padding: $sp-xs $sp-xs $sp-xs 0;
+      }
+
+      background: rgba($tc-light, 0.25);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: $br-xxxxl;
+      padding: $sp-sm;
+
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+      input {
+        @include dimensions();
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: $tc-light;
+
+        &::placeholder {
+          color: $tc-light;
+        }
+      }
+
+      .searchIcon {
+        color: $tc-light;
+        font-size: $fs-lg;
+        background-color: $color-primary;
+        padding: $sp-sm;
+        border-radius: $br-round;
+      }
+    }
+  }
+
+  .fadeEnd {
+    @include dimensions(100%, 200px);
+
+    background: linear-gradient(180deg, rgba(4, 21, 45, 0) 10%, $bg-dark 100%);
+    position: absolute;
+    bottom: 0;
   }
 }

@@ -17,16 +17,16 @@
 // @import "components/common/protected-route/styles";
 // @import "components/common/skeleton/styles";
 // @import "components/common/card/styles";
-// @import "components/common/landing/styles";
+@import "components/common/landing/styles";
 // @import "components/common/landing/achievements/styles";
 // @import "components/common/landing/admin-apply/styles";
-// @import "components/common/landing/caraousel/styles";
+@import "components/common/landing/caraousel/styles";
 // @import "components/common/landing/categories/styles";
 // @import "components/common/landing/sections/styles";
 // @import "components/common/landing/testimonials/styles";
 // @import "components/common/wrappers/swiper-wrapper/swiper-slider/styles";
 // @import "components/common/wrappers/swiper-wrapper/swiper-carousel/styles";
-// @import "components/common/wrappers/swiper-wrapper/swiper-logo/styles";
+@import "components/common/wrappers/swiper-wrapper/swiper-logo/styles";
 @import "components/common/dark-mode-btn/styles";
 
 
@@ -92,7 +92,7 @@ a {
   text-decoration: none;
 }
 
-.link {
+.link, Link {
   list-style: none;
   text-decoration: none;
   color: inherit;

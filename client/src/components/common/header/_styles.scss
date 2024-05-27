@@ -1,17 +1,18 @@
 header {
-  @include dimensions(100%, 80px);
+  @include dimensions(100%, 60px);
   @include flex(row, center, space-between);
-  @include transition(all 0.3s ease-in-out);
+  @include transition(0.5s);
   @include shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   @include md-max {
     @include flex(column, center, space-between);
+    background-color: rgba($bg-dark, 0.9);
+    padding: $sp-md;
     &.menuOpen {
       @include dimensions(100%, auto);
       padding-top: calc((80px - 25px) / 2);
     }
   }
 
-  background-color: $bg-dark;
   padding: 0 $sp-lg;
   position: fixed;
   top: 0;
@@ -24,21 +25,21 @@ header {
   color: $tc-light;
 
   &.scrolled {
-    background-color: $bg-dark;
     @include shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    background-color: rgba($bg-dark, 0.9);
   }
 
   .headerContainer {
     @include flex(row, center, space-between);
     @include dimensions();
-    @include transition(all 0.3s ease-in-out);
+    @include transition(0.3s);
     @include md-max {
       margin-bottom: $sp-md;
     }
 
     .headerLogo {
       @include flex(row, center, center);
-      @include transition(all 0.3s ease-in-out);
+      @include transition(0.3s);
       @include dimensions(auto, 25px);
 
       img {
@@ -73,7 +74,7 @@ header {
 
     .headerProfile {
       @include flex();
-      @include transition(all, 0.5s, ease-in-out);
+      @include transition(0.5s);
       @include md-max {
         display: none;
       }
@@ -100,7 +101,7 @@ header {
         display: block;
         @include dimensions(30px, 30px);
         @include flex(row, center, center);
-        @include transition(all 0.3s ease-in-out);
+        @include transition(0.3s);
         cursor: pointer;
         padding: 0;
         background: none;

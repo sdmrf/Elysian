@@ -13,7 +13,7 @@ const LandingX = () => {
 
   return (
     <div className="landing">
-      {/* <main>
+      <main>
         <Caraousel />
         <SwiperLogo>
           {logos.map((logo, index) => (
@@ -21,7 +21,7 @@ const LandingX = () => {
           ))}
         </SwiperLogo>
       </main>
-      <section>
+      {/* <section>
         <Categories />
       </section>
       <section>

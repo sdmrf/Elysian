@@ -1,17 +1,19 @@
 .footer {
   @include dimensions(100%, 300px);
   @include flex(column, center, center);
-  position: fixed;
-  bottom: 0;
+  @include md-max{
+    @include dimensions();
+  }
+
   padding: 0 $sp-lg;
 
   .footerWrapper {
-    @include dimensions(100%);
+    @include dimensions();
     @include flex(column, flex-start, flex-start);
     .footerContainer {
-      @include dimensions(100%);
+      @include dimensions();
       @include flex(row, flex-start, space-between);
-      @include transition(all 0.3s ease-in-out);
+      @include transition(0.3s);
 
       @include md-max {
         @include flex(column, flex-start, space-between);
@@ -27,7 +29,7 @@
         .footerLogo {
           @include flex(row, center, center);
           @include dimensions(auto, 25px);
-          @include transition(all 0.3s ease-in-out);
+          @include transition(0.3s);
 
           img {
             @include dimensions();

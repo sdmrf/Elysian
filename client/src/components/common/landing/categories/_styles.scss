@@ -1,125 +1,65 @@
-.categories {
-  width: 100%;
-  @include flex(column, center, center, 4rem);
-  .heading {
-    @include flex(column, center, center, 20px);
-    h1 {
-      font-size: $xxl;
-      font-weight: $bold;
-      color: $text-light;
-      text-align: center;
-      line-height: 1.2;
+.landingCategories {
+  @include flex(column, center, center);
 
-      @include lg-max{
-        font-size: $xl;
-      }
-      @include xs-max{
-        font-size: $lg;
-      }
+  padding: $sp-lg;
+  .categoryHeading {
+    @include flex(column, center, center);
+
+    .explore {
+      @include shadow();
+      @include border();
+
+      background-color: $bg-card-dark;
+      padding: $sp-sm;
+      border-radius: $br-xxxxl;
+      color: $tc-light-2;
+      font-weight: $fw-medium;
+      font-size: $fs-sm;
     }
-    span {
-      font-size: $md;
-      font-weight: lighter;
-      color: rgba($text-light-2, 0.8);
-      text-align: center;
-      line-height: 1.5;
-      background-color: rgba($color: $card-dark, $alpha: 1);
-      padding: 5px 15px;
-      border-radius: 20px;
-      border: 1px solid rgba($text-light-2, 0.25);
+
+    .exploreTitle {
+      @include sm-max {
+        font-size: $fs-xl;
+      }
+
+      @include md-max {
+        font-size: $fs-xl;
+      }
+
+      @include lg-max {
+        font-size: $fs-xl;
+      }
+
+      font-size: $fs-xxl;
+      font-weight: $fw-bold;
+      color: $tc-light;
+      margin-top: $sp-md;
     }
-    p {
-      display: block;
-      width: 500px;
-      font-size: $md;
-      font-weight: lighter;
-      color: rgba($text-light-2, 0.8);
-      text-align: center;
-      line-height: 1.5;
 
-      @include lg-max{
-        width: 300px;
-      }
-
-      @include xs-max{
-        width: 200px;
-      }
+    .exploreDescp {
+      font-size: $fs-md;
+      font-weight: $fw-light;
+      color: $tc-light-2;
+      margin-top: $sp-sm;
     }
   }
-  .categoryItems {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
 
-    @include lg-min {
-      grid-template-columns: repeat(2, 1fr);
+  .categoryItems {
+    @include dimensions();
+    @include grid(repeat(3, 1fr));
+
+    @include sm-max {
+      @include grid(repeat(1, 1fr));
     }
 
-    @include xl-min {
-      grid-template-columns: repeat(3, 1fr);
+    @include md-max {
+      @include grid(repeat(2, 1fr));
     }
 
     @include lg-max {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      @include grid(repeat(2, 1fr));
     }
-    .singlecategory {
-      @include flex(column, start, flex-start, 20px);
-      // @include square(350px);
-      padding: 3.5rem;
-      background-color: $card-dark;
-      border: 1px solid rgba($color: $text-light-2, $alpha: 0.25);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-      &:hover {
-        background-color: $card-hover-dark;
-      }
-
-      .icon {
-        @include flex(row, center, center, 0px);
-        @include square(60px);
-        background-color: $primary;
-        border-radius: 5px;
-
-        .svg {
-          color: $text-light;
-          font-size: $lg;
-        }
-      }
-      h1 {
-        font-size: $lg;
-        font-weight: $bold;
-        color: rgba($color: $text-light, $alpha: 0.75);
-        margin-top: 20px;
-      }
-      p {
-        font-size: $md;
-        font-weight: lighter;
-        color: rgba($text-light-2, 0.8);
-        margin-top: 10px;
-      }
-      .link {
-        @include flex(row, center, center, 10px);
-        a {
-          font-size: $md;
-          font-weight: lighter;
-          color: $primary;
-          text-decoration: none;
-          transition: all 0.3s ease-in-out;
-          &:hover {
-            color: $secondary;
-          }
-        }
-
-        .arrow {
-          font-size: $lg;
-          color: $text-light-2;
-          margin-left: 5px;
-        }
-      }
-    }
+    margin-top: $sp-lg;
   }
 }

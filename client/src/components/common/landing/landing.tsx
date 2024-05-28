@@ -10,7 +10,6 @@ import Admincard from "./admin-apply/applyAdmin";
 import Testimonials from "./testimonials/testimonial";
 
 const LandingX = () => {
-
   return (
     <div className="landing">
       <main>
@@ -21,9 +20,10 @@ const LandingX = () => {
           ))}
         </SwiperLogo>
       </main>
-      {/* <section>
+      <section>
         <Categories />
       </section>
+      {/*
       <section>
         <UserSection />
       </section>

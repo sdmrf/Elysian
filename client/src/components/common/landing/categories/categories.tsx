@@ -1,25 +1,28 @@
-import SingleCategory from "./singlecategory";
-import { categories } from "../../../../assets/data/categoryData";
+// Imports
+import SingleCategory from "./single-category/singleCategory";
 import ContentWrapper from "../../wrappers/content-wrapper/contentWrapper";
+
+// Data
+import { categories } from "../../../../assets/data/categoryData";
+
 const Categories = () => {
   return (
     <ContentWrapper>
-      <div className="categories">
-        <div className="heading">
-          <span>Explore</span>
-          <h1>Explore with Categories !</h1>
-          <p>
-            {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
-            dignissimos quae ab id dicta earum nam, doloremque ipsum ea commodi
-          </p>
-        </div>
-        <div className="categoryItems">
-          {categories.map((category, index) => (
-            <SingleCategory key={index} {...category} />
-          ))}
+    <div className="landingCategories">
+      <div className="categoryHeading">
+        <div className="explore">Explore</div>
+        <div className="exploreTitle">Explore by Categories!</div>
+        <div className="exploreDescp">
+          Explore the categories and find the best products for you and your
+          loved ones.
         </div>
       </div>
+      <div className="categoryItems">
+        {categories.map((category, index) => {
+          return <SingleCategory key={index} {...category} />;
+        })}
+      </div>
+    </div>
     </ContentWrapper>
   );
 };
